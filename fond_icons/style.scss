@@ -1,0 +1,89 @@
+@import "variables";
+
+@font-face {
+  font-family: 'fond_icons';
+  src:  url('#{$icomoon-font-path}/fond_icons.eot?oehkr');
+  src:  url('#{$icomoon-font-path}/fond_icons.eot?oehkr#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/fond_icons.ttf?oehkr') format('truetype'),
+    url('#{$icomoon-font-path}/fond_icons.woff?oehkr') format('woff'),
+    url('#{$icomoon-font-path}/fond_icons.svg?oehkr#fond_icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="i-"], [class*=" i-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'fond_icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.i-book {
+  &:before {
+    content: $i-book;
+  }
+}
+.i-eye {
+  &:before {
+    content: $i-eye;
+  }
+}
+.i-play {
+  &:before {
+    content: $i-play;
+  }
+}
+.i-quote {
+  &:before {
+    content: $i-quote;
+  }
+}
+.i-pin {
+  &:before {
+    content: $i-pin;
+  }
+}
+.i-edit {
+  &:before {
+    content: $i-edit;
+  }
+}
+.i-hands {
+  &:before {
+    content: $i-hands;
+  }
+}
+.i-ward {
+  &:before {
+    content: $i-ward;
+  }
+}
+.i-drip {
+  &:before {
+    content: $i-drip;
+  }
+}
+.i-drip_2 {
+  &:before {
+    content: $i-drip_2;
+  }
+}
+.i-chevron_left {
+  &:before {
+    content: $i-chevron_left;
+  }
+}
+.i-chevron_right {
+  &:before {
+    content: $i-chevron_right;
+  }
+}
+

@@ -1,0 +1,74 @@
+- function formatPrice(s) {return ('' + s).replace(/(?!^)(?=(\d{3})+(?=\.|$))/gm, ' ')}
+
+mixin dev_head(page_title)
+  head
+    title=page_title
+    | <!-- saved from url=(0014)about:internet -->
+    meta(charset='utf-8')
+    meta(name='viewport', content="width=device-width, initial-scale=1.0")
+    meta(name="SKYPE_TOOLBAR", content="SKYPE_TOOLBAR_PARSER_COMPATIBLE")
+    meta(name="apple-mobile-web-app-capable", content="yes")
+    meta(name="format-detection", content="telephone=no")
+    link(rel='stylesheet', href='styles/main_global.css', media='all')
+
+mixin loop_while(counter)
+  -i=0;
+  while i < counter
+    -i++;
+    block
+
+mixin scripts(index)
+  script(src='js/jquery1.10.js')
+  script(src='js/script.js')
+    
+  - if (index)
+    script(src='https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true')
+    script(src='js/slick.js')
+    script(src='js/index.js')
+
+mixin header()
+  .header
+    .section_inner
+      .logo_block
+        a.logo(href='#')
+          span.c_blue Капля
+          span.c_green Жизни
+          p.c_gray благотворительный фонд
+
+      +main_menu()
+
+      .user_menu
+        a.gl_link(href='#')
+          .user_avatar
+            img(src='i/sean_connery.png')
+          span Личный кабинет
+        
+mixin footer()
+  .footer
+    .section_inner
+      .copyright ООО "Капля Воды" &nbsp;&nbsp;&nbsp; Лицензия №2112412412412
+        
+      +main_menu()
+
+mixin main_menu()
+  ul.main_menu
+    li.menu_item
+      a.gl_link(href='#')
+        span Что мы делаем?
+    li.menu_item
+      a.gl_link(href='#')
+        span Подопечные
+    li.menu_item
+      a.gl_link(href='#')
+        span Филантропы
+    li.menu_item
+      a.gl_link(href='#')
+        span Истории
+        
+mixin progress(cls, size)
+  .child_card_progress
+    .progress_val(class= cls style='width:' + size + '%;')
+
+mixin philanthropist_rate(size)
+  .philanthropist_rate.philRate(style='height:' + Math.floor(size * .8) + 'px;' data-target= size)
+  

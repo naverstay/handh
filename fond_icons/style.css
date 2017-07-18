@@ -1,0 +1,62 @@
+@font-face {
+  font-family: 'fond_icons';
+  src:  url('fonts/fond_icons.eot?oehkr');
+  src:  url('fonts/fond_icons.eot?oehkr#iefix') format('embedded-opentype'),
+    url('fonts/fond_icons.ttf?oehkr') format('truetype'),
+    url('fonts/fond_icons.woff?oehkr') format('woff'),
+    url('fonts/fond_icons.svg?oehkr#fond_icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="i-"], [class*=" i-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'fond_icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.i-book:before {
+  content: "\e902";
+}
+.i-eye:before {
+  content: "\e903";
+}
+.i-play:before {
+  content: "\e904";
+}
+.i-quote:before {
+  content: "\e905";
+}
+.i-pin:before {
+  content: "\e906";
+}
+.i-edit:before {
+  content: "\e907";
+}
+.i-hands:before {
+  content: "\e908";
+}
+.i-ward:before {
+  content: "\e909";
+}
+.i-drip:before {
+  content: "\e90a";
+}
+.i-drip_2:before {
+  content: "\e90b";
+}
+.i-chevron_left:before {
+  content: "\e900";
+}
+.i-chevron_right:before {
+  content: "\e901";
+}

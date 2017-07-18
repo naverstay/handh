@@ -1,0 +1,149 @@
+.footer {
+  padding: 47px 0 50px;
+  line-height: 20px;
+  background: #fff;
+  border-top: 1px solid #3490e6;
+
+  .section_inner {
+
+  }
+}
+
+.copyright {
+  float: left;
+  font-size: 12px;
+  color: $caption_color;
+  letter-spacing: .02em;
+}
+
+.popup {
+  background: #f4f4f4;
+  padding: 0 20px 20px;
+  text-align: center;
+
+  p {
+    margin-bottom: 20px;
+  }
+}
+
+.c_green {
+  color: $green;
+}
+
+.c_blue {
+  color: $blue;
+}
+
+.c_gray {
+  color: $gray;
+}
+
+.c_gray_light {
+  color: $gray_light;
+}
+
+.c_caption {
+  color: $caption_color;
+}
+
+.gl_link {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1.2;
+  text-decoration: none;
+  color: $blue;
+
+  span {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+
+    &:before {
+      @include transition_all(opacity .3s);
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      height: 1px;
+      background: #bad0f3;
+      box-shadow: 0 1px 1px #f8f8f8;
+    }
+  }
+
+  &:hover {
+    span {
+      &:before {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+._drop {
+  @extend %icon_pseudo;
+  position: relative;
+  font-size: 1.3em;
+  line-height: 1;
+
+  span {
+    color: transparent !important;
+  }
+
+  &:after,
+  &:before {
+    content: $i-drip;
+    position: absolute;
+    top: 0;
+    left: -1px;
+    will-change: transform;
+  }
+
+  &:before {
+    @include transition_all(transform .3s);
+    @include transform_translate(0, -50px);
+  }
+
+  &:after {
+    @include transition_all(transform .3s .3s);
+    @include transform_translate(0, 0);
+  }
+
+  *:hover > & {
+
+    &:before {
+      @include transition_all(transform .3s .3s);
+      @include transform_translate(0, 0);
+    }
+
+    &:after {
+      @include transition_all(transform .3s);
+      @include transform_translate(0, 50px);
+    }
+  }
+
+}
+
+// **********  text
+
+.text_center {
+  text-align: center;
+}
+
+.text_right {
+  text-align: right;
+}
+
+.text_left {
+  text-align: left;
+}
+
+.text_upper {
+  text-transform: uppercase;
+}
+
+.slick-track {
+  @extend %clearfix;
+}

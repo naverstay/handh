@@ -1,0 +1,477 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+  +dev_head('Капля Жизни главная')
+
+  body
+    .wrapper
+      .base
+        +header()
+        
+        div.main_content
+          .hero_slider_w
+            .section_inner
+              .heroSlider.hero_slider
+                .slide
+                  .slide_img
+                    .slide_img_shadow
+                    .slide_img_w
+                      img(src='i/index_hero.jpg')
+                    
+                  .slide_info
+                    .slide_caption Я уже здорова!
+                    .child_title 
+                      span.c_caption Дарьина Мариша 
+                      sup 3 годика
+                      
+                      span.needs_info._green
+                        span Требовалось 3 130 000 р.
+                        span.needs_percent
+                          span._drop 
+                            span о
+                          span 100%
+                      
+                    .slide_text Марише было 3 года, когда у нее было обнаружено онкологическое заболевание — лимфома. Сейчас Алина здорова. 
+                      
+                  .slide_footer
+                    a.btn_v1.btn_blue.help_btn(href='#')
+                      span П
+                      span._drop
+                        span о
+                      span мочь детям
+                    p._green Но ее друзья, оставшиеся в больнице, до сих пор нуждаются в вашей помощи:
+                        
+                .slide
+                  .slide_img
+                    .slide_img_shadow
+                    .slide_img_w
+                      img(src='i/index_hero.jpg')
+                    
+                  .slide_info
+                    .slide_caption Я уже здорова!
+                    .child_title 
+                      span.c_caption Дарьина Мариша 
+                      sup 3 годика
+                      
+                      span.needs_info._green
+                        span Требовалось 2 130 000 р.
+                        span.needs_percent
+                          span._drop 
+                            span о
+                          span 100%
+                      
+                    .slide_text Марише было 3 года, когда у нее было обнаружено онкологическое заболевание — лимфома. Сейчас Алина здорова. 
+                      
+                  .slide_footer
+                    a.btn_v1.btn_blue.help_btn(href='#')
+                      span П
+                      span._drop
+                        span о
+                      span мочь детям
+                    p._green Но ее друзья, оставшиеся в больнице, до сих пор нуждаются в вашей помощи:
+                        
+                .slide
+                  .slide_img
+                    .slide_img_shadow
+                    .slide_img_w
+                      img(src='i/index_hero.jpg')
+                    
+                  .slide_info
+                    .slide_caption Я уже здорова!
+                    .child_title 
+                      span.c_caption Дарьина Мариша 
+                      sup 3 годика
+                      
+                      span.needs_info._green
+                        span Требовалось 1 130 000 р.
+                        span.needs_percent
+                          span._drop 
+                            span о
+                          span 100%
+                      
+                    .slide_text Марише было 3 года, когда у нее было обнаружено онкологическое заболевание — лимфома. Сейчас Алина здорова. 
+                      
+                  .slide_footer
+                    a.btn_v1.btn_blue.help_btn(href='#')
+                      span П
+                      span._drop
+                        span о
+                      span мочь детям
+                    p._green Но ее друзья, оставшиеся в больнице, до сих пор нуждаются в вашей помощи:
+              
+              .more_histories
+                .text_center
+                  a.gl_link(href='#')
+                    span Ещё истории выздоровления
+                    
+            .more_needs_section
+              +loop_while(1)
+                ul.more_needs_list
+                  li
+                    .child_card
+                      .child_avatar
+                        img(src='i/kostya.png')
+                        p 3 года
+                      .child_name Дима Елецких
+                      p Реабилитация после лечения медуллобластомы головного мозга.
+                      
+                      span.needs_info._blue
+                        span.needs_text
+                          span Требуется 450 000 р.
+                          a.btn_v1.btn_blue.help_btn(href='#')
+                            span П
+                            span._drop
+                              span о
+                            span мочь
+                        
+                        span.needs_percent
+                          span._drop
+                            span о
+                          span 40%
+                      +progress('_orange', 40)
+                          
+                  li._spacer
+                    .child_card
+                      
+                  li
+                    .child_card
+                      .child_avatar
+                        img(src='i/kostya.png')
+                        p 3 года
+                      .child_name Женя Трофимченко
+                      p Лейкимия с осложнениями
+                      
+                      span.needs_info._blue
+                        span.needs_text
+                          span Требуется 650 000 р.
+                          a.btn_v1.btn_blue.help_btn(href='#')
+                            span П
+                            span._drop
+                              span о
+                            span мочь
+                        
+                        span.needs_percent
+                          span._drop
+                            span о
+                          span 15%
+                      +progress('_red', 15)
+                  li
+                    .child_card
+                      .child_avatar
+                        img(src='i/kostya.png')
+                        p 3 года
+                      .child_name Костя Константинопольский
+                      p Реабилитация после лечения медуллобластомы головного мозга.
+                      
+                      span.needs_info._blue
+                        span.needs_text
+                          span Требуется 450 000 р.
+                          a.btn_v1.btn_blue.help_btn(href='#')
+                            span П
+                            span._drop
+                              span о
+                            span мочь
+                        
+                        span.needs_percent
+                          span._drop
+                            span о
+                          span 40%
+                      +progress('_orange', 40)
+  
+                  li
+                    .child_card
+                      .child_avatar
+                        img(src='i/kostya.png')
+                        p 3 года
+                      .child_name Юля Уразова
+                      p Медуллобластома
+                      
+                      span.needs_info._blue
+                        span.needs_text
+                          span Требуется 2 450 000 р.
+                          a.btn_v1.help_btn(href='#')
+                            span П
+                            span._drop
+                              span о
+                            span мочь
+                        
+                        span.needs_percent
+                          span._drop
+                            span о
+                          span 90%
+                      +progress('_green', 90)
+              
+              .section_inner
+                .more_needs_caption 
+                  span.c_blue Капля воды — 
+                  span.c_green это возможность изменить будущее для тех кто потерял надежду!
+
+          .counters_section
+            .section_inner
+              ul.counters_list
+                li
+                  .counter_box
+                    .counter_val
+                      img(src='svg/hearts.svg' width=42 height=37)
+                      span.counterVal(data-speed='100' data-counter='102')= Math.floor(102 * .9)
+                    p Спасенных жизней
+                li
+                  .counter_box
+                    .counter_val
+                      img(src='svg/coin.svg' width=36 height=36)
+                      span.counterVal(data-speed='10' data-counter='2543220')= formatPrice(Math.floor(2543020)) 
+                      sub руб.
+                    p Собранно средств
+                li
+                  .counter_box
+                    .counter_val
+                      img(src='svg/kids.svg' width=37 height=37)
+                      span.counterVal(data-speed='120' data-counter='50')= Math.floor(50 * .8)
+                    p Ждут помощи
+                    
+              .help_block
+                .help_block_aside
+                  img(src='i/peredartseva.jpg')
+                
+                .help_info
+                  p
+                    span.c_green Уже помогают 
+                    span
+                      a.gl_link(href='#')
+                        span 15 человек
+                  
+                  dl.help_info
+                    dt Требуется: 
+                    dd 900 000 руб.
+                    dt Собрано: 
+                    dd 100 000 руб.
+                    dt Осталось: 
+                    dd 800 000 руб.
+                      
+                .child_info_block
+                  .child_title
+                    span.c_caption Катя Передарцева 
+                    sup 4 годика
+                    
+                  .child_location Россия, Саратов
+                  
+                  dl.child_info
+                    dt Диагноз: 
+                    dd Синдром Шерешевского-Тернера
+      
+                    dt Цель: 
+                    dd Покупка препарата гормона роста
+                    
+                  p Семья девочки приехала в Москву из Грузии. Сейчас ребенку нужно пройти срочное обследование. Под подозрением нейробластома — злокачественная опухоль симпатической нервной системы. Необходимая сумма — 180 000 рублей. Давайте поможем малышке Элэнэ вместе!
+                  
+                  p 
+                    a.gl_link(href='#')
+                      span Подробнее
+                    
+                .help_block_footer
+                  a.btn_v1.btn_blue.help_btn._d-b(href='#')
+                    span П
+                    span._drop
+                      span о
+                    span мочь
+                    
+                .help_block_progress
+                  +progress('_red', 14)
+                  
+              .help_block
+                .help_block_aside._hover_zoom
+                  img(src='i/need_help.jpg')
+                  .help_block_info
+                    h3 Еще 45 детей
+                    p Нуждаются в Вашей <br> срочной помощи!
+                    
+                  .help_block_aside_footer
+                    a.btn_v1.btn_blue.help_btn(href='#')
+                      span П
+                      span._drop
+                        span о
+                      span лный спис
+                      span._drop
+                        span о
+                      span к
+                  
+                .help_block_slider
+                  .helpPrev.help_slider_btn._next
+                  .helpNext.help_slider_btn._prev
+                  .help_slider.helpSlider
+                    +loop_while(2)
+                      .slide
+                        .help_box
+                          .help_box_inner
+                            .help_box_photo
+                              img(src='i/need_help_slide.png')
+                            
+                            .child_title
+                              span.c_caption Лиза 
+                              sup 9 лет
+                              
+                            p Онкология
+                          
+                          .help_box_footer Требуется<br>650 000 р.
+                            
+                          +progress('_red', 4)
+                          
+                      .slide
+                        .help_box
+                          .help_box_inner
+                            .help_box_photo
+                              img(src='i/need_help_slide.png')
+                            
+                            .child_title
+                              span.c_caption Маргарита 
+                              sup 2 года
+                              
+                            p Синдром Шерешевского-Тернера
+                            
+                          .help_box_footer Требуется<br>650 000 р.
+
+                          +progress('_green', 80)
+                            
+                      .slide
+                        .help_box
+                          .help_box_inner
+                            .help_box_photo
+                              img(src='i/need_help_slide.png')
+    
+                            .child_title
+                              span.c_caption Антуанетта 
+                              sup 1год
+    
+                            p Онкология
+                          
+                          .help_box_footer Требуется<br>650 000 р.
+
+                          +progress('_red', 4)
+              
+          .thanks_section
+            .section_inner
+              .thanks_block
+                .thanks_block_caption.c_blue Мы благодарны каждому кто не остался в стороне и принял участие в судьбах детей!
+                  
+                  
+            .map_holder
+              .section_inner
+                #map.map_block
+                  img(src='i/map.png' width=840 height=466)
+                  .map_tip На карте отображаются филантропы<br>за период 2х недель.
+                    
+                    
+            .section_inner
+              .thanks_special_caption
+                span.c_green Отдельная благодарность 
+                span.c_blue самым активным филантропам нашего фонда:
+                
+          .philanthropist_section
+            ul.philanthropist_list
+              - i=10;
+              while i > 0
+                - i--;
+                li 
+                  .philanthropist_unit
+                    a.philanthropist_avatar(href='#')
+                      img(src='i/philanthropist.png')
+                    p.philanthropist_name Евгений Т.
+                    p.philanthropist_location с.Кармадейск
+                    p.philanthropist_summ 
+                      span 1 393 451 
+                      sub руб.
+                      
+                    +philanthropist_rate(320 - 20 * i)
+                
+              - i=1;
+              while i < 10
+                - i++;
+                li 
+                  .philanthropist_unit
+                    a.philanthropist_avatar(href='#')
+                      img(src='i/philanthropist.png')
+                    p.philanthropist_name Евгений Т.
+                    p.philanthropist_location с.Кармадейск
+                    p.philanthropist_summ 
+                      span 1 393 451 
+                      sub руб.
+                      
+                    +philanthropist_rate(320 - 18 * i)
+
+            .section_inner
+              .join_block
+                a.btn_v1.btn_blue.help_btn(href='#')
+                  span Прис
+                  span._drop
+                    span о
+                  span единиться к ним!
+                
+          .history_section
+            .section_inner
+              .history_block
+                .history_block_image
+                  img(src='i/history.jpg')
+                  
+                  .history_block_text Миша и родители благодарят всех этих людей:
+                
+                .history_block_info
+                  .history_block_caption
+                    .fl
+                      span История спасения Миши
+                    .fr
+                      .history_block_date 19.02.2015
+
+                  p Хочу рассказать историю нашей болезни, а точнее историю выздоровления моей дочурки Аленки, рассказать для того, чтобы родители, оказавшиеся лицом к лицу с такой страшной болезнью как злокачественная опухоль почек, не отчаивались, не опускали руки, а знали о том, что с этим злом можно бороться. Для этого нужно бесконечно любить своего ребенка и верить в его излечение и тогда “чудо” обязательно свершится. Началось это давно, уже более пяти лет назад, хотя кажется, что было это только вчера, настолько свежи в памяти эти мучительные дни…
+                  
+                  p Итак, пять лет назад я заметила, что у моей Аленки слишком большой животик. В то время девочке не было еще и девяти месяцев. Обратила на это внимание своих родных, а потом и педиатров. Но все меня успокаивали, говоря, чтобы “не брала в голову”,...
+                  
+                  p 
+                    a.gl_link(href='#')
+                      span Читать всю историю
+                
+                .history_block_footer
+                  ul.history_people
+                    +loop_while(20)
+                      li
+                        .history_phil
+                          img(src='i/history_avatar.png')
+                          
+              .add_request
+                .add_request_img
+                  img(src='i/request_hero.jpg')
+                  .help_block_info
+                    h3 Вам или Вашим близким нужна помощь?
+                    p Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.<br>Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана.<br>Маленький ручеек Даль журчит по всей стране<br>и обеспечивает ее всеми необходимыми правилами.
+
+                  .help_block_aside_footer
+                    a.btn_v1.btn_blue.help_btn(href='#')
+                      span._drop
+                        span о
+                      span тправить заявку
+                      
+          .refund_section
+            .section_inner
+              .thanks_block_caption.c_blue Нашему фонду требуется поддержка
+                
+              p.c_caption Любая сумма даже самая маленькая может стать решающей<br>в судьбе ребенка. Каждый рубль это капля воды в море спасения и только объединившись мы совершим чудо!
+              
+              .refund_form
+                form(action='#')
+                  .form_row
+                    .form_cell
+                      .input_w
+                        input.f_input_v1.f_input(placeholder='Введите сумму.руб')
+                    .form_cell
+                      button.btn_v1.btn_blue.help_btn
+                        span П
+                        span._drop
+                          span о
+                        span мочь детям
+                        
+              .text_center
+                .refund_payments
+                  img(src='i/payments.png')
+                
+    +footer()
+      
+    +scripts(true)

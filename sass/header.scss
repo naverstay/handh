@@ -1,0 +1,97 @@
+//*************************** header
+
+.header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding-top: 38px;
+  padding-bottom: 27px;
+  line-height: 40px;
+  z-index: 5;
+  
+  .section_inner {
+  
+  }
+}
+
+.logo_block {
+
+  @include respond-to-min($resp_step_2) {
+    float: left;
+    padding-left: 5px;
+    padding-right: 50px;
+  }
+}
+
+.logo {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  line-height: 1;
+
+  span {
+    font: 34px/1 $Ossemrounded;
+    letter-spacing: .01em;
+  }
+  
+  p {
+    font-size: 12px;
+    letter-spacing: .025em;
+    padding-right: 15px;
+  }
+}
+
+.user_avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  
+  img {
+    display: block;
+  }
+}
+
+.callback_block {
+  float: right;
+}
+
+// *********  menu
+
+.main_menu {
+  
+  @include respond-to-min($resp_step_2) {
+    .header & {
+      float: left;
+      font-size: 16px;
+      padding-top: 15px;
+    }
+
+    .footer & {
+      float: right;
+    }
+  }
+}
+
+.menu_item {
+  float: left;
+  padding-left: 31px;
+  letter-spacing: .03em;
+}
+
+.user_menu {
+  float: right;
+  padding-top: 15px;
+
+  a {
+    //white-space: nowrap;
+  }
+}
+
+

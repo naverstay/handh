@@ -1,0 +1,64 @@
+//************  buttons
+
+.btn_v1 {
+  height: 40px;
+
+  &.help_btn {
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+    border-radius: 2px;
+    padding: 4px 54px;
+    font: 24px/30px $Ossemrounded;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  &.needs_info {
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+    border-radius: 2px;
+    padding: 5px 54px;
+    font: 24px/31px $Ossemrounded;
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  &._d-b {
+    display: block;
+  }
+}
+
+.btn_v2 {
+
+}
+
+
+.btn_blue {
+  @include transition_all(background .3s);
+  background: $blue;
+  color: #fff;
+
+  &:hover {
+    background: #5aafff;
+  }
+}
+
+.green_btn {
+  color: #fefefe;
+  background: #22b573;
+}
+
+.btn_red {
+  color: #fff;
+  background: #f46b65;
+}
+
+.yellow_btn {
+  background: #fbe622;
+  color: #000;
+  box-shadow: 0 3px 5px #7f7f7f;
+}
+
+

@@ -1,0 +1,36 @@
+.f_input {
+  display: block;
+  width: 100%;
+
+  &.f_input_v1 {
+    height: 40px;
+    border: 1px solid #bdccd6;
+    padding: 7px 12px;
+    color: $caption_color;
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+.form_row {
+  @extend %clearfix;
+ 
+  .refund_form & {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: -30px;
+    width: 610px;
+
+    .form_cell {
+      float: left;
+      width: 50%;
+      padding-left: 30px;
+      margin-bottom: 20px;
+    }
+
+    .btn_v1.help_btn {
+      padding: 4px 5px;
+      width: 100%;
+    }
+  }
+}
