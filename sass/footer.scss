@@ -1,12 +1,12 @@
 .footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
   padding: 47px 0 50px;
   line-height: 20px;
   background: #fff;
   border-top: 1px solid #3490e6;
-
-  .section_inner {
-
-  }
 }
 
 .copyright {
@@ -34,6 +34,10 @@
   color: $blue;
 }
 
+.c_red {
+  color: $red;
+}
+
 .c_gray {
   color: $gray;
 }
@@ -51,9 +55,9 @@
   position: relative;
   display: inline-block;
   vertical-align: middle;
-  line-height: 1.2;
-  text-decoration: none;
   color: $blue;
+  text-decoration: none;
+  line-height: 1.2;
 
   span {
     display: inline-block;
@@ -68,8 +72,15 @@
       right: 0;
       left: 0;
       height: 1px;
-      background: #bad0f3;
+      border-bottom: 1px solid #bad0f3;
       box-shadow: 0 1px 1px #f8f8f8;
+    }
+  }
+
+  &._inner {
+    span:before {
+      border-bottom-style: dotted;
+      border-bottom-width: 1px;
     }
   }
 
@@ -92,8 +103,9 @@
     color: transparent !important;
   }
 
-  &:after,
-  &:before {
+  &:after {
+    @include transition_all(transform .3s .3s);
+    @include transform_translate(0, 0);
     content: $i-drip;
     position: absolute;
     top: 0;
@@ -101,18 +113,20 @@
     will-change: transform;
   }
 
-  &:before {
-    @include transition_all(transform .3s);
-    @include transform_translate(0, -50px);
+  .drop_anim & {
+
+    &:before {
+      @include transition_all(transform .3s);
+      @include transform_translate(0, -60px);
+      content: $i-drip;
+      position: absolute;
+      top: 0;
+      left: -1px;
+      will-change: transform;
+    }
   }
 
-  &:after {
-    @include transition_all(transform .3s .3s);
-    @include transform_translate(0, 0);
-  }
-
-  *:hover > & {
-
+  .drop_anim:hover & {
     &:before {
       @include transition_all(transform .3s .3s);
       @include transform_translate(0, 0);
@@ -120,13 +134,16 @@
 
     &:after {
       @include transition_all(transform .3s);
-      @include transform_translate(0, 50px);
+      @include transform_translate(0, 60px);
     }
   }
-
 }
 
 // **********  text
+
+.fz_12 {
+  font-size: 12px;
+}
 
 .text_center {
   text-align: center;
@@ -146,4 +163,28 @@
 
 .slick-track {
   @extend %clearfix;
+}
+
+.slick-slide {
+  float: left;
+}
+
+.fw_med {
+  font-family: $RobotoMed;
+}
+
+.dt_vis {
+  @include respond-to-max($resp_step_2) {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.wide_vis {
+  @include respond-to-max($resp_step_3) {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
 }

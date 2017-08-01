@@ -1,0 +1,281 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+  +dev_head('Капля Жизни Подопечные нашего фонда')
+
+  body
+    .wrapper
+      .base
+        +header()
+        
+        div.main_content
+          .add_request.all_story_hero
+            .add_request_img.checkLoad
+              .stellar_img(data-stellar-ratio="1.8")
+                img(src='i/all_story_hero.jpg?_ijt=dmnilokun08odfegk99j0bt5vi')
+              .help_block_info
+                .section_inner
+                  .text_center
+                    .ward_icon.i-book
+                  .ward_counter 1 234 подопечных 
+                  h1 Истории из жизни фонда
+                  h5 и его подопечных
+                  
+          .section_inner
+            .story_search_block
+              p Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана. Маленький ручеек Даль журчит по всей стране и обеспечивает ее всеми необходимыми правилами. Эта парадигматическая страна, в которой жаренные члены предложения залетают прямо в рот
+            
+              .story_search_form
+                form(action='#')
+                  input(type='hidden')
+                  ul.storyTags.story_tags()
+                  a.tags_btn.btn_v3.btn_blue_white.tagToggleBtn(href='#')
+                    span.text_opened Облако тэгов
+                    span.text_closed Свернуть тэги
+                    
+                  button.story_search_btn
+                    span.i-search
+                    
+              .tagToggleBlock(style='display:none'): ul.tag_list_block
+                +loop_while(4)
+                  li
+                    a.content_tag_link.tagLink(href='#')
+                      span Выздоровление
+                  li
+                    a.content_tag_link.tagLink(href='#')
+                      span Везение
+                  li
+                    a.content_tag_link.tagLink(href='#')
+                      span Судьба
+                      
+                  li
+                    a.content_tag_link.tagLink(href='#')
+                      span Выздоровление
+                 
+                  li
+                    a.content_tag_link.tagLink(href='#')
+                      span Судьба
+                      
+                  li
+                    a.content_tag_link.tagLink(href='#')
+                      span Выздоровлениеэффектдлинат
+                  
+                  li
+                    a.content_tag_link.tagLink(href='#')
+                      span Везение
+                  li
+                    a.content_tag_link.tagLink(href='#')
+                      span Судьба
+                  li
+                    a.content_tag_link.tagLink(href='#')
+                      span Выздоровление
+                li
+                  a.content_tag_link.tagLink(href='#')
+                    span Судьба
+                    
+                li
+                  a.content_tag_link.tagLink(href='#')
+                    span Восстановление
+                li
+                  a.content_tag_link.tagLink(href='#')
+                    span Надежда
+                li
+                  a.content_tag_link.tagLink(href='#')
+                    span Везение
+                li
+                  a.content_tag_link.tagLink(href='#')
+                    span Судьба
+                li
+                  a.content_tag_link.tagLink(href='#')
+                    span Интересующиеся
+
+
+            .story_filter
+              .story_filter_caption Сортировать:
+              .story_filter_list
+                li._active
+                  a.gl_link._inner.filterLink(href='#')
+                    span По дате
+                li 
+                  a.gl_link._inner.filterLink(href='#')
+                    span По просмотрам
+              
+            ul.story_list._all_stories
+              +loop_while(1)
+                li
+                  .story_unit
+                    a.story_link(href='story.html')
+                      img(src='i/story_3.jpg')
+                      .story_title
+                        .content_tags_caption
+                          span 29.11.2016
+                          span
+                            span.i-eye
+                            span 100
+                        p Название истории может быть даже на две строки если это потребуется но не больше
+                        
+                    .story_unit_info
+                      ul.content_tags
+                        li
+                          a.content_tag_link(href='#')
+                            span Выздоровление
+                        li
+                          a.content_tag_link(href='#')
+                            span Везение
+                        li
+                          a.content_tag_link(href='#')
+                            span Судьба
+                            
+                      p Хочу рассказать историю нашей болезни, а точнее историю выздоровления моей дочурки Аленки, рассказать для того, чтобы родители, оказавшиеся лицом к лицу с такой страшной болезнью как злокачественная опухоль почек, не отчаивались, не опускали руки, а знали о том, что с этим злом можно бороться. Для этого нужно бесконечно любить своего ребенка и верить в его излечение и тогда “чудо” обязательно свершится. 
+                      
+                
+                li
+                  .story_unit
+                    a.story_link(href='story.html')
+                      img(src='i/story_3.jpg')
+                      .story_title
+                        .content_tags_caption
+                          span 29.11.2016
+                          span
+                            span.i-eye
+                            span 100
+                        p Название истории может быть даже на две строки если это потребуется но не больше
+                        
+                    .story_unit_info
+                      ul.content_tags
+                        li
+                          a.content_tag_link(href='#')
+                            span Выздоровление
+                        li
+                          a.content_tag_link(href='#')
+                            span Везение
+                        li
+                          a.content_tag_link(href='#')
+                            span Судьба
+                            
+                      p Хочу рассказать историю нашей болезни, а точнее историю выздоровления моей дочурки Аленки, рассказать для того, чтобы родители, оказавшиеся лицом к лицу с такой страшной болезнью как злокачественная опухоль почек, не отчаивались, не опускали руки, а знали о том, что с этим злом можно бороться. Для этого нужно бесконечно любить своего ребенка и верить в его излечение и тогда “чудо” обязательно свершится.
+                      
+                li
+                  .story_unit
+                    a.story_link(href='story.html')
+                      img(src='i/story_3.jpg')
+                      .story_title
+                        .content_tags_caption
+                          span 29.11.2016
+                          span
+                            span.i-eye
+                            span 100
+                        p Название истории может быть даже на две строки если это потребуется но не больше
+                        
+                    .story_unit_info
+                      ul.content_tags
+                        li
+                          a.content_tag_link(href='#')
+                            span Выздоровление
+                        li
+                          a.content_tag_link(href='#')
+                            span Везение
+                        li
+                          a.content_tag_link(href='#')
+                            span Судьба
+                            
+                      p Хочу рассказать историю нашей болезни, а точнее историю выздоровления моей дочурки Аленки, рассказать для того, чтобы родители, оказавшиеся лицом к лицу с такой страшной болезнью как злокачественная опухоль почек, не отчаивались, не опускали руки, а знали о том, что с этим злом можно бороться. Для этого нужно бесконечно любить своего ребенка и верить в его излечение и тогда “чудо” обязательно свершится.
+                
+                li
+                  .story_unit
+                    a.story_link(href='story.html')
+                      img(src='i/story_3.jpg')
+                      .story_title
+                        .content_tags_caption
+                          span 29.11.2016
+                          span
+                            span.i-eye
+                            span 100
+                        p Надежда умирает последней
+                        
+                    .story_unit_info
+                      ul.content_tags
+                        li
+                          a.content_tag_link(href='#')
+                            span Выздоровление
+                        li
+                          a.content_tag_link(href='#')
+                            span Везение
+                        li
+                          a.content_tag_link(href='#')
+                            span Судьба
+                        li
+                          a.content_tag_link(href='#')
+                            span Выздоровление
+                        li
+                          a.content_tag_link(href='#')
+                            span Везение
+                        li
+                          a.content_tag_link(href='#')
+                            span Выздоровление
+                        li
+                          a.content_tag_link(href='#')
+                            span Везение
+                            
+                      p Хочу рассказать историю нашей болезни, а точнее историю выздоровления моей дочурки Аленки, рассказать для того, чтобы родители, оказавшиеся лицом к лицу с такой страшной болезнью как злокачественная опухоль почек, не отчаивались, не опускали руки, а знали о том, что с этим злом можно бороться. Для этого нужно бесконечно любить своего ребенка и верить в его излечение и тогда “чудо” обязательно свершится.
+            
+                li
+                  .story_unit
+                    a.story_link(href='story.html')
+                      img(src='i/story_3.jpg')
+                      .story_title
+                        .content_tags_caption
+                          span 29.11.2016
+                          span
+                            span.i-eye
+                            span 100
+                        p Название истории может быть даже на две строки если это потребуется но не больше
+
+                    .story_unit_info
+                      ul.content_tags
+                        li
+                          a.content_tag_link(href='#')
+                            span Выздоровление
+                        li
+                          a.content_tag_link(href='#')
+                            span Везение
+                        li
+                          a.content_tag_link(href='#')
+                            span Судьба
+  
+                      p Хочу рассказать историю нашей болезни, а точнее историю выздоровления моей дочурки Аленки, рассказать для того, чтобы родители, оказавшиеся лицом к лицу с такой страшной болезнью как злокачественная опухоль почек, не отчаивались, не опускали руки, а знали о том, что с этим злом можно бороться. Для этого нужно бесконечно любить своего ребенка и верить в его излечение и тогда “чудо” обязательно свершится.
+                    
+                li
+                  .story_unit
+                    a.story_link(href='story.html')
+                      img(src='i/story_3.jpg')
+                      .story_title
+                        .content_tags_caption
+                          span 29.11.2016
+                          span
+                            span.i-eye
+                            span 100
+                        p Название истории может быть даже на две строки если это потребуется но не больше
+
+                    .story_unit_info
+                      ul.content_tags
+                        li
+                          a.content_tag_link(href='#')
+                            span Выздоровление
+                        li
+                          a.content_tag_link(href='#')
+                            span Везение
+                        li
+                          a.content_tag_link(href='#')
+                            span Судьба
+  
+                      p Хочу рассказать историю нашей болезни, а точнее историю выздоровления моей дочурки Аленки, рассказать для того, чтобы родители, оказавшиеся лицом к лицу с такой страшной болезнью как злокачественная опухоль почек, не отчаивались, не опускали руки, а знали о том, что с этим злом можно бороться. Для этого нужно бесконечно любить своего ребенка и верить в его излечение и тогда “чудо” обязательно свершится.
+            
+            .preloader_block
+              img(src='svg/preloader.svg' width=90)
+            
+      +footer()
+    
+    +popups()
+      
+    +scripts(false, false, true)

@@ -65,6 +65,11 @@ body {
   .section_inner {
     position: relative;
   }
+
+  &._public {
+    overflow: visible;
+    background: #eceeef;
+  }
 }
 
 .more_histories {
@@ -81,9 +86,9 @@ body {
 
   .slide {
     @extend %clearfix;
-    float: left;
     position: relative;
     margin-bottom: -20px;
+    display: none;
 
     &:before {
       pointer-events: none;
@@ -97,6 +102,15 @@ body {
       background: url(../i/slide_spot.png) no-repeat 0 0;
     }
 
+    &:first-child {
+      display: block;
+    }
+  }
+
+  &.slick-initialized {
+    .slide {
+      display: block;
+    }
   }
 
   .slide_footer {
@@ -129,15 +143,27 @@ body {
     border-radius: 15px;
     overflow: hidden;
 
-    &:before {
-      @include transform_skew(8, 0);
-      content: '';
+    img {
+      -webkit-transform: skew(8deg, 0deg) translate(-50%, -50%);
+      -ms-transform: skew(8deg, 0deg) translate(-50%, -50%);
+      transform: skew(8deg, 0deg) translate(-50%, -50%);
       position: absolute;
-      bottom: 0;
-      left: -20px;
-      width: 280px;
-      height: 322px;
-      background: url(../i/silhouette.png) no-repeat 0 0;
+      top: 50%;
+      left: 50%;
+      min-height: 100%;
+    }
+
+    &._silhouette {
+      &:before {
+        @include transform_skew(8, 0);
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: -20px;
+        width: 280px;
+        height: 322px;
+        background: url(../i/silhouette.png) no-repeat 0 0;
+      }
     }
   }
 
@@ -166,18 +192,103 @@ body {
     padding-bottom: 150px;
   }
 
+  &._kids {
+
+    .slide_info {
+      padding-bottom: 0;
+    }
+
+    .slide_caption {
+      margin-bottom: 5px;
+    }
+
+    .slide_img {
+      margin-bottom: -28px;
+    }
+  }
   .slide_caption {
     font: 51px $Ossemrounded;
     color: $blue;
     margin-bottom: 17px;
     letter-spacing: -.005em;
     margin-left: -5px;
+
+    sup {
+      display: inline-block;
+      vertical-align: top;
+      font-size: .29em;
+      color: #9abe62;
+      line-height: 1.8;
+    }
   }
 
   .slide_text {
     line-height: 1.35;
     font-size: 16px;
     max-width: 600px;
+  }
+
+  .slide_slogan {
+    background: transparent;
+    border: 1px solid #d2d2d2;
+    padding: 11px 18px;
+    line-height: 1.3;
+    position: relative;
+    max-width: 600px;
+    margin-top: 25px;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: -10000px;
+      left: -10000px;
+      background: url(../i/slogan_pipe_w.png) no-repeat 0 0;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 28px;
+      top: -28px;
+      left: 40px;
+      background: url(../i/slogan_pipe.png) no-repeat 0 0;
+    }
+
+    &:hover {
+      background: #fff;
+
+      .slogan_edit {
+        display: inline-block;
+      }
+      
+      &:before {
+        background: url(../i/slogan_pipe_w.png) no-repeat 0 0;
+      }
+    }
+  }
+
+  ._public & {
+
+    .slide {
+      margin-bottom: -30px;
+
+      &:before {
+        display: none;
+      }
+    }
+    .slide_img {
+      margin-top: -10px;
+    }
+
+    .slide_img_w {
+      width: 380px;
+      height: 445px;
+    }
+
+    .child_location {
+      margin: 5px 0 10px;
+    }
   }
 }
 
@@ -235,26 +346,51 @@ body {
   .needs_text {
     position: relative;
     overflow: hidden;
-    
+
     .btn_v1 {
-      @include transition_all(transform .3s);
-      @include transform_translate(-100%, 0);
+      @include transition_all(opacity .3s);
       position: absolute;
       top: -1px;
       bottom: -1px;
       left: -1px;
       right: -1px;
       padding: 5px;
+      height: auto;
       font-size: 18px;
       border-radius: 0;
       background: $blue;
       color: #fff;
+      opacity: 0;
     }
-    
+
     &:hover {
       .btn_v1 {
-        @include transform_translate(0, 0);
+        opacity: 1;
       }
+    }
+  }
+
+  &._x2 {
+    height: 80px;
+
+    > span {
+      position: relative;
+      padding: 26px 23px;
+      margin: -2px 0;
+    }
+
+    .btn_v1 {
+      font-size: 24px;
+      line-height: 78px;
+    }
+
+    .needs_percent {
+      padding: 26px 35px;
+      font-size: 2.0em;
+    }
+
+    .needs_text {
+      font-size: 2.0em;
     }
   }
 
@@ -310,9 +446,9 @@ body {
 }
 
 .more_needs_list {
-  @extend %clearfix;
+  //@extend %clearfix;
   padding: 0 65px;
-  min-width: 1873px;
+  min-width: 2873px;
   display: inline-block;
   vertical-align: top;
   margin: -25px 0 0 -20px;
@@ -321,12 +457,13 @@ body {
   li {
     display: inline-block;
     vertical-align: top;
-    width: 19.2%;
+    width: 335px;
     padding-left: 20px;
     white-space: normal;
+    text-align: left;
 
     &._spacer {
-      width: 24.3%;
+      width: 424px;
 
       .child_card {
         background-color: transparent;
@@ -337,11 +474,14 @@ body {
 }
 
 .child_card {
+  @include transition_all(transform .3s, opacity .3s);
+  @include transform_translate(0, 20px);
   position: relative;
   background: #fff;
   height: 138px;
   padding: 26px 5px 14px 100px;
   box-shadow: 3px 4px 29px #bec5d1;
+  opacity: 0;
 
   > p {
     color: $caption_color;
@@ -350,6 +490,11 @@ body {
     height: 2.4em;
     overflow: hidden;
     margin-bottom: 15px;
+  }
+
+  &._active {
+    @include transform_translate(0, 0);
+    opacity: 1;
   }
 }
 
@@ -368,6 +513,7 @@ body {
   bottom: 0;
   left: 0;
   height: 100%;
+  z-index: 2;
 
   &._orange {
     background: #ffc447;
@@ -466,6 +612,10 @@ body {
   padding: 35px 20px 30px 400px;
   background: #fff;
   margin-bottom: 20px;
+
+  .tab_panel & {
+    margin-bottom: 40px;
+  }
 }
 
 .help_block_aside {
@@ -481,6 +631,7 @@ body {
     position: absolute;
     min-width: 100%;
     min-height: 100%;
+    transform-origin: 0 0;
   }
 
   &._hover_zoom {
@@ -595,6 +746,10 @@ body {
 
   p {
     margin-bottom: 7px;
+
+    a {
+      vertical-align: baseline;
+    }
   }
 }
 
@@ -622,6 +777,19 @@ body {
   position: relative;
   padding: 0 70px 0 80px;
   margin: -30px 0;
+}
+
+.help_block_caption {
+  font: 16px $RobotoMed;
+  margin-bottom: 15px;
+  padding-left: 20px;
+
+  sup {
+    font: .9em $Roboto;
+    margin-top: -.5em;
+    display: inline-block;
+    vertical-align: top;
+  }
 }
 
 .help_slider {
@@ -659,7 +827,7 @@ body {
     left: 25px;
 
     &:before {
-      content: $i-chevron_left;
+      content: $i-arrow_left;
     }
   }
 
@@ -667,7 +835,7 @@ body {
     right: 8px;
 
     &:before {
-      content: $i-chevron_right;
+      content: $i-arrow_right;
     }
   }
 }
@@ -692,11 +860,35 @@ body {
   font-size: 12px;
   line-height: 1.5;
   border: 1px solid #3490e6;
+
+  .btn_v1.help_btn {
+    @include transition_all(opacity .3s);
+    position: absolute;
+    top: -1px;
+    bottom: -1px;
+    left: -1px;
+    right: -1px;
+    padding: 5px;
+    font-size: 18px;
+    border-radius: 0;
+    background: $blue;
+    color: #fff;
+    opacity: 0;
+    line-height: 52px;
+    height: auto;
+  }
+
+  &:hover {
+    .btn_v1.help_btn {
+      opacity: 1;
+    }
+  }
 }
 
 .help_box {
   position: relative;
   padding: 16px 17px 93px;
+  background: #fff;
   box-shadow: 0 3px 4px rgba(190, 197, 209, .33);
 
   .child_title {
@@ -737,6 +929,146 @@ body {
   position: relative;
   text-align: center;
   min-height: 615px;
+
+  .gm-style-iw {
+    //position: relative !important;
+    //top: 0 !important;
+    //left: 0 !important;
+    //width: auto !important;
+    text-align: left;
+    padding: 25px 20px 20px 57px;
+  }
+}
+
+.pin_img {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  border-radius: 100%;
+  pointer-events: all;
+
+  img {
+    display: block;
+  }
+}
+
+.pin_name {
+  font-size: 14px;
+  color: #000;
+  margin-bottom: 1px;
+}
+
+.pin_city {
+  font-size: 12px;
+  color: $caption_color;
+  margin-bottom: 5px;
+}
+
+.pin_summ {
+  @extend %icon_pseudo;
+  position: relative;
+  font: 24px/1 $RobotoMed;
+
+  &:before {
+    content: $i-drip;
+    position: absolute;
+    left: -20px;
+    top: 2px;
+    font-size: 18px;
+  }
+
+  &.pin_green {
+    &:before {
+      color: $green;
+    }
+  }
+
+  sub {
+    font-family: $Roboto;
+    font-size: .59em;
+  }
+}
+
+.philanthropist_box_footer {
+  border-top: 1px solid #e4f1fc;
+  position: relative;
+  padding: 7px 7px 0;
+  margin: 15px -20px -10px -70px;
+
+  .btn_v1.help_btn {
+    display: block;
+  }
+}
+
+.philanthropist_box {
+
+  .philanthropist_top {
+    position: absolute;
+    width: 33px;
+    height: 33px;
+    right: 0;
+    top: -30px;
+    z-index: 1;
+
+    &._top-1 {
+      background: url(../svg/1.svg) no-repeat 0 0;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+
+    &._top-2 {
+      background: url(../svg/2.svg) no-repeat 0 0;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+
+    &._top-3 {
+      background: url(../svg/3.svg) no-repeat 0 0;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+  }
+
+  .gm-style & {
+    margin-top: 91px;
+    margin-left: 84px;
+    pointer-events: none;
+  }
+
+  > div {
+    text-align: left;
+    background: #fff;
+    width: 230px !important;
+    height: auto !important;
+    border-radius: 25px 3px 3px 3px !important;
+    box-shadow: 3px 4px 29px rgba(190, 197, 209, 1);
+  }
+
+  .transparent {
+    position: relative;
+    padding: 25px 20px 20px 57px;
+  }
+
+  &._current {
+    > div {
+      text-align: left;
+      background: #f3ffeb;
+    }
+  }
+}
+
+.map_box {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .map_block {
@@ -765,6 +1097,14 @@ body {
 
 .philanthropist_section {
   padding-bottom: 60px;
+
+  &._mod_1 {
+    padding-top: 30px;
+
+    .philanthropist_list {
+      line-height: 410px;
+    }
+  }
 }
 
 .philanthropist_list {
@@ -856,6 +1196,164 @@ body {
 
 }
 
+.philanthropist_report {
+  padding: 110px 0 70px;
+}
+
+.philanthropist_report_caption {
+  font: 30px $Ossemrounded;
+  margin-bottom: 30px;
+}
+
+.philanthropist_report_table {
+  overflow: hidden;
+  max-width: 100%;
+  padding-bottom: 8px;
+  background: #fff;
+
+  table {
+    min-width: 100%;
+
+    tr {
+
+      &:nth-child(2n) {
+        td {
+          background: #f4f8fb;
+        }
+      }
+
+      &._top-1 {
+        td {
+          background: #fff7e4;
+        }
+      }
+
+      &._top-2 {
+        td {
+          background: #f0f2f4;
+        }
+      }
+
+      &._top-3 {
+        td {
+          background: #f9efdd;
+        }
+      }
+
+    }
+
+    td {
+      padding: 11px 20px 12px;
+      vertical-align: middle;
+    }
+
+    th {
+      text-align: left;
+      padding: 30px 20px 15px;
+      font: 14px $RobotoMed;
+      border-bottom: 2px solid #dee3e7;
+    }
+
+    .col_1 {
+      width: 8%;
+    }
+
+    .col_2 {
+      width: 19%;
+    }
+
+    .col_3 {
+      width: 14%;
+    }
+
+    .col_4 {
+      width: 20%;
+    }
+
+    .col_5 {
+      width: 20%;
+    }
+  }
+}
+
+.philanthropist_block {
+  line-height: 36px;
+  display: block;
+}
+
+.philanthropist_top {
+  display: inline-block;
+  vertical-align: middle;
+  padding-right: 10px;
+
+  img {
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.philanthropist_photo {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  line-height: 1;
+  margin-right: 8px;
+  padding: 3px;
+  width: 36px;
+  height: 36px;
+  border-radius: 100%;
+
+  img {
+    display: block;
+    max-width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.philanthropist_fio {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1.2;
+  color: #000;
+}
+
+.philanthropist_cart {
+  -webkit-transform: scaleX(-1) rotate(270deg);
+  -ms-transform: scaleX(-1) rotate(270deg);
+  transform: scaleX(-1) rotate(270deg);
+  background: #fff;
+  border-radius: 100%;
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  left: 1px;
+  right: 1px;
+  z-index: 1;
+}
+
+.philanthropist_pie {
+  @include transition_all(stroke-dasharray .3s);
+  fill: #fff;
+  stroke: #0074d9;
+  stroke-width: 50;
+  stroke-dasharray: 0 158;
+
+  &.p_green {
+    stroke: #87b32c;
+  }
+
+  &.p_red {
+    stroke: #ff5c5c;
+  }
+
+  &.p_orange {
+    stroke: #ffc707;
+  }
+
+}
+
 .join_block {
   text-align: center;
 
@@ -906,14 +1404,29 @@ body {
 
 .history_people {
   white-space: nowrap;
-  overflow: hidden;
   max-width: 100%;
 
   li {
     display: inline-block;
     vertical-align: middle;
     padding-right: 10px;
+    position: relative;
+
+    &:hover {
+      .history_phil_info {
+        display: block;
+        pointer-events: none;
+      }
+    }
   }
+}
+
+.history_phil_info {
+  position: absolute;
+  top: -16px;
+  left: -16px;
+  display: none;
+  z-index: 1;
 }
 
 .history_block_image {
@@ -997,14 +1510,24 @@ body {
   .help_block_info {
     top: 113px;
 
+    h1 {
+      font: 50px $Ossemrounded;
+      margin-bottom: 15px;
+    }
+
     h3 {
       margin-bottom: 30px;
+    }
+
+    h5 {
+      font-size: 23px;
     }
 
     p {
       font-size: 18px;
       line-height: 1.25;
     }
+
   }
 
   .help_block_aside_footer {
@@ -1012,12 +1535,34 @@ body {
   }
 }
 
+.preloader_block {
+  text-align: center;
+  margin-top: -20px;
+  margin-bottom: 27px;
+
+  img {
+    display: inline-block;
+    vertical-align: top;
+    max-width: 100%;
+  }
+}
+
 .add_request_img {
+  will-change: top;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  display: block !important;
+
+  .stellar_img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
 
   img {
     @extend %hor_vert_centr;
@@ -1025,23 +1570,57 @@ body {
     position: absolute;
     min-width: 100%;
     min-height: 100%;
+    transform-origin: 0 0;
   }
 
-  &:hover img {
-    -webkit-transform: scale(1.05) translate(-50%, -50%);
-    -ms-transform: scale(1.05) translate(-50%, -50%);
-    transform: scale(1.05) translate(-50%, -50%);
+  &.checkLoad {
+    opacity: 0;
+  }
+
+  &._loaded {
+    @extend .animated;
+    @extend .fadeIn;
+
+    img {
+      -webkit-transform: scale(1.05) translate(-50%, -50%);
+      -ms-transform: scale(1.05) translate(-50%, -50%);
+      transform: scale(1.05) translate(-50%, -50%);
+    }
+  }
+
+  &:hover {
+    img {
+      -webkit-transform: scale(1.05) translate(-50%, -50%);
+      -ms-transform: scale(1.05) translate(-50%, -50%);
+      transform: scale(1.05) translate(-50%, -50%);
+    }
   }
 }
 
 .refund_section {
-  padding: 84px 0 1px;
+  padding: 84px 0 120px;
   background: #fff;
   text-align: center;
 
   p {
     font: 18px $RobotoLight;
     margin-bottom: 30px;
+  }
+
+  &._kids {
+    position: relative;
+    padding-bottom: 95px;
+    background: url(../i/kids_hero.jpg) no-repeat 50% 50%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    .child_card_progress {
+      bottom: auto;
+      top: 0;
+      height: 3px;
+    }
   }
 }
 

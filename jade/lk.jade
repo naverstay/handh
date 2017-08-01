@@ -1,0 +1,69 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+  +dev_head('Капля Жизни Кабинет')
+
+  body.header_v1
+    .wrapper
+      .base
+        +header()
+        
+        div.main_content
+          .lk_section
+            form(action='#')
+              .section_inner.clearfix
+                .lk_title Личный кабинет
+                  
+                .lk_col
+                  .form_group
+                    .form_cell.form_cell_v1.formCell
+                      label.f_label(for='user_name') Имя
+                      input#user_name.f_input_v1.f_input(class='validate[required]' value='Константин Константинопольский')
+                    .form_cell.form_cell_v4.formCell
+                      label.f_label(for='user_email') E-mail
+                      input#user_email.f_input_v1.f_input(class='validate[required]' value='konst1975@yandex.ru')
+                      
+                  .form_group
+                    .form_cell.form_cell_v3.formCell.select_box_v1
+                      label.f_label(for='user_city') Город
+                      select#user_city.select2.validateHidden(data-placeholder='Укажите город' name='user_city')
+                        option(disabled selected)
+                        +loop_while(2)
+                          option(value=1) Москва
+                          option(value=2) Санкт-Петербург
+                          option(value=3) Ростов-на-Дону
+                          option(value=4) Воронеж
+                          option(value=5) Красноярск
+                          option(value=6) Алмата
+                          option(value=7) Владивосток
+                          option(value=8) Калининград
+                          
+                  .form_cell.form_cell_v1
+                    button.btn_v1.btn_blue.help_btn
+                      span Сохранить
+                  
+                      
+                  .lk_col_footer
+                    a.lk_logout(href='#')
+                      span.i-logout
+                      span.logout_text Выйти из аккаунта
+                    
+                .lk_col
+                  .form_cell.form_cell_v1.formCell.fl
+                    label.f_label(for='user_pwd') Пароль
+                    .input_w
+                      span.pass_toggle.passToggle
+                        span.i-eye.text_opened
+                        span.i-eye_interfinvisibility.text_closed
+                      input#user_pwd.f_input_v1.f_input(class='validate[required]' value='password' type='password')
+                      
+                  .form_cell.form_cell_v5.fl
+                    .f_label &nbsp;
+                    a.btn_v1.btn_blue.help_btn(href='#')
+                      span Сменить
+          
+      +footer()
+    
+    +popups()
+      
+    +scripts(false)

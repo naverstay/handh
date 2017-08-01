@@ -1,7 +1,8 @@
 $pi: 3.14159265359;
 $square_root_of_2: 1.41421356237;
 
-$resp_step_2: 1040px;
+$resp_step_2: 1820px;
+$resp_step_3: 2440px;
 
 $content-max-w: 1280px;
 
@@ -10,6 +11,7 @@ $icomoon-font-name: 'fond_icons';
 
 $Roboto: 'Roboto', sans-serif;
 $RobotoLight: 'RobotoLight', sans-serif;
+$RobotoLightIt: 'RobotoLightIt', sans-serif;
 $RobotoMed: 'RobotoMed', sans-serif;
 $RobotoBold: 'RobotoBold', sans-serif;
 $Ossemrounded: 'Ossemrounded', sans-serif;
@@ -40,6 +42,7 @@ $caption_color: #444;
 $green: #81b61a;
 $blue: #3490e6;
 $gray: #8c9da9;
+$red: #ea3d3d;
 $gray_light: #757e84;
 
 @mixin opacity($val : 1, $important : 0) {

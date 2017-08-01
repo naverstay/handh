@@ -60,8 +60,8 @@
     }
 
     .formErrorContent p {
-      margin: 0 auto;
-      color: #ed145b;
+      margin: 3px auto;
+      color: #ff3e3e;
 
       ~ p {
         display: none;
@@ -265,9 +265,9 @@ body.rtl .formError .formErrorArrow {
   &.relative_mode {
     .formErrorContent {
       background: none;
-      color: #c30000;
+      color: #ff3e3e;
       padding: 0;
-      font-size: 11px;
+      font-size: 12px;
       text-align: left;
 
       p {
@@ -285,7 +285,6 @@ body.rtl .formError .formErrorArrow {
     box-shadow: none;
 
     p {
-      max-width: 300px;
       overflow: hidden;
       white-space: nowrap;
     }

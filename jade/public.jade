@@ -1,0 +1,236 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+  +dev_head('Капля Жизни public')
+
+  body
+    .wrapper
+      .base
+        +header()
+        
+        div.main_content
+          .hero_slider_w._public
+            .section_inner
+              .hero_slider
+                .slide
+                  .slide_img
+                    .slide_img_shadow
+                    .slide_img_w
+                      img(src='i/profile.png')
+                    
+                  .slide_info
+                    .child_location Россия, Саратов
+                    .slide_caption 
+                      span.c_caption Александр Тищеренко
+                      sup 3 года на сайте
+                      
+                    .slide_slogan
+                      p Если снабжаешь кого, давай тайно и избежишь тщеславия (прп. Ефрем Сирин). Но в современном мире многим людям нужно давать пример!
+                        span.slogan_edit
+                          span.i-edit.c_blue
+                          
+          .public_section
+            .section_inner
+              .public_aside
+                .public_aside_counters
+                  .counter_box
+                    p Оказал помощь:
+                    .counter_val
+                      img(src='svg/coin.svg' width=22 height=22)
+                      span.counterVal(data-speed='50' data-counter='2543220' data-step='7')= formatPrice(Math.floor(2543020))
+                      sub руб.
+                      
+                  .counter_box
+                    p Участвует в судьбах:
+                    .counter_val
+                      img(src='svg/kids.svg' width=25 height=25)
+                      span.counterVal(data-speed='120' data-counter='23')= Math.floor(23 * .8)
+                    
+                .public_caption О себе
+                    
+                p  Хочу рассказать историю нашей болезни, а точнее историю выздоровления моей дочурки Аленки, рассказать для того, чтобы родители, оказавшиеся лицом к лицу с такой страшной болезнью как злокачественная опухоль почек, не отчаивались, не опускали руки, а знали о том, что с этим злом можно бороться. Для этого нужно бесконечно любить своего ребенка и верить в его излечение и тогда “чудо” обязательно свершится. 
+                
+                p Хочу рассказать историю нашей болезни, а точнее историю выздоровления моей дочурки Аленки, рассказать для того, чтобы родители, оказавшиеся лицом к лицу с такой страшной болезнью как злокачественная опухоль почек, не отчаивались, не опускали руки, а знали о том, что с этим злом можно бороться. Для этого нужно бесконечно любить своего ребенка и верить в его излечение и тогда “чудо” обязательно свершится. Хочу рассказать историю нашей болезни, а точнее историю выздоровления моей дочурки Аленки, рассказать для того, чтобы родители, оказавшиеся лицом к лицу с такой страшной болезнью как злокачественная опухоль почек, не отчаивались, не опускали руки, а знали о том, что с этим злом можно бороться. Для этого нужно бесконечно любить своего ребенка и верить в его излечение и тогда “чудо” обязательно свершится. 
+                
+                p Хочу рассказать историю нашей болезни, а точнее историю выздоровления моей дочурки Аленки, рассказать для того, чтобы родители, оказавшиеся лицом к лицу с такой страшной болезнью как злокачественная опухоль почек, не отчаивались, не опускали руки, а знали о том, что с этим злом можно бороться. Для этого нужно бесконечно любить своего ребенка и верить в его излечение и тогда “чудо” обязательно свершится. 
+                
+                .public_caption Связаться со мной
+                  
+                <div class="pluso" data-background="transparent" data-options="big,square,line,horizontal,nocounter,theme=04" data-services="vkontakte,odnoklassniki,facebook,twitter"></div>
+                
+              .public_content
+                .help_block_slider
+                  .help_block_caption 
+                    span Подопечные 
+                    sup.c_blue 24
+                  
+                  .helpPrev.help_slider_btn._next
+                  .helpNext.help_slider_btn._prev
+                  .help_slider.helpSlider
+                    +loop_while(2)
+                      .slide
+                        .help_box.helpBox(data-href='story.html' data-blank='false')
+                          .help_box_inner
+                            .help_box_photo
+                              img(src='i/need_help_slide.png')
+
+                            .child_title
+                              span.c_caption Лиза 
+                              sup 9 лет
+
+                            p Онкология
+
+                          .help_box_footer
+                            span Требуется<br>650 000 р.
+                            a.btn_v1.btn_blue.help_btn.drop_anim(href='#')
+                              span П
+                              span._drop
+                                span о
+                              span мочь
+
+                          +progress('_red', 4)
+
+                      .slide
+                        .help_box.helpBox(data-href='story.html' data-blank='false')
+                          .help_box_inner
+                            .help_box_photo
+                              img(src='i/need_help_slide.png')
+
+                            .child_title
+                              span.c_caption Маргарита 
+                              sup 2 года
+
+                            p Синдром Шерешевского-Тернера
+
+                          .help_box_footer
+                            span Требуется<br>650 000 р.
+                            a.btn_v1.btn_blue.help_btn.drop_anim(href='#')
+                              span П
+                              span._drop
+                                span о
+                              span мочь
+
+                          +progress('_green', 80)
+
+                      .slide
+                        .help_box.helpBox(data-href='story.html' data-blank='true')
+                          .help_box_inner
+                            .help_box_photo
+                              img(src='i/need_help_slide.png')
+
+                            .child_title
+                              span.c_caption Антуанетта 
+                              sup 1год
+
+                            p Онкология
+
+                          .help_box_footer
+                            span Требуется<br>650 000 р.
+                            a.btn_v1.btn_blue.help_btn.drop_anim(href='#')
+                              span П
+                              span._drop
+                                span о
+                              span мочь
+
+                          +progress('_red', 4)
+
+                      .slide
+                        .help_box.helpBox(data-href='story.html' data-blank='true')
+                          .help_box_inner
+                            .help_box_photo
+                              img(src='i/need_help_slide.png')
+
+                            .child_title
+                              span.c_caption Маргарита 
+                              sup 2 года
+
+                            p Синдром Шерешевского-Тернера
+
+                          .help_box_footer
+                            span Требуется<br>650 000 р.
+                            a.btn_v1.btn_blue.help_btn.drop_anim(href='#')
+                              span П
+                              span._drop
+                                span о
+                              span мочь
+
+                          +progress('_green', 80)
+
+                      .slide
+                        .help_box.helpBox(data-href='story.html' data-blank='true')
+                          .help_box_inner
+                            .help_box_photo
+                              img(src='i/need_help_slide.png')
+
+                            .child_title
+                              span.c_caption Антуанетта 
+                              sup 1год
+
+                            p Онкология
+
+                          .help_box_footer
+                            span Требуется<br>650 000 р.
+                            a.btn_v1.btn_blue.help_btn.drop_anim(href='#')
+                              span П
+                              span._drop
+                                span о
+                              span мочь
+
+                          +progress('_red', 4)
+                          
+                          
+                          
+                          
+                      
+      
+                .public_caption Пожертвования
+                  
+                .philanthropist_report_table
+                  table
+                    tr
+                      th.col_2 Подопечный
+                      th.col_3 Дата
+                      th.col_4 Сумма
+
+                    tr
+                      td.col_2
+                        a.philanthropist_block(href='story.html')
+                          .philanthropist_photo
+                            +phil_percent(34, 100)
+                            img(src='i/phil_1.png')
+                          .philanthropist_fio Лана Егорьева
+                      td.col_3 10.11.17
+                      td.col_4 26 000 руб.
+
+                    tr
+                      td.col_2
+                        a.philanthropist_block(href='story.html')
+                          .philanthropist_photo
+                            +phil_percent(34, 100)
+                            img(src='i/phil_1.png')
+                          .philanthropist_fio Лана Егорьева
+                      td.col_3 10.11.17
+                      td.col_4 26 000 руб.
+
+                    -p=2;
+                    while p < 13
+                      -p++;
+                      tr
+                        td.col_2
+                          a.philanthropist_block(href='story.html')
+                            .philanthropist_photo
+                              +phil_percent(34, 100)
+                              img(src='i/phil_1.png')
+                            .philanthropist_fio Лана Егорьева
+                        td.col_3 10.11.17
+                        td.col_4 26 000 руб.
+                      
+                a.btn_v2.btn_gray.show_more_btn(href='#')
+                  span Смотреть полностью
+                  
+
+      +footer()
+    
+    +popups()
+      
+    +scripts(false, false, false, true)

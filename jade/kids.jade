@@ -1,0 +1,384 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+  +dev_head('Капля Жизни kids')
+
+  body
+    .wrapper
+      .base
+        +header()
+
+        div.main_content
+          .hero_slider_w._public
+            .section_inner
+              .hero_slider._kids
+                .slide
+                  .slide_img
+                    .slide_img_shadow
+                      img(src='i/kid_4.png')
+                    .slide_img_w
+                      img(src='i/kid_1.png')
+
+                  .slide_info
+                    .slide_caption
+                      span.c_blue Сашенька Авдеев
+                      sup 4 года
+
+                    .child_location Россия, Саратов
+
+                    ul.child_photos
+                      li
+                        .child_photo
+                          img(src='i/kid_2.jpg')
+                      li
+                        .child_photo
+                          img(src='i/kid_3.jpg')
+
+          .kid_info_section
+            .section_inner
+              .kid_info
+                .kid_diagnosis
+                  p
+                    span.fw_med.c_blue Диагноз: 
+                    span Синдром Шерешевского-Тернера
+                  p
+                    span.needs_info._blue._x2
+                      span.needs_text
+                        span Требуется 650 000 р.
+                        a.btn_v1.btn_blue.help_btn.drop_anim(href='#')
+                          span П
+                          span._drop
+                            span о
+                          span мочь
+                      span.needs_percent
+                        span._drop
+                          span о
+                        span 60%
+                    
+                .kid_statistics
+                  p 
+                    span.fw_med.c_green Цель: 
+                    span Покупка препарата гормона роста, проведение повторного исследования с целью подтверждения диагноза
+                  
+                  dl.statistics_list
+                    dt.c_green Собрано средств:
+                    dd
+                      span 
+                        img(src='svg/coin.svg' width=16 height=16)
+                      span.c_green 400 000 р.
+                    
+                    dt Осталось собрать:
+                    dd
+                      span 
+                        img(src='svg/no_money.svg' width=16 height=16)
+                      span 250 000 р.
+                    
+          .refund_section._kids
+            +progress('_orange', 53)
+
+            .section_inner
+              .thanks_block_caption.c_blue Не оставайтесь в стороне! 
+
+              p.c_caption Присоединяйтесь к сообществу благородных людей, помогающих детям!<br>Сашенька как никогда ждет Вашу помощь...
+
+              .refund_form
+                form.validateMe(action='#')
+                  .form_row
+                    .form_cell
+                      .input_w
+                        input.f_input_v1.f_input(placeholder='Введите сумму.руб' data-inputmask="'alias': 'decimal', 'groupSeparator': ' ', 'autoGroup': true, 'rightAlign': false" class='validate[required, custom[onlyNumber]]')
+                    .form_cell
+                      button.btn_v1.btn_blue.help_btn.drop_anim
+                        span П
+                        span._drop
+                          span о
+                        span мочь
+                        
+          .ward_list_section
+            .section_inner.clearfix
+              .kids_history
+                ul#kids_switcher.tab_wrapper
+                  li: a.tab_link(href='#kids_tab_1')
+                    span История
+                    sup 32
+                  li: a.tab_link(href='#kids_tab_2')
+                    span Документы
+                    sup 10
+                  li: a.tab_link(href='#kids_tab_3')
+                    span Все пожертвования
+                    sup 1004
+  
+                .tabBlock(data-tab-context='#kids_switcher')
+                  #kids_tab_1.tab_panel
+                    .article_block
+                      .content_block
+                        h3 
+                          span Благодарим всех! Хорошие новости 
+                          sup 08.10.16
+                        
+                        p Семья девочки приехала в Москву из Грузии. Сейчас ребенку нужно пройти срочное обследование. Под подозрением нейробластома — злокачественная опухоль симпатической нервной системы. Необходимая сумма — 180 000 рублей. Давайте поможем малышке Элэнэ вместе!
+                      
+                        ul.article_images
+                          li
+                            img(src='i/article_1.jpg')
+                          li
+                            img(src='i/article_2.jpg')
+                      
+                        p Семья девочки приехала в Москву из Грузии. Сейчас ребенку нужно пройти срочное обследование. Под подозрением нейробластома — злокачественная опухоль симпатической нервной системы. Необходимая сумма — 180 000 рублей. Давайте поможем малышке Элэнэ вместе! Семья девочки приехала в Москву из Грузии. Сейчас ребенку нужно пройти срочное обследование. Под подозрением нейробластома — злокачественная опухоль нервной системы. Необходимая сумма — 180 000 рублей. Давайте поможем малышке Элэнэ вместе!
+                        
+                        h4 Все друзья и родственники замерли в ожидании
+                        
+                        p Семья девочки приехала в Москву из Грузии. Сейчас ребенку нужно пройти срочное обследование. Под подозрением нейробластома — злокачественная опухоль симпатической нервной системы. Необходимая сумма — 180 000 рублей. Давайте поможем малышке Элэнэ вместе! Семья девочки приехала в Москву из Грузии. Сейчас ребенку нужно пройти срочное обследование. Под подозрением нейробластома — злокачественная опухоль нервной системы. Необходимая сумма — 180 000 рублей. Давайте поможем малышке Элэнэ вместе!
+                        
+                        p.article_tip Семья девочки приехала в Москву из Грузии.<br>Сейчас ребенку нужно пройти срочное обследование. 
+                        
+                        p Семья девочки приехала в Москву из Грузии. Сейчас ребенку нужно пройти срочное обследование. Под подозрением нейробластома — злокачественная опухоль симпатической нервной системы.
+                      
+                    .article_block
+                      .content_block
+                        h3
+                          span Благодарим всех! Хорошие новости 
+                          sup 08.10.16
+                          
+                        p Семья девочки приехала в Москву из Грузии. Сейчас ребенку нужно пройти срочное обследование. Под подозрением нейробластома — злокачественная опухоль симпатической нервной системы. Необходимая сумма — 180 000 рублей. Давайте поможем малышке Элэнэ вместе!
+
+                        ul.article_images
+                          li
+                            img(src='i/article_1.jpg')
+                          li
+                            img(src='i/article_2.jpg')
+                            
+                    a.btn_v2.btn_gray.show_more_btn(href='#')
+                      span Смотреть полностью
+                            
+                  #kids_tab_2.tab_panel
+                    .article_block.doc_mod
+                      ul.report_list._mod_2
+                        li
+                          .report_item
+                            a.report_img(data-fancybox="gallery" href="i/doc_big_1.jpg")
+                              img(src='i/doc_1.jpg')
+                            .report_name
+                              a.report_link(href='#')
+                                span Заключение по диагнозу<br>ГБУЗ ЯНАО ЛГБ<br>Больница 3
+                            .report_size 325 Кб
+                              
+                        li
+                          .report_item
+                            a.report_img(data-fancybox="gallery" href="i/doc_big_1.jpg")
+                              img(src='i/doc_1.jpg')
+                            .report_name
+                              a.report_link(href='#')
+                                span Детальные данные осмотра снимков рентгена 
+                            .report_size 325 Кб
+                              
+                        li
+                          .report_item
+                            a.report_img(data-fancybox="gallery" href="i/doc_big_1.jpg")
+                              img(src='i/doc_1.jpg')
+                            .report_name
+                              a.report_link(href='#')
+                                span Направление на лечение<br>в г.Шницельбург (Германия)<br>в больницу MedicinPlusStir...
+                            .report_size 325 Кб
+                              
+                        li
+                          .report_item
+                            a.report_img(data-fancybox="gallery" href="i/doc_big_1.jpg")
+                              img(src='i/doc_1.jpg')
+                            .report_name
+                              a.report_link(href='#')
+                                span Заключение по диагнозу<br>ГБУЗ ЯНАО ЛГБ<br>Больница 3
+                            .report_size 325 Кб
+                              
+                        li
+                          .report_item
+                            a.report_img(href="i/doc_big_1.jpg" target="_blank")
+                              img(src='i/doc_icon.png')
+                              .report_doc_type *.DOCX
+
+                            .report_name
+                              a.report_link(href='#')
+                                span Детальные данные осмотра<br>снимков рентгена 
+                            .report_size 325 Кб
+                              
+                        li
+                          .report_item
+                            a.report_img(data-fancybox="gallery" href="i/doc_big_1.jpg")
+                              img(src='i/doc_1.jpg')
+                            .report_name
+                              a.report_link(href='#')
+                                span Направление на лечение<br>в г.Шницельбург (Германия)<br>в больницу MedicinPlusStir...
+                            .report_size 325 Кб
+                              
+                  #kids_tab_3.tab_panel
+                    .philanthropist_report_table
+                      table
+                        tr
+                          th.col_1 №
+                          th.col_2 Филантроп
+                          th.col_3 Дата
+                          th.col_4 Сумма
+
+                        tr._top-1
+                          td.col_1 37
+                          td.col_2
+                            .philanthropist_block
+                              .philanthropist_top
+                                img(src='svg/1.svg' width=150 height=150)
+                              .philanthropist_photo
+                                +phil_percent(34, 100)
+                                img(src='i/phil_1.png')
+                              .philanthropist_fio Лана Егорьева
+                          td.col_3 10.11.17
+                          td.col_4 26 000 руб.
+
+                        tr._top-2
+                          td.col_1 80
+                          td.col_2
+                            .philanthropist_block
+                              .philanthropist_top
+                                img(src='svg/2.svg' width=150 height=150)
+                              .philanthropist_photo
+                                +phil_percent(34, 100)
+                                img(src='i/phil_1.png')
+                              .philanthropist_fio Лана Егорьева
+                          td.col_3 10.11.17
+                          td.col_4 26 000 руб.
+                          
+                        tr._top-3
+                          td.col_1 154
+                          td.col_2
+                            .philanthropist_block
+                              .philanthropist_top
+                                img(src='svg/3.svg' width=150 height=150)
+                              .philanthropist_photo
+                                +phil_percent(34, 100)
+                                img(src='i/phil_1.png')
+                              .philanthropist_fio Лана Егорьева
+                          td.col_3 10.11.17
+                          td.col_4 26 000 руб.
+                          
+                        -p=3;
+                        while p < 13
+                          -p++;
+                          tr
+                            td.col_1= p
+                            td.col_2
+                              .philanthropist_block
+                                .philanthropist_photo
+                                  +phil_percent(34, 100)
+                                  img(src='i/phil_1.png')
+                                .philanthropist_fio Лана Егорьева
+                            td.col_3 10.11.17
+                            td.col_4 26 000 руб.
+
+                    a.btn_v2.btn_gray.show_more_btn(href='#')
+                      span Смотреть полностью
+                  
+              .kids_donations
+                p
+                  span.fw_med.c_green Не остались равнодушны:
+                  
+                ul.donation_list
+                  li
+                    .philanthropist_box
+                      .transparent
+                        a.pin_img(href='#')
+                          img(src="i/history_avatar_bdr.png", alt="")
+                        .pin_name Евгений<br>Трофимченко
+                        .pin_city с.Кармадейск
+                        .pin_summ.pin_green
+                          | 650 
+                          sub руб.
+                    
+                  li
+                    .philanthropist_box
+                      .transparent
+                        a.pin_img(href='#')
+                          img(src="i/history_avatar_bdr.png", alt="")
+                        .pin_name Екатерина<br>Гориенко
+                        .pin_city г.Москва
+                        .pin_summ.pin_green
+                          | 2 000 
+                          sub руб.
+                    
+                  li
+                    .philanthropist_box
+                      .transparent
+                        a.pin_img(href='#')
+                          img(src="i/history_avatar_bdr.png", alt="")
+                        .pin_name Максим<br>Перегорельченков
+                        .pin_city с.Шахтинск
+                        .pin_summ.pin_green
+                          | 50  
+                          sub руб.
+                          
+                  li
+                    .philanthropist_box
+                      .transparent
+                        a.pin_img(href='#')
+                          img(src="i/history_avatar_bdr.png", alt="")
+                        .pin_name Вероника<br>Глостюбенчик
+                        .pin_city г. Ростов-на-Дону
+                        .pin_summ.pin_green
+                          span.philanthropist_top._top-1
+                          | 26 000  
+                          sub руб.
+
+                  li
+                    .philanthropist_box._current
+                      .transparent
+                        a.pin_img(href='#')
+                          img(src="i/history_avatar_bdr.png", alt="")
+                        .pin_name Тут может быть<br>Ваше пожертвование
+                        .pin_city Сделайте ребенка счастливей!
+                        .philanthropist_box_footer
+                          a.btn_v1.btn_blue.help_btn.drop_anim(href='#')
+                            span П
+                            span._drop
+                              span о
+                            span мочь
+
+                  li
+                    .philanthropist_box
+                      .transparent
+                        a.pin_img(href='#')
+                          img(src="i/history_avatar_bdr.png", alt="")
+                        .pin_name Вероника<br>Глостюбенчик
+                        .pin_city г. Ростов-на-Дону
+                        .pin_summ.pin_green._top-1
+                          | 26 000  
+                          sub руб.
+
+                  li
+                    .philanthropist_box
+                      .transparent
+                        a.pin_img(href='#')
+                          img(src="i/history_avatar_bdr.png", alt="")
+                        .pin_name Максим<br>Перегорельченков
+                        .pin_city с.Шахтинск
+                        .pin_summ.pin_green
+                          | 50  
+                          sub руб.
+                          
+                  li
+                    .philanthropist_box
+                      .transparent
+                        a.pin_img(href='#')
+                          img(src="i/history_avatar_bdr.png", alt="")
+                        .pin_name Вероника<br>Глостюбенчик
+                        .pin_city г. Ростов-на-Дону
+                        .pin_summ.pin_green
+                          | 26 000  
+                          sub руб.
+                          
+                div
+                  a.gl_link._inner(href='#')
+                    span Все пожертвования
+
+      +footer()
+
+    +popups()
+
+    +scripts(false, false, false, false, true)
+    

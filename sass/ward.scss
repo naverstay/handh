@@ -1,0 +1,124 @@
+.ward_counter {
+  font-size: 14px;
+  margin: 10px 0 30px;
+}
+
+.ward_hero {
+
+  .help_block_info {
+    padding-top: 70px;
+  }
+
+}
+
+.ward_icon {
+  font-size: 45px;
+}
+
+.ward_info {
+  float: left;
+  width: 49%;
+
+  p {
+    font: 18px/1.25 $RobotoLight;
+  }
+}
+
+.ward_info_caption {
+  color: $caption_color;
+  font: 23px $RobotoMed;
+  margin-bottom: 36px;
+  letter-spacing: -.01em;
+}
+
+.ward_stat {
+  float: right;
+  width: 49%;
+  background: #eef4f9;
+  margin: 10px 0;
+  padding: 32px 20px 5px;
+}
+
+.ward_coin {
+  margin-right: 8px;
+}
+
+.ward_stat_list {
+  line-height: 36px;
+
+  dt {
+    text-align: right;
+    float: left;
+    clear: both;
+    width: 47%;
+    padding: 2px 40px 0 0;
+    font: 18px/2 $RobotoLight;
+    margin-bottom: 42px;
+  }
+
+  dd {
+    float: right;
+    width: 53%;
+  }
+}
+
+.ward_summ {
+  font: 36px/36px $Ossemrounded;
+
+  sub {
+    font-size: .5em;
+    padding-left: 7px;
+  }
+}
+
+.ward_info_section {
+  padding: 62px 0 50px;
+  background: #fff;
+}
+
+.ward_list_section {
+  padding: 45px 0 30px;
+  background: #eef4f9;
+}
+
+.tab_wrapper {
+  @extend %clearfix;
+  margin-left: -30px;
+  padding-bottom: 18px;
+
+  li {
+    float: left;
+    margin-bottom: 20px;
+    padding-left: 30px;
+  }
+}
+
+.tab_link {
+  font-size: 16px;
+  letter-spacing: .02em;
+
+  span {
+    @include transition_all(color .3s, border .3s);
+    color: $blue;
+    border-bottom: 1px dotted $blue;
+  }
+
+  sup {
+    font-size: .8em;
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 5px;
+    margin-top: -.5em;
+    color: $caption_color;
+  }
+
+  .ui-tabs-active & {
+    span {
+      color: $caption_color;
+      border-bottom-color: transparent;
+    }
+  }
+}
+
+
+

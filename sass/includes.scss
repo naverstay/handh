@@ -2,14 +2,20 @@
 @import "reset";
 @import "fonts";
 //@import "datapicker";
-//@import "dialog_global";
 @import "font_icons";
+@import "animate";
 @import "../fond_icons/style.scss";
 
 @import "validationEngine.jquery";
 @import "jquery.ui.all";
+@import "select2";
+@import "jquery.fancybox";
+@import "jquery.tagit";
 @import "header";
 @import "first_screen";
+@import "ward";
+@import "content";
+@import "public";
 @import "forms";
 @import "buttons";
 @import "tables";

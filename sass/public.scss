@@ -1,0 +1,349 @@
+.public_section {
+
+}
+
+.public_aside {
+  float: left;
+  width: 370px;
+  padding: 53px 0 125px;
+
+  .counter_val {
+    font-size: 36px;
+
+    img {
+      margin-right: 20px;
+    }
+  }
+
+  .counter_box {
+    margin-bottom: 34px;
+
+    p {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+  }
+
+  > p {
+    margin-bottom: 20px;
+    line-height: 1.44;
+
+    + .public_caption {
+      margin-top: 55px;
+    }
+  }
+
+  .pluso {
+    margin-top: -10px;
+    margin-left: -5px;
+  }
+
+  .pluso-more {
+    display: none !important;
+  }
+}
+
+.public_content {
+  margin-left: 400px;
+
+  .help_block_slider {
+    margin-top: -165px;
+    margin-bottom: 47px;
+    padding: 0 90px 0 80px;
+
+    .help_slider_btn._next {
+      right: 38px;
+      margin-top: -28px;
+    }
+
+    .help_slider_btn._prev {
+      left: 35px;
+      margin-top: -28px;
+    }
+  }
+
+  .philanthropist_report_table {
+    margin-top: -27px;
+
+    th,
+    td {
+      padding-left: 27px;
+    }
+
+    table .col_2 {
+      width: 33%;
+    }
+
+    table .col_3 {
+      width: 18%;
+    }
+
+    table .col_4 {
+      width: 17%;
+    }
+  }
+}
+
+.public_aside_counters {
+  padding-bottom: 10px;
+  min-height: 255px;
+}
+
+.slogan_edit {
+  cursor: pointer;
+  font-size: 16px;
+  display: none;
+  vertical-align: middle;
+  margin: -2px 5px;
+}
+
+.public_caption {
+  font: 23px $RobotoMed;
+  margin-bottom: 38px;
+}
+
+.child_photos {
+  @extend %clearfix;
+  font-size: 0;
+  padding-top: 12px;
+  white-space: nowrap;
+
+  li {
+    display: inline-block;
+    vertical-align: top;
+
+    &:first-child {
+      margin-left: -88px;
+    }
+  }
+}
+
+.child_photo {
+  img {
+    display: block;
+  }
+}
+
+.kid_info_section {
+  background: #fff;
+  padding: 57px 0 37px;
+}
+
+.kid_info {
+  @extend %clearfix;
+
+  p {
+    font: 18px/1.7 $RobotoLight;
+    margin-bottom: 20px;
+
+    + p {
+      margin-top: 40px;
+    }
+
+  }
+}
+
+.kid_diagnosis {
+  float: left;
+  width: 40%;
+
+  span {
+
+  }
+}
+
+.kid_statistics {
+  float: right;
+  width: 48.5%;
+}
+
+.statistics_list {
+  @extend %clearfix;
+  line-height: 28px;
+
+  dt {
+    float: left;
+    font: 20px/28px $RobotoLight;
+    clear: both;
+    min-width: 34%;
+    padding-right: 5px;
+  }
+
+  dd {
+    max-width: 66%;
+    float: left;
+    font-size: 25px;
+    margin-bottom: 14px;
+
+    img {
+      margin-right: 5px;
+    }
+  }
+
+}
+
+.kids_history {
+  width: 100%;
+  float: left;
+  padding-top: 30px;
+  padding-right: 300px;
+  margin-bottom: 75px;
+
+  .philanthropist_report_table {
+    padding-top: 15px;
+
+    table {
+      .col_1 {
+        width: 5%;
+      }
+
+      .col_2 {
+        width: 32%;
+      }
+
+      .col_3 {
+        width: 16%;
+      }
+
+      .col_4 {
+        width: 15%;
+      }
+    }
+  }
+}
+
+.article_block {
+  background: #fff;
+  padding: 47px 50px 25px 40px;
+  margin-top: 20px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  .content_block {
+    padding: 0;
+    margin: 0;
+
+    h3 {
+      margin-bottom: 30px;
+    }
+
+    h4 {
+      font-size: 18px;
+      margin-top: 57px;
+    }
+
+    p {
+      margin-bottom: 25px;
+    }
+
+    .article_tip {
+      padding-left: 20px;
+      position: relative;
+      margin-top: 40px;
+      margin-bottom: 47px;
+      font-size: 16px;
+      line-height: 1.3;
+      color: #86b42c;
+      
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 2px;
+        top: -3px;
+        bottom: -3px;
+        background: #e5e5e5;
+      }
+    }
+  }
+
+  .article_images {
+    @extend %clearfix;
+    margin-bottom: 65px;
+
+    li {
+      float: left;
+      width: 50%;
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 10px;
+    }
+  }
+
+  &.doc_mod {
+    padding: 37px 0 25px 20px;
+
+    .report_list._mod_2 li {
+      margin-bottom: 65px;
+    }
+  }
+}
+
+.kids_donations {
+  float: right;
+  width: 270px;
+  padding: 30px 0;
+  margin-left: -100%;
+
+  p {
+    margin-bottom: 40px;
+    font-size: 16px;
+  }
+}
+
+.donation_list {
+  padding-bottom: 6px;
+
+  li {
+    margin-bottom: 20px;
+  }
+
+  .philanthropist_box {
+    > div {
+      width: 100% !important;
+    }
+
+    .transparent {
+      position: relative;
+      overflow: hidden;
+      padding: 8px 20px 18px 70px;
+    }
+
+    .pin_img {
+      top: 10px;
+    }
+
+    .pin_city {
+      position: relative;
+    }
+
+    .pin_name {
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+
+    .pin_summ {
+      margin-top: 30px;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        width: 500px;
+        margin-left: -250px;
+        height: 1px;
+        background: #e4f1fc;
+      }
+
+    }
+  }
+}

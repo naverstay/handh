@@ -1,0 +1,162 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+  +dev_head('Капля Жизни Филантропы')
+
+  body
+    .wrapper
+      .base
+        +header()
+        
+        div.main_content
+          .add_request.ward_hero
+            .add_request_img.checkLoad
+              .stellar_img
+                img(src='i/phil_hero.jpg')
+              .help_block_info
+                .section_inner
+                  .text_center
+                    .ward_icon.i-hands
+                  .ward_counter 34 545 филантропов
+                  h1 Филантропы
+                  h5 люди которые дарят детям здоровье и радость
+                  
+          .ward_info_section
+            .section_inner.clearfix
+              .ward_info
+                .ward_info_caption Кто такие филантропы?
+                p Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана. Маленький ручеек Даль журчит по всей стране и обеспечивает ее всеми необходимыми правилами. Эта парадигматическая страна, в которой жаренные члены предложения залетают прямо в рот
+                    
+              .ward_stat
+                dl.ward_stat_list
+                  dt.c_caption Участвуют в сборах
+                  dd 
+                    span.ward_coin 
+                      img(src='svg/people.svg' width=24 height=24)
+                    span.c_blue.ward_summ
+                      span 1 500
+                      sub чел.
+                    
+                  dt.c_caption Средний платеж
+                  dd 
+                    span.ward_coin 
+                      img(src='svg/coin.svg' width=24 height=24)
+                    span.c_blue.ward_summ
+                      span 5 120 220 
+                      sub руб.
+
+          .philanthropist_section._mod_1
+            .section_inner
+              .thanks_special_caption
+                span.c_green Самые активные 
+                span.c_blue филантропы нашего фонда:
+                
+            ul.philanthropist_list
+              - i=10;
+              while i > 0
+                - i--;
+                li
+                  .philanthropist_unit
+                    a.philanthropist_avatar(href='#')
+                      img(src='i/philanthropist.png')
+                    p.philanthropist_name Евгений Т.
+                    p.philanthropist_location с.Кармадейск
+                    p.philanthropist_summ
+                      span 1 393 451 
+                      sub руб.
+
+                    +philanthropist_rate(320 - 20 * i)
+
+              - i=1;
+              while i < 10
+                - i++;
+                li
+                  .philanthropist_unit
+                    a.philanthropist_avatar(href='#')
+                      img(src='i/philanthropist.png')
+                    p.philanthropist_name Евгений Т.
+                    p.philanthropist_location с.Кармадейск
+                    p.philanthropist_summ
+                      span 1 393 451 
+                      sub руб.
+
+                    +philanthropist_rate(320 - 18 * i)
+
+            .section_inner
+              .join_block
+                a.btn_v1.btn_blue.help_btn(href='#')
+                  span Присоединиться к ним!
+                  
+              .philanthropist_report 
+                .philanthropist_report_caption.c_green Отчет о полученных средствах
+                .philanthropist_report_table
+                  table
+                    tr
+                      th.col_1 №
+                      th.col_2 Филантроп
+                      th.col_3 Дата
+                      th.col_4 Сумма
+                      th.col_5 Подопечный
+                      
+                    tr
+                      td.col_1 1
+                      td.col_2
+                        a.philanthropist_block(href='public.html')
+                          .philanthropist_photo
+                            +phil_percent(34, 100)
+                            img(src='i/phil_1.png')
+                          .philanthropist_fio Лана Егорьева
+                      td.col_3 10.11.17
+                      td.col_4 26 000 руб.
+                      td.col_5
+                        a.philanthropist_block(href='story.html')
+                          .philanthropist_photo
+                            +phil_percent(34, 15, 'p_red')
+                            img(src='i/ward_1.png')
+                          .philanthropist_fio Денис Меньшиков
+                            
+                    tr
+                      td.col_1 2
+                      td.col_2
+                        a.philanthropist_block(href='public.html')
+                          .philanthropist_photo
+                            +phil_percent(34, 100)
+                            img(src='i/phil_1.png')
+                          .philanthropist_fio Лана Егорьева
+                      td.col_3 10.11.17
+                      td.col_4 26 000 руб.
+                      td.col_5
+                        a.philanthropist_block(href='story.html')
+                          .philanthropist_photo
+                            +phil_percent(34, 55, 'p_orange')
+                            img(src='i/ward_1.png')
+                          .philanthropist_fio Денис Меньшиков
+                      
+                    -p=2;
+                    while p < 13
+                      -p++;
+                      tr
+                        td.col_1= p
+                        td.col_2 
+                          a.philanthropist_block(href='public.html')
+                            .philanthropist_photo
+                              +phil_percent(34, 100)
+                              img(src='i/phil_1.png')
+                            .philanthropist_fio Лана Егорьева
+                        td.col_3 10.11.17
+                        td.col_4 26 000 руб.
+                        td.col_5
+                          a.philanthropist_block(href='story.html')
+                            .philanthropist_photo
+                              +phil_percent(34, 85, 'p_green')
+                              img(src='i/ward_1.png')
+                            .philanthropist_fio Денис Меньшиков
+                      
+                a.btn_v2.btn_gray.show_more_btn(href='#')
+                  span Смотреть полностью
+
+      +footer()
+    
+    +popups()
+      
+    +scripts(false, true)

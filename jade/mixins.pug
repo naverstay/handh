@@ -17,52 +17,232 @@ mixin loop_while(counter)
     -i++;
     block
 
-mixin scripts(index)
+mixin scripts(index, content, all_stories, public_page, kids)
   script(src='js/jquery1.10.js')
+  script(src='js/jquery-ui-1.11.4.js')
+  script(src='js/jquery.validationEngine.js')
+  script(src='js/jquery.validationEngine-ru.js')
+  script(src='js/select2.js')
+  script(src='js/jquery.inputmask.bundle.js')
   script(src='js/script.js')
     
   - if (index)
-    script(src='https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true')
     script(src='js/slick.js')
+    script(src='js/infobubble.js')
     script(src='js/index.js')
+    script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCl7THpWflv0u70jhfuU4T6KbuNy0fuxME&callback=loadMap')
 
-mixin header()
+  - if (kids)
+    script(src='js/jquery.fancybox.js')
+    script(src='js/kids.js')
+    
+  - if (content)
+    script(src='js/slick.js')
+    script(src='js/content.js')
+    
+  - if (all_stories)
+    script(src='js/jquery.stellar.js')
+    script(src='js/tag-it.min.js')
+    script(src='js/all_stories.js')
+        
+  - if (public_page)
+    | 
+    |  <script type="text/javascript">(function() {
+    |    if (window.pluso)if (typeof window.pluso.start == "function") return;
+    |    if (window.ifpluso==undefined) { window.ifpluso = 1;
+    |      var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+    |      s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+    |      s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
+    |      var h=d[g]('body')[0];
+    |      h.appendChild(s);
+    |  }})();</script>
+    | 
+    script(src='js/slick.js')
+    script(src='js/public.js')
+    
+
+mixin header(active)
   .header
     .section_inner
       .logo_block
-        a.logo(href='#')
+        a.logo(href='index.html')
           span.c_blue Капля
           span.c_green Жизни
           p.c_gray благотворительный фонд
 
-      +main_menu()
+      +main_menu(active)
 
       .user_menu
-        a.gl_link(href='#')
+        a.gl_link.authBtn(href='#')
           .user_avatar
             img(src='i/sean_connery.png')
           span Личный кабинет
         
-mixin footer()
+mixin phil_percent(size, percent, cls)
+  - var dash = (size * 1.58) || 100
+  svg.philanthropist_cart(width= size height= size)
+    circle.philanthropist_pie(class= cls || '' r= size/4 cx= size/2 cy= size/2 style="stroke-dasharray:" + (dash * percent / 100) + "," + dash + "; stroke-width:" + size/2)
+          
+mixin popups()
+  #auth_popup.popup.popup_v1
+    .popup_inner
+      ul.popup_switcher
+        li
+          span.c_green Авторизация
+        li
+          a.regBtn.gl_link._inner(href='#'): span Регистрация
+
+      input(type='hidden' autofocus)
+
+      form.validateMe(action='#')
+        .form_cell.form_cell_v1.formCell
+          input#user_login.f_input_v1.f_input(class='validate[required]' placeholder='Логин')
+        .form_cell.form_cell_v1.formCell
+          input#user_pass.f_input_v1.f_input(class='validate[required, minSize[6]]' placeholder='Пароль' data-errormessage="Пароль не может быть менее 6 символов")
+          
+        .form_cell.form_cell_v3.recovery_cell
+          a.gl_link(href='#')
+            span Восстановить пароль
+          
+        .form_cell.form_cell_v1
+          button.btn_v1.btn_blue.help_btn
+            span Войти
+
+  #order_popup.popup.popup_v1
+    .popup_inner
+      ul.popup_switcher
+        li._single
+          span.c_blue Заявка на помощь ребенку
+
+      input(type='hidden' autofocus)
+
+      form.validateMe(action='#')
+        .form_group
+          .form_cell.form_cell_v1.formCell
+            input#order_fio.f_input_v1.f_input(class='validate[required]' placeholder='ФИО')
+          
+          .form_cell.form_cell_v1.formCell.select_box_v1
+            select.select2.validateHidden(data-placeholder='Укажите город' name='order_location')
+              option(disabled selected)
+              +loop_while(2)
+                option(value=1) Москва
+                option(value=2) Санкт-Петербург
+                option(value=3) Ростов-на-Дону
+                option(value=4) Воронеж
+                option(value=5) Красноярск
+                option(value=6) Алмата
+                option(value=7) Владивосток
+                option(value=8) Калининград
+                
+          .form_cell.form_cell_v6.formCell.select_box_v1
+            select.select2.validateHidden(data-placeholder='Возраст ребенка' name='order_age')
+              option(disabled selected)
+              -age=0;
+              while age < 14
+                -age++;
+                option(value=age)= age
+                
+            .form_cell_tip
+              span.i-error_triangle
+              span Фонд принимает детей возрастом не старше 14 лет
+
+        .form_group
+          .form_cell.form_cell_v5.formCell
+            textarea#order_comment.f_input_v1.f_input(class='' placeholder='Напишите диагноз/причину обращения')
+            
+        .form_group
+          .form_group_caption
+            spanc.c_blue Прикрепите документы
+            
+          ul.report_list._mod_3
+            +loop_while(2)
+              li.docItem
+                .report_item
+                  .report_icon
+                  .report_name._rm
+                    a.report_link(href='#')
+                      span Свидетельство о рождении.PDF
+                      
+                    a.remove_link.docRmBtn(href='#')
+                      span.i-delete
+                      
+                  .report_size 325 Кб
+                    
+          .text_left
+            input#doc_list.inp_hidden(type='file')
+            label.green_btn.btn_v1.doc_btn(for='doc_list')
+              span Добавить документ
+                    
+          .text_left.form_cell_v6.form_cell
+            a.gl_link.fz_12(href='#')
+              span Список необходимых документов
+            
+        .form_cell.form_cell_v1
+          button.btn_v1.btn_blue.help_btn
+            span Отправить
+
+  #reg_popup.popup.popup_v1
+    .popup_inner
+      ul.popup_switcher
+        li
+          span.c_green Регистрация
+        li
+          a.authBtn.gl_link._inner(href='#'): span Авторизация
+
+      input(type='hidden' autofocus)
+
+      form.validateMe(action='#')
+        .form_group
+          .form_cell.form_cell_v1.formCell
+            input#user_name.f_input_v1.f_input(class='validate[required]' placeholder='Ваше имя')
+          .form_cell.form_cell_v1.formCell
+            input#user_email.f_input_v1.f_input(class='validate[required, minSize[6]]' placeholder='E-mail')
+          
+        .form_group
+          .form_cell.form_cell_v1.formCell
+            input#user_password.f_input_v1.f_input(class='validate[required]' placeholder='Пароль')
+          .form_cell.form_cell_v4.formCell
+            input#user_password_2.f_input_v1.f_input(class='validate[required, minSize[6]]' placeholder='Еще раз пароль')
+            .form_cell_tip Не короче 6 символов, A-Z, одна заглавная обязательна
+            
+        .form_cell.form_cell_v3.formCell.select_box_v1.dropdown_small
+          select.select2.validateHidden(data-placeholder='Укажите город' name='user_location')
+            option(disabled selected)
+            +loop_while(2)
+              option(value=1) Москва
+              option(value=2) Санкт-Петербург
+              option(value=3) Ростов-на-Дону
+              option(value=4) Воронеж
+              option(value=5) Красноярск
+              option(value=6) Алмата
+              option(value=7) Владивосток
+              option(value=8) Калининград
+            
+        .form_cell.form_cell_v1
+          button.btn_v1.btn_blue.help_btn
+            span Регистрация
+            
+mixin footer(active)
+  
   .footer
     .section_inner
       .copyright ООО "Капля Воды" &nbsp;&nbsp;&nbsp; Лицензия №2112412412412
         
-      +main_menu()
+      +main_menu(active)
 
-mixin main_menu()
+mixin main_menu(active)
   ul.main_menu
     li.menu_item
-      a.gl_link(href='#')
+      a.gl_link(href='all_stories.html')
         span Что мы делаем?
     li.menu_item
-      a.gl_link(href='#')
+      a.gl_link(href='ward.html')
         span Подопечные
     li.menu_item
-      a.gl_link(href='#')
+      a.gl_link(href='philanthropist.html')
         span Филантропы
     li.menu_item
-      a.gl_link(href='#')
+      a.gl_link(href='story.html')
         span Истории
         
 mixin progress(cls, size)

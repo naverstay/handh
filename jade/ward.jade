@@ -1,0 +1,312 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+  +dev_head('Капля Жизни Подопечные нашего фонда')
+
+  body
+    .wrapper
+      .base
+        +header()
+        
+        div.main_content
+          .add_request.ward_hero
+            .add_request_img.checkLoad
+              .stellar_img
+                img(src='i/ward_hero.jpg')
+              .help_block_info
+                .section_inner
+                  .text_center
+                    .i-ward.ward_icon
+                  .ward_counter 1 234 подопечных 
+                  h1 Подопечные нашего фонда
+                  h5 им требуется Ваша помощь
+
+                  
+          .ward_info_section
+            .section_inner.clearfix
+              .ward_info
+                .ward_info_caption На что идут собранные средства?
+                p Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана. Маленький ручеек Даль журчит по всей стране и обеспечивает ее всеми необходимыми правилами. Эта парадигматическая страна, в которой жаренные члены предложения залетают прямо в рот
+                    
+              .ward_stat
+                dl.ward_stat_list
+                  dt.c_caption Собранно средств
+                  dd 
+                    span.ward_coin 
+                      img(src='svg/coin.svg' width=24 height=24)
+                    span.c_blue.ward_summ
+                      span 2 543 220 
+                      sub руб.
+                    
+                  dt.c_caption Осталось собрать
+                  dd 
+                    span.ward_coin 
+                      img(src='svg/no_money.svg' width=24 height=24)
+                    span.c_blue.ward_summ
+                      span 5 120 220 
+                      sub руб.
+                  
+          .ward_list_section
+            .section_inner
+              ul#ward_switcher.tab_wrapper
+                li: a.tab_link(href='#ward_tab_1')
+                  span Идет сбор средтств
+                  sup 1000
+                li: a.tab_link(href='#ward_tab_2')
+                  span Отправлены на лечение
+                  sup 234
+                  
+              .tabBlock(data-tab-context='#ward_switcher')
+                #ward_tab_1.tab_panel
+                  +loop_while(1)
+                    .help_block
+                      .help_block_aside
+                        img(src='i/peredartseva.jpg')
+                      
+                      .help_info
+                        p
+                          span.c_green Уже помогают 
+                          span
+                            a.gl_link(href='#')
+                              span 15 человек
+                        
+                        dl.help_info
+                          dt Требуется: 
+                          dd 900 000 руб.
+                          dt Собрано: 
+                          dd 100 000 руб.
+                          dt Осталось: 
+                          dd 800 000 руб.
+                            
+                      .child_info_block
+                        .child_title
+                          span.c_caption Катя Передарцева 
+                          sup 4 годика
+                          
+                        .child_location Россия, Саратов
+                        
+                        dl.child_info
+                          dt Диагноз: 
+                          dd Синдром Шерешевского-Тернера
+            
+                          dt Цель: 
+                          dd Покупка препарата гормона роста
+                          
+                        p Семья девочки приехала в Москву из Грузии. Сейчас ребенку нужно пройти срочное обследование. Под подозрением нейробластома — злокачественная опухоль симпатической нервной системы. Необходимая сумма — 180 000 рублей. Давайте поможем малышке Элэнэ вместе!
+                        
+                        p 
+                          a.gl_link(href='#')
+                            span Подробнее
+                          
+                      .help_block_footer
+                        a.btn_v1.btn_blue.help_btn._d-b.drop_anim(href='#')
+                          span П
+                          span._drop
+                            span о
+                          span мочь
+                          
+                      .help_block_progress
+                        +progress('_red', 14)
+                        
+                    .help_block
+                      .help_block_aside
+                        img(src='i/peredartseva.jpg')
+                      
+                      .help_info
+                        p
+                          span.c_red Еще никто не помогает :( 
+                        
+                        dl.help_info
+                          dt Требуется: 
+                          dd 154 000 руб.
+                          dt Собрано: 
+                          dd 0 руб.
+                          dt Осталось: 
+                          dd 154 000 руб.
+                            
+                      .child_info_block
+                        .child_title
+                          span.c_caption Катя Передарцева 
+                          sup 4 годика
+                          
+                        .child_location Россия, Саратов
+                        
+                        dl.child_info
+                          dt Диагноз: 
+                          dd Синдром Шерешевского-Тернера
+            
+                          dt Цель: 
+                          dd Покупка препарата гормона роста
+                          
+                        p Семья девочки приехала в Москву из Грузии. Сейчас ребенку нужно пройти срочное обследование. Под подозрением нейробластома — злокачественная опухоль симпатической нервной системы. Необходимая сумма — 180 000 рублей. Давайте поможем малышке Элэнэ вместе!
+                        
+                        p 
+                          a.gl_link(href='#')
+                            span Подробнее
+                          
+                      .help_block_footer
+                        a.btn_v1.btn_blue.help_btn._d-b.drop_anim(href='#')
+                          span П
+                          span._drop
+                            span о
+                          span мочь
+                          
+                      .help_block_progress
+                        +progress('_red', 1)
+                        
+                    .help_block
+                      .help_block_aside
+                        img(src='i/peredartseva.jpg')
+                      
+                      .help_info
+                        p
+                          span.c_green Уже помогают 
+                          span
+                            a.gl_link(href='#')
+                              span 98 человек
+                        
+                        dl.help_info
+                          dt Требуется: 
+                          dd 50 000 руб.
+                          dt Собрано: 
+                          dd 45 678 руб.
+                          dt Осталось: 
+                          dd 4 322 руб.
+                            
+                      .child_info_block
+                        .child_title
+                          span.c_caption Костя Константинопольский 
+                          sup 3 годика
+                          
+                        .child_location Россия, Саратов
+                        
+                        dl.child_info
+                          dt Диагноз: 
+                          dd Синдром Шерешевского-Тернера
+            
+                          dt Цель: 
+                          dd Покупка препарата гормона роста
+                          
+                        p Семья девочки приехала в Москву из Грузии. Сейчас ребенку нужно пройти срочное обследование. Под подозрением нейробластома — злокачественная опухоль симпатической нервной системы. Необходимая сумма — 180 000 рублей. Давайте поможем малышке Элэнэ вместе!
+                        
+                        p 
+                          a.gl_link(href='#')
+                            span Подробнее
+                          
+                      .help_block_footer
+                        a.btn_v1.btn_blue.help_btn._d-b.drop_anim(href='#')
+                          span П
+                          span._drop
+                            span о
+                          span мочь
+                          
+                      .help_block_progress
+                        +progress('_green', 84)
+                        
+                    .help_block
+                      .help_block_aside
+                        img(src='i/peredartseva.jpg')
+                      
+                      .help_info
+                        p
+                          span.c_red Еще никто не помогает :( 
+                        
+                        dl.help_info
+                          dt Требуется: 
+                          dd 154 000 руб.
+                          dt Собрано: 
+                          dd 0 руб.
+                          dt Осталось: 
+                          dd 154 000 руб.
+                            
+                      .child_info_block
+                        .child_title
+                          span.c_caption Амелия Козакова
+                          sup 4 годика
+                          
+                        .child_location Россия, Саратов
+                        
+                        dl.child_info
+                          dt Диагноз: 
+                          dd Синдром Шерешевского-Тернера
+            
+                          dt Цель: 
+                          dd Покупка препарата гормона роста
+                          
+                        p Семья девочки приехала в Москву из Грузии. Сейчас ребенку нужно пройти срочное обследование. Под подозрением нейробластома — злокачественная опухоль симпатической нервной системы. Необходимая сумма — 180 000 рублей. Давайте поможем малышке Элэнэ вместе!
+                        
+                        p 
+                          a.gl_link(href='#')
+                            span Подробнее
+                          
+                      .help_block_footer
+                        a.btn_v1.btn_blue.help_btn._d-b.drop_anim(href='#')
+                          span П
+                          span._drop
+                            span о
+                          span мочь
+                          
+                      .help_block_progress
+                        +progress('_orange', 75)
+                        
+    
+    
+                #ward_tab_2.tab_panel
+                  +loop_while(4)
+                    .help_block
+                      .help_block_aside
+                        img(src='i/peredartseva.jpg')
+                      
+                      .help_info
+                        p
+                          span.c_green Уже помогают 
+                          span
+                            a.gl_link(href='#')
+                              span 15 человек
+                        
+                        dl.help_info
+                          dt Требуется: 
+                          dd 900 000 руб.
+                          dt Собрано: 
+                          dd 100 000 руб.
+                          dt Осталось: 
+                          dd 800 000 руб.
+                            
+                      .child_info_block
+                        .child_title
+                          span.c_caption Катя Передарцева 
+                          sup 4 годика
+                          
+                        .child_location Россия, Саратов
+                        
+                        dl.child_info
+                          dt Диагноз: 
+                          dd Синдром Шерешевского-Тернера
+            
+                          dt Цель: 
+                          dd Покупка препарата гормона роста
+                          
+                        p Семья девочки приехала в Москву из Грузии. Сейчас ребенку нужно пройти срочное обследование. Под подозрением нейробластома — злокачественная опухоль симпатической нервной системы. Необходимая сумма — 180 000 рублей. Давайте поможем малышке Элэнэ вместе!
+                        
+                        p 
+                          a.gl_link(href='#')
+                            span Подробнее
+                          
+                      .help_block_footer
+                        a.btn_v1.btn_blue.help_btn._d-b.drop_anim(href='#')
+                          span П
+                          span._drop
+                            span о
+                          span мочь
+                          
+                      .help_block_progress
+                        +progress('_red', 14)
+                        
+            .preloader_block
+              img(src='svg/preloader.svg' width=90)
+            
+      +footer()
+    
+    +popups()
+      
+    +scripts(false)

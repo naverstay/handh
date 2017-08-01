@@ -9,9 +9,9 @@
   padding-bottom: 27px;
   line-height: 40px;
   z-index: 5;
-  
-  .section_inner {
-  
+
+  .header_v1 & {
+    box-shadow: 0 4px 33px rgba(8, 64, 86, .17);
   }
 }
 
@@ -36,7 +36,7 @@
     font: 34px/1 $Ossemrounded;
     letter-spacing: .01em;
   }
-  
+
   p {
     font-size: 12px;
     letter-spacing: .025em;
@@ -52,7 +52,7 @@
   display: inline-block;
   vertical-align: middle;
   margin-right: 10px;
-  
+
   img {
     display: block;
   }
@@ -65,7 +65,7 @@
 // *********  menu
 
 .main_menu {
-  
+
   @include respond-to-min($resp_step_2) {
     .header & {
       float: left;
