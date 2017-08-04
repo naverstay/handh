@@ -44,6 +44,7 @@ $blue: #3490e6;
 $gray: #8c9da9;
 $red: #ea3d3d;
 $gray_light: #757e84;
+$gray_light_2: #989898;
 
 @mixin opacity($val : 1, $important : 0) {
   @if $important == 0 {

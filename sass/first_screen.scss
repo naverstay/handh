@@ -261,7 +261,7 @@ body {
       .slogan_edit {
         display: inline-block;
       }
-      
+
       &:before {
         background: url(../i/slogan_pipe_w.png) no-repeat 0 0;
       }
@@ -498,6 +498,31 @@ body {
   }
 }
 
+.child_card_holder {
+  margin: -50px -100px 22px;
+  text-align: left;
+
+  .child_card {
+    @include transform_translate(0, 0);
+    opacity: 1;
+    box-shadow: none;
+    padding-right: 200px;
+    padding-top: 20px;
+    height: auto;
+  }
+
+  .child_avatar {
+    position: absolute;
+    left: 20px;
+  }
+
+  .needs_info {
+    position: absolute;
+    top: 22px;
+    right: 32px;
+  }
+}
+
 .child_card_progress {
   position: absolute;
   bottom: 0;
@@ -509,6 +534,7 @@ body {
 }
 
 .progress_val {
+  @include transition_all(background .3s, width .3s);
   position: absolute;
   bottom: 0;
   left: 0;
@@ -552,6 +578,12 @@ body {
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.child_age {
+  font-size: 12px;
+  color: #000;
+  margin-top: -25px;
 }
 
 .counters_section {
@@ -615,6 +647,27 @@ body {
 
   .tab_panel & {
     margin-bottom: 40px;
+  }
+}
+
+.help_description {
+  position: relative;
+  padding-left: 48px;
+  margin-bottom: 30px;
+  text-align: left;
+  font-size: 12px;
+  line-height: 1.5;
+  min-height: 30px;
+  color: $caption_color;
+}
+
+.help_description_icon {
+  position: absolute;
+  top: 5px;
+  left: 0;
+
+  img {
+    display: block;
   }
 }
 

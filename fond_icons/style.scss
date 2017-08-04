@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: 'fond_icons';
-  src:  url('#{$icomoon-font-path}/fond_icons.eot?ylpb2w');
-  src:  url('#{$icomoon-font-path}/fond_icons.eot?ylpb2w#iefix') format('embedded-opentype'),
-    url('#{$icomoon-font-path}/fond_icons.ttf?ylpb2w') format('truetype'),
-    url('#{$icomoon-font-path}/fond_icons.woff?ylpb2w') format('woff'),
-    url('#{$icomoon-font-path}/fond_icons.svg?ylpb2w#fond_icons') format('svg');
+  src:  url('#{$icomoon-font-path}/fond_icons.eot?gxz3du');
+  src:  url('#{$icomoon-font-path}/fond_icons.eot?gxz3du#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/fond_icons.ttf?gxz3du') format('truetype'),
+    url('#{$icomoon-font-path}/fond_icons.woff?gxz3du') format('woff'),
+    url('#{$icomoon-font-path}/fond_icons.svg?gxz3du#fond_icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -26,6 +26,26 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.i-fb {
+  &:before {
+    content: $i-fb;
+  }
+}
+.i-ok {
+  &:before {
+    content: $i-ok;
+  }
+}
+.i-upload {
+  &:before {
+    content: $i-upload;
+  }
+}
+.i-vk {
+  &:before {
+    content: $i-vk;
+  }
+}
 .i-arrow_left {
   &:before {
     content: $i-arrow_left;

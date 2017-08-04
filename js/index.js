@@ -232,7 +232,7 @@ function createMarker(target_map, name, latlng, marker_content, marker) {
   });
   
   google.maps.event.addListener(marker, 'mouseout', function () {
-    //infoBubble.close(target_map, marker);
+    infoBubble.close(target_map, marker);
   });
 
   return infoBubble;

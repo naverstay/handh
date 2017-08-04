@@ -70,6 +70,25 @@
 
 }
 
+.btn_v4 {
+  height: 28px;
+
+  &.soc_btn {
+    display: block;
+    position: relative;
+    text-align: center;
+    border-radius: 2px;
+    padding: 4px 14px;
+    font: 16px/20px $Ossemrounded;
+  }
+
+  &.soc_clear_btn {
+    display: block;
+    font-size: 16px;
+  }
+
+}
+
 .btn_gray {
   @include transition_all(color .3s, background .3s);
   color: $blue;

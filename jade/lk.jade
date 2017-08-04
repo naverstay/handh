@@ -11,11 +11,43 @@ html(lang='ru')
         div.main_content
           .lk_section
             form(action='#')
-              .section_inner.clearfix
+              .section_inner.clearfix._bordered
                 .lk_title Личный кабинет
                   
                 .lk_col
-                  .form_group
+                  .lk_photo_holder
+                    .lk_photo
+                      img(src='i/hipster.png')
+                  
+                    .lk_information
+                      .f_label() Фото профиля
+                          
+                      ul.lk_controls
+                        li
+                          label.control_link()
+                            input.inp_hidden(type='file')
+                            span.icon_blue.i-upload
+                            span Загрузить новое
+                        li
+                          a.control_link(href='#')
+                            span.i-delete.icon_red
+                            span Удалить фото
+                            
+                      ul.lk_attention
+                        li размер фото не должен превышать 10Mb 
+                        li допустимые форматы *.JPG, *.PNG, *.TIFF
+                          
+                .lk_col._wide
+                  .form_cell.form_cell_v1.formCell
+                    label.f_label._mod_1(for='user_name') О себе
+                    textarea#user_about.f_input_v1.f_input(placeholder='Напишите вкратце о себе, интересы, работа, хобби.')
+                  
+                  .form_cell_tip.text_right
+                    span.c_gray_light_2 Максимум 1500 символов
+
+              .section_inner.clearfix._bordered
+                .lk_col
+                  .form_box
                     .form_cell.form_cell_v1.formCell
                       label.f_label(for='user_name') Имя
                       input#user_name.f_input_v1.f_input(class='validate[required]' value='Константин Константинопольский')
@@ -23,8 +55,8 @@ html(lang='ru')
                       label.f_label(for='user_email') E-mail
                       input#user_email.f_input_v1.f_input(class='validate[required]' value='konst1975@yandex.ru')
                       
-                  .form_group
-                    .form_cell.form_cell_v3.formCell.select_box_v1
+                  .form_box
+                    .form_cell.form_cell_v8.formCell.select_box_v1
                       label.f_label(for='user_city') Город
                       select#user_city.select2.validateHidden(data-placeholder='Укажите город' name='user_city')
                         option(disabled selected)
@@ -37,16 +69,6 @@ html(lang='ru')
                           option(value=6) Алмата
                           option(value=7) Владивосток
                           option(value=8) Калининград
-                          
-                  .form_cell.form_cell_v1
-                    button.btn_v1.btn_blue.help_btn
-                      span Сохранить
-                  
-                      
-                  .lk_col_footer
-                    a.lk_logout(href='#')
-                      span.i-logout
-                      span.logout_text Выйти из аккаунта
                     
                 .lk_col
                   .form_cell.form_cell_v1.formCell.fl
@@ -61,7 +83,68 @@ html(lang='ru')
                     .f_label &nbsp;
                     a.btn_v1.btn_blue.help_btn(href='#')
                       span Сменить
-          
+                      
+              .section_inner.clearfix._bordered
+                .lk_col._soc_col
+                  .f_label._mod_1() Подключите социаальные сети
+                  .input_w.lk_soc_input._set
+                    input.f_input.f_input_v1(value='vk.com/konstantinconst' placeholder='Ссылка на профиль')
+                    span.lk_soc_val vk.com/konstantinconst
+                    span.lk_soc_clear
+                      a.btn_v4.soc_clear_btn(href='#')
+                        span.i-delete.icon_red
+                    span.lk_soc_name
+                      span.i-vk.lk_soc_icon
+                      span Vkontakte
+                      
+                  .input_w.lk_soc_input._unset
+                    input.f_input.f_input_v1(value='')
+                    span.lk_soc_clear
+                      a.btn_blue.btn_v4.soc_btn(href='#')
+                        span Привязать
+                    span.lk_soc_name
+                      span.i-fb.lk_soc_icon
+                      span Facebook
+                      
+                  .input_w.lk_soc_input
+                    input.f_input.f_input_v1(placeholder='Ссылка на профиль')
+                    span.lk_soc_clear
+                      a.btn_v4.soc_clear_btn(href='#')
+                        span.i-delete.icon_red
+                    span.lk_soc_name
+                      span.i-ok.lk_soc_icon
+                      span Одноклассники
+                        
+                .lk_col._vis_col
+                  .f_label._mod_1() Видимость профиля
+                  ul.lk_profile_switcher
+                    li
+                      .input_w
+                        label.check_emul
+                          input.inp_hidden(type='radio' name='profile_type')
+                          span.check_text 
+                            span.check_caption Публичный профиль 
+                            span.check_tip Виден всем зарегистрированым пользователям и пользователям сети Интернет.
+                            
+                    li
+                      .input_w
+                        label.check_emul
+                          input.inp_hidden(type='radio' name='profile_type')
+                          span.check_text 
+                            span.check_caption Инкогнито
+                            span.check_tip Имя и фото профиля скрыто, аккаунт не доступен зарегистрированным пользователям и пользователям сети Интернет
+
+              .section_inner.clearfix
+                .lk_col
+                  .form_cell.form_cell_v9
+                    button.btn_v1.btn_blue.help_btn
+                      span Сохранить
+                      
+                  .lk_col_footer
+                    a.lk_logout(href='#')
+                      span.i-logout
+                      span.logout_text Выйти из аккаунта
+                      
       +footer()
     
     +popups()

@@ -1,6 +1,8 @@
 var body_var,
   doc,
   wnd,
+  send_popup,
+  help_popup,
   reg_popup,
   auth_popup,
   order_popup,
@@ -16,10 +18,20 @@ $(function ($) {
   doc = $(document);
   wnd = $(window);
 
-  body_var.delegate('.docRmBtn', 'click', function () {
-    $(this).closest('.docItem').remove();
-    return false;
-  });
+  body_var
+    .delegate('.donationAmount', 'input', function () {
+      var inp = $(this), target = $(inp.attr('data-progress')), amount = 1 * (inp.val()).replace(/\D/g, '');
+
+      if (target.length) {
+        var start = target.attr('data-start') * 1, finish = target.attr('data-finish') * 1;
+        target.find('.progressVal').css('width', (100 * (Math.min(finish, start + amount) / finish)) + '%');
+      }
+
+    })
+    .delegate('.docRmBtn', 'click', function () {
+      $(this).closest('.docItem').remove();
+      return false;
+    });
 
   if ($("#completed_orders_form").length) {
     $completed_orders_form = new dialog('#completed_orders_form', 'dialog_global dialog_g_size_1 dialog_close_butt_mod_1', 'popupForm', false, '752', false, true);
@@ -80,8 +92,6 @@ $(function ($) {
   });
 
   $('.newOrderBtn').on('click', function () {
-    reg_popup.dialog('close');
-
     order_popup.dialog('open');
 
     return false;
@@ -122,6 +132,57 @@ $(function ($) {
     auth_popup.dialog('close');
 
     reg_popup.dialog('open');
+
+    return false;
+  });
+
+
+  help_popup = $('#help_popup').dialog({
+    autoOpen: false,
+    modal: true,
+    closeOnEscape: true,
+    closeText: '',
+    dialogClass: 'dialog_close_butt_mod_1 dialog_g_size_1',
+    //appendTo: '.wrapper',
+    width: 570,
+    draggable: true,
+    collision: "fit",
+    position: {my: "top center", at: "top center", of: window},
+    open: function (event, ui) {
+      body_var.addClass('modal_opened overlay_v2');
+    },
+    close: function (event, ui) {
+      body_var.removeClass('modal_opened overlay_v2');
+    }
+  });
+
+  $('.helpChildrenBtn').on('click', function () {
+    help_popup.dialog('open');
+
+    return false;
+  });
+
+  send_popup = $('#send_popup').dialog({
+    autoOpen: false,
+    modal: true,
+    closeOnEscape: true,
+    closeText: '',
+    dialogClass: 'dialog_close_butt_mod_1 dialog_g_size_1',
+    //appendTo: '.wrapper',
+    width: 570,
+    draggable: true,
+    collision: "fit",
+    position: {my: "top center", at: "top center", of: window},
+    open: function (event, ui) {
+      body_var.addClass('modal_opened overlay_v2');
+    },
+    close: function (event, ui) {
+      body_var.removeClass('modal_opened overlay_v2');
+    }
+  });
+
+  $('.sendPopupBtn').on('click', function () {
+    send_popup.dialog('open');
 
     return false;
   });
@@ -204,7 +265,7 @@ function initValidation() {
       //focusFirstField          : false,
       autoHidePrompt: false,
       autoHideDelay: 3000,
-      autoPositionUpdate: false, 
+      autoPositionUpdate: false,
       doNotValidateEmpty: true,
       prettySelect: true,
       //useSuffix                : "_VE_field",

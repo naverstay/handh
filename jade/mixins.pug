@@ -206,7 +206,7 @@ mixin popups()
             .form_cell_tip Не короче 6 символов, A-Z, одна заглавная обязательна
             
         .form_cell.form_cell_v3.formCell.select_box_v1.dropdown_small
-          select.select2.validateHidden(data-placeholder='Укажите город' name='user_location')
+          select.select2.validateHidden(data-placeholder='Укажите город' name='user_location' )
             option(disabled selected)
             +loop_while(2)
               option(value=1) Москва
@@ -221,6 +221,114 @@ mixin popups()
         .form_cell.form_cell_v1
           button.btn_v1.btn_blue.help_btn
             span Регистрация
+            
+  #help_popup.popup.popup_v1
+    .popup_inner
+      ul.popup_switcher
+        li._single
+          span.c_blue Помощь детям
+
+      input(type='hidden' autofocus)
+
+      form.validateMe(action='#')
+        .form_group
+          .form_cell.form_cell_v1.formCell
+            input.f_input_v1.f_input(class='validate[required]' placeholder='Сумма пожертвования, руб.' data-inputmask="'alias': 'decimal', 'groupSeparator': ' ', 'digits': 0, 'autoGroup': true, 'rightAlign': false" class='validate[required, custom[onlyNumber]]')
+            
+          .help_description
+            .help_description_icon
+              img(src='i/boy-broad-smile.png')
+            span Вы направляете пожертвование на счет фонда для <br>распределения средств между нуждающимися детьми.
+
+        .form_group
+          .form_cell.form_cell_v1.formCell
+            input#user_name.f_input_v1.f_input(class='validate[required]' placeholder='Ваше имя')
+          .form_cell.form_cell_v1.formCell
+            input#user_email.f_input_v1.f_input(class='validate[required, minSize[6]]' placeholder='E-mail')
+          
+        .form_group
+          .form_cell.form_cell_v1.formCell
+            input#user_password.f_input_v1.f_input(class='validate[required]' placeholder='Пароль')
+            
+        .form_cell.form_cell_v3.formCell.select_box_v1.dropdown_small
+          select.select2.validateHidden(data-placeholder='Укажите город' name='user_location' )
+            option(disabled selected)
+            +loop_while(2)
+              option(value=1) Москва
+              option(value=2) Санкт-Петербург
+              option(value=3) Ростов-на-Дону
+              option(value=4) Воронеж
+              option(value=5) Красноярск
+              option(value=6) Алмата
+              option(value=7) Владивосток
+              option(value=8) Калининград
+            
+        .form_cell.form_cell_v7
+          button.btn_v1.btn_blue.help_btn
+            span Отправить деньги через 
+            img(src='i/logo-robokassa.png')
+            
+  #send_popup.popup.popup_v1
+    #progress_1.popup_progress.popupProgress(data-finish='650000' data-start= (650000 * .2))
+      +progress('_red', 20)
+
+    .popup_inner
+      ul.popup_switcher
+        li._single
+          span.c_blue Помощь ребенку 
+
+      input(type='hidden' autofocus)
+
+      form.validateMe(action='#')
+        .form_group
+          .child_card_holder.form_cell
+            .child_card
+              .child_avatar
+                img(src='i/kostya.png')
+                
+              .child_name Женя Трофимченко
+              p Лейкимия с осложнениями <br><br>
+              .child_age 1 год
+  
+              span.needs_info._blue
+                span.needs_text
+                  span Требуется 650 000 р.
+  
+                span.needs_percent
+                  span._drop
+                    span о
+                  span 20%
+          
+          .form_cell.form_cell_v6.formCell
+            input.f_input_v1.f_input.donationAmount(data-progress='#progress_1' class='validate[required]' placeholder='Сумма пожертвования, руб.' data-inputmask="'alias': 'decimal', 'groupSeparator': ' ', 'autoGroup': true, 'digits': 0, 'rightAlign': false" class='validate[required, custom[onlyNumber]]')
+            
+        .form_group
+          .form_cell.form_cell_v1.formCell
+            input#user_name.f_input_v1.f_input(class='validate[required]' placeholder='Ваше имя')
+          .form_cell.form_cell_v1.formCell
+            input#user_email.f_input_v1.f_input(class='validate[required, minSize[6]]' placeholder='E-mail')
+          
+        .form_group
+          .form_cell.form_cell_v1.formCell
+            input#user_password.f_input_v1.f_input(class='validate[required]' placeholder='Пароль')
+            
+        .form_cell.form_cell_v3.formCell.select_box_v1.dropdown_small
+          select.select2.validateHidden(data-placeholder='Укажите город' name='user_location' )
+            option(disabled selected)
+            +loop_while(2)
+              option(value=1) Москва
+              option(value=2) Санкт-Петербург
+              option(value=3) Ростов-на-Дону
+              option(value=4) Воронеж
+              option(value=5) Красноярск
+              option(value=6) Алмата
+              option(value=7) Владивосток
+              option(value=8) Калининград
+            
+        .form_cell.form_cell_v7
+          button.btn_v1.btn_blue.help_btn
+            span Отправить деньги через 
+            img(src='i/logo-robokassa.png')
             
 mixin footer(active)
   
@@ -247,7 +355,7 @@ mixin main_menu(active)
         
 mixin progress(cls, size)
   .child_card_progress
-    .progress_val(class= cls style='width:' + size + '%;')
+    .progress_val.progressVal(class= cls style='width:' + size + '%;')
 
 mixin philanthropist_rate(size)
   .philanthropist_rate.philRate(style='height:' + Math.floor(size * .8) + 'px;' data-target= size)

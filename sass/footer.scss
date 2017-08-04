@@ -30,6 +30,10 @@
   color: $green;
 }
 
+.c_black {
+  color: #000;
+}
+
 .c_blue {
   color: $blue;
 }
@@ -44,6 +48,10 @@
 
 .c_gray_light {
   color: $gray_light;
+}
+
+.c_gray_light_2 {
+  color: $gray_light_2;
 }
 
 .c_caption {
@@ -81,6 +89,13 @@
     span:before {
       border-bottom-style: dotted;
       border-bottom-width: 1px;
+    }
+  }
+  
+  &._no_line {
+    
+    &:before {
+      display: none;
     }
   }
 
