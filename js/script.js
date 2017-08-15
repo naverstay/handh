@@ -28,8 +28,18 @@ $(function ($) {
       }
 
     })
+    .delegate('.readMoreLink', 'click', function () {
+      var read = $(this).closest('.readBlock');
+      read.find('.read_more').show();
+      read.find('.read_less').hide();
+      return false;
+    })
     .delegate('.docRmBtn', 'click', function () {
       $(this).closest('.docItem').remove();
+      return false;
+    })
+    .delegate('.mobMenu', 'click', function () {
+      body_var.toggleClass('menu_opened');
       return false;
     });
 
@@ -197,7 +207,36 @@ $(function ($) {
 
   all_dialog_close();
 
+  initScrollBars();
+
 });
+
+
+function initScrollBars() {
+
+  if ($('.mCSB').length) {
+    $('.mCSB').mCustomScrollbar({
+      documentTouchScroll: true,
+      mouseWheel: {
+        preventDefault: true
+      },
+      theme: "dark",
+      scrollEasing: "linear"
+    });
+  }
+
+  if ($('.mCSBh').length) {
+    $('.mCSBh').mCustomScrollbar({
+      axis: "x",
+      documentTouchScroll: true,
+      mouseWheel: {
+        //preventDefault: true
+      },
+      theme: "dark",
+      scrollEasing: "linear"
+    });
+  }
+}
 
 function all_dialog_close() {
   body_var.on('click', '.ui-widget-overlay', all_dialog_close_gl);

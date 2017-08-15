@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'fond_icons';
-  src:  url('fonts/fond_icons.eot?gxz3du');
-  src:  url('fonts/fond_icons.eot?gxz3du#iefix') format('embedded-opentype'),
-    url('fonts/fond_icons.ttf?gxz3du') format('truetype'),
-    url('fonts/fond_icons.woff?gxz3du') format('woff'),
-    url('fonts/fond_icons.svg?gxz3du#fond_icons') format('svg');
+  src:  url('fonts/fond_icons.eot?wvw61j');
+  src:  url('fonts/fond_icons.eot?wvw61j#iefix') format('embedded-opentype'),
+    url('fonts/fond_icons.ttf?wvw61j') format('truetype'),
+    url('fonts/fond_icons.woff?wvw61j') format('woff'),
+    url('fonts/fond_icons.svg?wvw61j#fond_icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,6 +24,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.i-arrow_l:before {
+  content: "\e91a";
+}
+.i-arrow_r:before {
+  content: "\e91d";
+}
+.i-account:before {
+  content: "\e91b";
+}
+.i-login:before {
+  content: "\e91c";
+}
 .i-fb:before {
   content: "\e916";
 }

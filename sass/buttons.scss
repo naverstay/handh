@@ -52,6 +52,11 @@
     padding: 18px;
     font-size: 14px;
     line-height: 16px;
+
+    @include respond-to-max($resp_tab) {
+      height: 40px;
+      padding: 12px;
+    }
   }
 }
 
@@ -59,15 +64,19 @@
   height: 26px;
 
   &.tags_btn {
-    position: absolute;
+    float: left;
     text-align: center;
-    right: 100px;
-    top: 19px;
     min-width: 108px;
     line-height: 20px;
     padding: 2px;
-  }
+    margin-top: 19px;
 
+    @include respond-to-min($resp_tab) {
+      position: absolute;
+      right: 100px;
+      top: 0;
+    }
+  }
 }
 
 .btn_v4 {

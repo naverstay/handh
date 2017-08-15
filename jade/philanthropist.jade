@@ -48,8 +48,9 @@ html(lang='ru')
           .philanthropist_section._mod_1
             .section_inner
               .thanks_special_caption
-                span.c_green Самые активные 
-                span.c_blue филантропы нашего фонда:
+                span.c_green Самые активные
+                span.c_green.dt_hidden :
+                span.c_blue.dt_only  филантропы нашего фонда:
                 
             ul.philanthropist_list
               - i=10;
@@ -82,6 +83,10 @@ html(lang='ru')
 
                     +philanthropist_rate(320 - 18 * i)
 
+            .full_list
+              a.gl_link(href='#')
+                span Полный список филантропов
+                
             .section_inner
               .join_block
                 a.btn_v1.btn_blue.help_btn(href='#')
@@ -89,7 +94,7 @@ html(lang='ru')
                   
               .philanthropist_report 
                 .philanthropist_report_caption.c_green Отчет о полученных средствах
-                .philanthropist_report_table
+                .philanthropist_report_table.mCSBh
                   table
                     tr
                       th.col_1 №

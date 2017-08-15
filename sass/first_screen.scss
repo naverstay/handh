@@ -9,7 +9,7 @@ html {
 body {
   font: 14px/1.2 $Roboto;
   color: $main_text_color;
-  min-width: $content-max-w;
+  //min-width: $content-max-w;
 }
 
 .hide {
@@ -36,8 +36,12 @@ body {
 .wrapper {
   position: relative;
   min-height: 100%;
-  padding-top: 120px;
+  padding-top: 60px;
   overflow: hidden;
+
+  @include respond-to-min($resp_dt) {
+    padding-top: 120px;
+  }
 }
 
 .is_overlay {
@@ -58,7 +62,6 @@ body {
 }
 
 .hero_slider_w {
-  padding: 46px 0 0;
   background: #eef0f1;
   overflow: hidden;
 
@@ -67,8 +70,17 @@ body {
   }
 
   &._public {
-    overflow: visible;
     background: #eceeef;
+  }
+
+  @include respond-to-min($resp_dt) {
+    padding: 46px 0 0;
+    margin: 0;
+
+    &._public {
+      overflow: visible;
+      background: #eceeef;
+    }
   }
 }
 
@@ -105,8 +117,17 @@ body {
     &:first-child {
       display: block;
     }
+
+    @include respond-to-max($resp_dt) {
+      margin-bottom: 0;
+
+      &:before {
+        display: none;
+      }
+    }
   }
 
+  .slick-initialized,
   &.slick-initialized {
     .slide {
       display: block;
@@ -114,26 +135,50 @@ body {
   }
 
   .slide_footer {
-    position: absolute;
     bottom: 55px;
-    left: 500px;
-    right: -55px;
     letter-spacing: .01em;
 
     p {
       font-size: 17px;
       margin: 25px 0 10px;
+
+      @include respond-to-max($resp_dt) {
+        color: #8faf37;
+      }
+    }
+
+    @include respond-to-min($resp_dt) {
+      position: absolute;
+      bottom: 55px;
+      left: 500px;
+      right: -55px;
+      letter-spacing: .01em;
+
+      p {
+        font-size: 17px;
+        margin: 25px 0 10px;
+      }
     }
   }
 
   .slide_img {
     position: relative;
-    float: left;
-    padding-left: 117px;
+
+    @include respond-to-max($resp_dt) {
+      &._profile_photo {
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 10px 10px 0;
+      }
+    }
+
+    @include respond-to-min($resp_dt) {
+      float: left;
+      padding-left: 117px;
+    }
   }
 
   .slide_img_shadow {
-    @include transform_skew(-8, 0);
     position: absolute;
     bottom: 60px;
     left: 30px;
@@ -144,13 +189,25 @@ body {
     overflow: hidden;
 
     img {
-      -webkit-transform: skew(8deg, 0deg) translate(-50%, -50%);
-      -ms-transform: skew(8deg, 0deg) translate(-50%, -50%);
-      transform: skew(8deg, 0deg) translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
       position: absolute;
       top: 50%;
       left: 50%;
       min-height: 100%;
+    }
+
+    @include respond-to-min($resp_dt) {
+      -webkit-transform: skew(-8deg, 0deg);
+      -ms-transform: skew(-8deg, 0deg);
+      transform: skew(-8deg, 0deg);
+
+      img {
+        -webkit-transform: skew(8deg, 0deg) translate(-50%, -50%);
+        -ms-transform: skew(8deg, 0deg) translate(-50%, -50%);
+        transform: skew(8deg, 0deg) translate(-50%, -50%);
+      }
     }
 
     &._silhouette {
@@ -168,28 +225,46 @@ body {
   }
 
   .slide_img_w {
-    @include transform_skew(-8, 0);
-    float: left;
-    width: 320px;
-    height: 425px;
     position: relative;
-    border-radius: 20px;
-    overflow: hidden;
+    margin: 0 -18px;
 
     img {
-      -webkit-transform: skew(8deg, 0deg) translate(-50%, -50%);
-      -ms-transform: skew(8deg, 0deg) translate(-50%, -50%);
-      transform: skew(8deg, 0deg) translate(-50%, -50%);
-      position: absolute;
-      top: 50%;
-      left: 50%;
+      display: inline-block;
+      vertical-align: top;
+      width: 100%;
+    }
+
+    @include respond-to-min($resp_dt) {
+      -webkit-transform: skew(-8deg, 0deg);
+      -ms-transform: skew(-8deg, 0deg);
+      transform: skew(-8deg, 0deg);
+      border-radius: 20px;
+      overflow: hidden;
+      float: left;
+      width: 320px;
+      height: 425px;
+      margin: 0;
+
+      img {
+        -webkit-transform: skew(8deg, 0deg) translate(-50%, -50%);
+        -ms-transform: skew(8deg, 0deg) translate(-50%, -50%);
+        transform: skew(8deg, 0deg) translate(-50%, -50%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        max-width: none;
+        width: auto;
+      }
     }
   }
 
   .slide_info {
-    margin-left: 497px;
-    padding-top: 17px;
-    padding-bottom: 150px;
+    padding: 35px 10px 20px;
+
+    @include respond-to-min($resp_dt) {
+      margin-left: 497px;
+      padding: 17px 0 150px;
+    }
   }
 
   &._kids {
@@ -199,17 +274,31 @@ body {
     }
 
     .slide_caption {
-      margin-bottom: 5px;
+      margin-bottom: 17px;
+
+      @include respond-to-min($resp_dt) {
+        margin-bottom: 5px;
+      }
     }
 
     .slide_img {
-      margin-bottom: -28px;
+
+      @include respond-to-max($resp_dt) {
+        height: 400px;
+        overflow: hidden;
+        margin: 0 -18px;
+      }
+
+      @include respond-to-min($resp_dt) {
+        margin-bottom: -28px;
+      }
     }
   }
+
   .slide_caption {
-    font: 51px $Ossemrounded;
+    font: 30px $Ossemrounded;
     color: $blue;
-    margin-bottom: 17px;
+    margin-bottom: 14px;
     letter-spacing: -.005em;
     margin-left: -5px;
 
@@ -220,12 +309,19 @@ body {
       color: #9abe62;
       line-height: 1.8;
     }
+
+    @include respond-to-min($resp_dt) {
+      font-size: 51px;
+    }
   }
 
   .slide_text {
     line-height: 1.35;
-    font-size: 16px;
     max-width: 600px;
+
+    @include respond-to-min($resp_dt) {
+      font-size: 16px;
+    }
   }
 
   .slide_slogan {
@@ -271,29 +367,42 @@ body {
   ._public & {
 
     .slide {
-      margin-bottom: -30px;
+
+      @include respond-to-min($resp_dt) {
+        margin-bottom: -30px;
+      }
 
       &:before {
         display: none;
       }
     }
-    .slide_img {
-      margin-top: -10px;
-    }
 
-    .slide_img_w {
-      width: 380px;
-      height: 445px;
+    @include respond-to-min($resp_dt) {
+      .slide_img {
+        margin-top: -10px;
+      }
+
+      .slide_img_w {
+        width: 380px;
+        height: 445px;
+      }
     }
 
     .child_location {
-      margin: 5px 0 10px;
+      margin: 5px -5px 10px;
+
+      @include respond-to-min($resp_dt) {
+        margin: 5px 0 10px;
+      }
     }
   }
 }
 
 .base {
-  padding-bottom: 110px;
+
+  @include respond-to-min($resp_dt) {
+    padding-bottom: 110px;
+  }
 }
 
 .section_inner {
@@ -301,23 +410,60 @@ body {
   width: 100%;
   max-width: $content-max-w;
   margin: 0 auto;
-  padding: 0 55px;
+  padding: 0 18px;
+
+  @include respond-to-min($resp_dt) {
+    padding: 0 55px;
+  }
+
+  @include respond-to-max($resp_dt) {
+    &.aside_to_bottom {
+      //display: table;
+      //width: 100%;
+    }
+  }
 }
 
 .child_title {
-  font: 23px/40px $RobotoMed;
+  font: 16px/24px $RobotoMed;
+
+  .child_info_block & {
+    > span {
+      display: inline-block;
+      vertical-align: top;
+      margin-bottom: 13px;
+    }
+  }
 
   sup {
-    font-size: .6em;
+    font-size: .85em;
     display: inline-block;
     vertical-align: top;
-    margin-top: -.35em;
+    margin-top: -.65em;
   }
 
   .slide_info & {
     margin-bottom: 10px;
+
+    sup {
+      margin-right: 10px;
+    }
   }
 
+  @include respond-to-min($resp_dt) {
+    font: 23px/40px $RobotoMed;
+
+    .child_info_block & {
+      > span {
+        margin-bottom: 0;
+      }
+    }
+
+    sup {
+      font-size: .6em;
+      margin-top: -.35em;
+    }
+  }
 }
 
 .needs_info {
@@ -331,7 +477,10 @@ body {
   overflow: hidden;
 
   .child_title & {
-    margin-left: 10px;
+
+    //@include respond-to-min($resp_tab) {
+    //  margin-left: 10px;
+    //}
   }
 
   > span {
@@ -371,26 +520,46 @@ body {
   }
 
   &._x2 {
-    height: 80px;
+    @include respond-to-max($resp_dt) {
+      height: 50px;
 
-    > span {
-      position: relative;
-      padding: 26px 23px;
-      margin: -2px 0;
+      > span {
+        position: relative;
+        font-size: 15px;
+        letter-spacing: .04em;
+      }
+
+      .needs_text {
+        padding: 15px 10px;
+      }
+
+      .needs_percent {
+        padding: 15px 22px;
+      }
     }
 
-    .btn_v1 {
-      font-size: 24px;
-      line-height: 78px;
-    }
+    @include respond-to-min($resp_dt) {
+      height: 80px;
 
-    .needs_percent {
-      padding: 26px 35px;
-      font-size: 2.0em;
-    }
+      > span {
+        position: relative;
+        padding: 26px 23px;
+        margin: -2px 0;
+      }
 
-    .needs_text {
-      font-size: 2.0em;
+      .btn_v1 {
+        font-size: 24px;
+        line-height: 78px;
+      }
+
+      .needs_percent {
+        padding: 26px 35px;
+        font-size: 2.0em;
+      }
+
+      .needs_text {
+        font-size: 2.0em;
+      }
     }
   }
 
@@ -436,22 +605,43 @@ body {
   z-index: 6;
   clear: both;
   text-align: center;
-  margin: 0 -500px;
+
+  @include respond-to-min($resp_dt) {
+    margin: 0 -1500px;
+  }
 }
 
 .more_needs_caption {
-  font: 30px/1.2 $Ossemrounded;
-  text-align: center;
-  padding: 84px 0 57px 28px;
+  font: 30px/1 $Ossemrounded;
+  text-align: left;
+  padding: 10px 0 20px;
+  position: relative;
+  z-index: 20;
+
+  @include respond-to-min($resp_dt) {
+    line-height: 1.2;
+    text-align: center;
+    padding: 84px 0 57px 28px;
+  }
 }
 
-.more_needs_list {
-  //@extend %clearfix;
+.more_needs_list_w {
   padding: 0 65px;
   min-width: 2873px;
   display: inline-block;
   vertical-align: top;
   margin: -25px 0 0 -20px;
+
+  @include respond-to-max($resp_dt) {
+    min-width: 0;
+    padding: 20px 10px;
+    margin: 0;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+
+.more_needs_list {
   white-space: nowrap;
 
   li {
@@ -469,6 +659,34 @@ body {
         background-color: transparent;
         box-shadow: none;
       }
+    }
+  }
+
+  @include respond-to-max($resp_dt) {
+    //min-width: 0;
+    //padding: 0 10px;
+    //margin: 20px 0 0;
+
+    li {
+      width: auto;
+      padding-left: 8px;
+      visibility: visible;
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .child_card {
+      width: 60px;
+      height: 60px;
+      padding: 0;
+      border-radius: 100%;
+      overflow: hidden;
+
+      .child_avatar {
+        top: 0;
+        left: 0;
+      }
+
     }
   }
 }
@@ -594,18 +812,99 @@ body {
   background: linear-gradient(to bottom, rgba(238, 244, 249, 1) 0%, rgba(238, 244, 249, 1) 20%, rgba(255, 255, 255, 1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eef4f9', endColorstr='#ffffff', GradientType=0);
 
+  @include respond-to-max($resp_dt) {
+    padding-bottom: 45px;
+  }
 }
 
 .counters_list {
   text-align: center;
-  margin: 0 -60px 95px;
-  padding-right: 20px;
+  overflow: hidden;
+  margin: 0 -18px;
 
-  li {
-    display: inline-block;
-    vertical-align: top;
-    padding: 0 10px;
-    width: 32%;
+  @include respond-to-min($resp_dt) {
+    margin: 0 -60px 95px;
+    padding-right: 20px;
+
+    .counters_item {
+      display: inline-block;
+      vertical-align: top;
+      padding: 0 10px;
+      width: 32%;
+    }
+  }
+}
+
+.counters_controls {
+  position: relative;
+  z-index: 2;
+
+  .slick-arrow {
+    @extend %icon_pseudo;
+    position: absolute;
+    top: 29px;
+    font-size: 28px;
+    color: #b3c2d9;
+
+    &._next {
+      right: 8px;
+
+      &:before {
+        content: $i-arrow_r;
+      }
+    }
+
+    &._prev {
+      left: 8px;
+
+      &:before {
+        content: $i-arrow_l;
+      }
+    }
+
+    ._kids & {
+      top: 10px;
+    }
+  }
+
+  .slick-hidden {
+    display: none;
+  }
+}
+
+.counters_bullets {
+  padding: 40px;
+
+  .slick-dots {
+    text-align: center;
+    font-size: 0;
+
+    li {
+      display: inline-block;
+      vertical-align: top;
+      padding: 0 5px;
+    }
+  }
+
+  button {
+    cursor: pointer;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background: #d7dde6;
+    font-size: 0;
+  }
+
+  .slick-active {
+    button {
+      cursor: default;
+      background: #b3c2d9;
+    }
+  }
+
+  ._kids & {
+    padding-top: 18px;
+    margin-bottom: 8px;
   }
 }
 
@@ -637,16 +936,25 @@ body {
     font-size: .58em;
     margin-left: 10px;
   }
+
+  @include respond-to-max($resp_step_2) {
+    font-size: 50px;
+    white-space: nowrap;
+  }
 }
 
 .help_block {
   position: relative;
-  padding: 35px 20px 30px 400px;
-  background: #fff;
-  margin-bottom: 20px;
+  margin: 0 -18px 20px;
 
   .tab_panel & {
     margin-bottom: 40px;
+  }
+
+  @include respond-to-min($resp_dt) {
+    padding: 35px 20px 30px 400px;
+    margin: 0 0 20px;
+    background: #fff;
   }
 }
 
@@ -672,30 +980,55 @@ body {
 }
 
 .help_block_aside {
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  width: 370px;
   overflow: hidden;
+  position: relative;
+  height: 0;
+  padding-bottom: 51%;
 
   img {
-    @extend %hor_vert_centr;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: none;
     min-width: 100%;
     min-height: 100%;
-    transform-origin: 0 0;
   }
 
   &._hover_zoom {
+    padding-bottom: 395px;
+
     img {
       @include transition_all(transform 2s);
+      will-change: transform;
     }
 
     &:hover img {
-      -webkit-transform: scale(1.05) translate(-50%, -50%);
-      -ms-transform: scale(1.05) translate(-50%, -50%);
-      transform: scale(1.05) translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%) scale(1.05);
+      -ms-transform: translate(-50%, -50%) scale(1.05);
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+  }
+
+  @include respond-to-min($resp_dt) {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    width: 370px;
+    height: auto;
+    padding-bottom: 0;
+
+    &._hover_zoom {
+      padding-bottom: 0;
+    }
+
+    &:hover img {
+      //-webkit-transform: scale(1.05) translate(-50%, -50%);
+      //-ms-transform: scale(1.05) translate(-50%, -50%);
+      //transform: scale(1.05) translate(-50%, -50%);
     }
   }
 }
@@ -705,8 +1038,8 @@ body {
   position: absolute;
   text-align: center;
   top: 75px;
-  right: 60px;
-  left: 65px;
+  right: 25px;
+  left: 25px;
   color: #fff;
 
   h3 {
@@ -717,12 +1050,17 @@ body {
     font: 23px $RobotoLight;
     letter-spacing: -.01em;
   }
+
+  @include respond-to-min($resp_dt) {
+    right: 60px;
+    left: 65px;
+  }
 }
 
 .help_block_aside_footer {
   position: absolute;
-  right: 60px;
-  left: 60px;
+  right: 25px;
+  left: 25px;
   bottom: 37px;
   z-index: 1;
   text-align: center;
@@ -732,24 +1070,42 @@ body {
     max-width: 276px;
     width: 100%;
   }
+
+  @include respond-to-min($resp_dt) {
+    right: 60px;
+    left: 60px;
+  }
 }
 
 .help_block_footer {
-  position: absolute;
-  right: 20px;
-  bottom: 30px;
-  width: 250px;
+  padding: 0 18px 20px;
+
+  @include respond-to-min($resp_tab) {
+    clear: both;
+  }
+
+  @include respond-to-min($resp_dt) {
+    padding: 0;
+    position: absolute;
+    right: 20px;
+    bottom: 30px;
+    width: 250px;
+  }
 }
 
 .help_block_progress {
   position: absolute;
   bottom: 0;
   right: 0;
-  left: 370px;
+  left: 0;
 
   .child_card_progress {
     border-right: 0;
     height: 5px;
+  }
+
+  @include respond-to-min($resp_dt) {
+    left: 370px;
   }
 }
 
@@ -757,7 +1113,7 @@ body {
   @extend %icon_pseudo;
   position: relative;
   padding-left: 15px;
-  margin-bottom: 23px;
+  margin-bottom: 33px;
 
   &:before {
     content: $i-pin;
@@ -766,6 +1122,10 @@ body {
     top: 2px;
     left: 0;
     font-size: 12px;
+  }
+
+  @include respond-to-min($resp_dt) {
+    margin-bottom: 23px;
   }
 }
 
@@ -788,14 +1148,24 @@ body {
     margin-bottom: 20px;
   }
 
+  @include respond-to-max($resp_dt) {
+    font-size: 14px;
+
+    dt {
+      margin-bottom: 0;
+      padding-right: 3px;
+    }
+
+    dd {
+      float: none;
+      padding-right: 5px;
+    }
+  }
 }
 
 .help_info {
-  float: right;
-  width: 250px;
   font-size: 16px;
-  padding-top: 12px;
-  padding-bottom: 50px;
+  padding: 5px 25px;
 
   p {
     margin-bottom: 7px;
@@ -804,9 +1174,21 @@ body {
       vertical-align: baseline;
     }
   }
+
+  @include respond-to-min($resp_tab) {
+    float: right;
+    width: 50%;
+    padding-top: 22px;
+  }
+
+  @include respond-to-min($resp_dt) {
+    width: 250px;
+    padding: 12px 0 50px;
+    margin-left: -100%;
+  }
 }
 
-.help_info {
+.help_info_list {
   dt {
     margin-bottom: 5px;
   }
@@ -815,21 +1197,72 @@ body {
     font: 24px/1.1 $RobotoMed;
     margin-bottom: 9px;
   }
+
+  @include respond-to-max($resp_dt) {
+    padding: 14px 0 12px;
+
+    dt {
+      font-size: 14px;
+    }
+
+    dd {
+      font-size: 18px;
+      margin-bottom: 19px;
+    }
+  }
 }
 
 .child_info_block {
-  margin-right: 280px;
+  padding: 22px 25px 1px;
 
   p {
     margin: 25px 0 12px;
     letter-spacing: .005em;
   }
+
+  @include respond-to-max($resp_dt) {
+
+    p {
+      margin-top: 0;
+      max-height: 4.8em;
+      overflow: hidden;
+    }
+
+    .child_title {
+      font-size: 22.6px;
+
+      sup {
+        font-size: .6em;
+      }
+    }
+  }
+
+  @include respond-to-min($resp_tab) {
+    float: left;
+    width: 50%;
+  }
+
+  @include respond-to-min($resp_dt) {
+    margin-right: 280px;
+    padding: 0;
+    float: none;
+    width: auto;
+    display: inline-block;
+    vertical-align: top;
+  }
 }
 
 .help_block_slider {
   position: relative;
-  padding: 0 70px 0 80px;
-  margin: -30px 0;
+
+  @include respond-to-min($resp_tab) {
+    padding: 0 70px 0 50px;
+  }
+
+  @include respond-to-min($resp_dt) {
+    margin: -30px 0;
+    padding: 0 70px 0 80px;
+  }
 }
 
 .help_block_caption {
@@ -847,15 +1280,28 @@ body {
 
 .help_slider {
   overflow: hidden;
-  padding: 15px 10px 18px 0;
 
   .slick-list {
     margin-left: -10px;
   }
 
-  .slide {
+  .slick-slide {
     float: left;
     padding-left: 30px;
+  }
+
+  @include respond-to-min($resp_dt) {
+    padding: 15px 10px 18px 0;
+  }
+
+  @include respond-to-max($resp_tab) {
+    padding-bottom: 10px;
+
+    &._mod_3 {
+      .slide:nth-child(n + 4) {
+        display: none !important;
+      }
+    }
   }
 }
 
@@ -877,10 +1323,14 @@ body {
   }
 
   &._prev {
-    left: 25px;
+    left: 8px;
 
     &:before {
       content: $i-arrow_left;
+    }
+
+    @include respond-to-min($resp_dt) {
+      left: 25px;
     }
   }
 
@@ -891,6 +1341,10 @@ body {
       content: $i-arrow_right;
     }
   }
+
+  @include respond-to-max($resp_tab) {
+    display: none;
+  }
 }
 
 .help_box_inner {
@@ -899,19 +1353,22 @@ body {
 
   p {
     line-height: 1.3;
+
+    @include respond-to-max($resp_dt) {
+      font-size: 12px;
+    }
   }
 }
 
 .help_box_footer {
-  position: absolute;
-  bottom: 20px;
-  right: 18px;
-  left: 18px;
-  padding: 12px 5px;
+  position: relative;
+  padding: 10px 5px;
   text-align: center;
   color: $blue;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.5;
+  display: block;
+  margin: 24px 20px 0 0;
   border: 1px solid #3490e6;
 
   .btn_v1.help_btn {
@@ -936,6 +1393,15 @@ body {
       opacity: 1;
     }
   }
+
+  @include respond-to-min($resp_dt) {
+    position: absolute;
+    bottom: 20px;
+    right: 18px;
+    left: 18px;
+    margin: 0;
+    font-size: 12px;
+  }
 }
 
 .help_box {
@@ -946,6 +1412,42 @@ body {
 
   .child_title {
     font-size: 16px;
+  }
+
+  @include respond-to-max($resp_dt) {
+    background: #fff;
+    //height: 138px;
+    padding: 24px 5px 20px 105px;
+    box-shadow: none;
+    margin-bottom: 10px;
+
+    .help_box_inner {
+      height: auto;
+    }
+
+    .child_title {
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    .help_box_photo {
+      position: absolute;
+      top: 18px;
+      left: 27px;
+      text-align: center;
+      width: 60px;
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+    }
+
+    .child_title {
+      sup {
+        display: none;
+      }
+    }
   }
 }
 
@@ -961,21 +1463,37 @@ body {
   }
 }
 
+.thanks_section {
+  @include respond-to-max($resp_dt) {
+    padding: 0 5px;
+  }
+}
+
 .thanks_block {
   padding: 15px 0;
+
 }
 
 .thanks_block_caption {
   font: 30px/1.2 $Ossemrounded;
   margin-bottom: 30px;
   text-align: center;
+
+  @include respond-to-max($resp_tab) {
+    text-align: left;
+    line-height: 1;
+  }
 }
 
 .thanks_special_caption {
   font: 24px/1.2 $Ossemrounded;
-  margin: 30px 0 50px;
-  padding-left: 55px;
-  text-align: center;
+  margin: 10px 0 15px;
+
+  @include respond-to-min($resp_dt) {
+    margin: 30px 0 50px;
+    padding-left: 55px;
+    text-align: center;
+  }
 }
 
 .map_holder {
@@ -1161,21 +1679,37 @@ body {
 }
 
 .philanthropist_list {
-  text-align: center;
   white-space: nowrap;
-  font-size: 0;
-  margin: 0 -800px;
-  height: 520px;
-  line-height: 520px;
   padding-left: 20px;
+  padding-bottom: 10px;
 
   li {
-    display: inline-block;
-    vertical-align: bottom;
-    padding-right: 20px;
     font-size: 14px;
     line-height: 1.2;
     text-align: left;
+
+    @include respond-to-max($resp_tab) {
+      margin-bottom: 24px;
+
+      &:nth-child(n + 4) {
+        display: none;
+      }
+    }
+  }
+
+  @include respond-to-min($resp_tab) {
+    font-size: 0;
+    margin: 0 -1800px;
+    height: 520px;
+    line-height: 520px;
+    text-align: center;
+    padding: 0 0 0 20px;
+
+    li {
+      display: inline-block;
+      vertical-align: bottom;
+      padding-right: 20px;
+    }
   }
 }
 
@@ -1188,6 +1722,13 @@ body {
     max-width: 100%;
     display: inline-block;
     vertical-align: top;
+  }
+
+  @include respond-to-max($resp_tab) {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 1;
   }
 }
 
@@ -1215,6 +1756,14 @@ body {
   sub {
     font-size: .75em;
   }
+
+  @include respond-to-max($resp_tab) {
+    position: absolute;
+    left: 105px;
+    bottom: 0;
+    margin-bottom: 6px;
+    z-index: 1;
+  }
 }
 
 .philanthropist_unit {
@@ -1225,6 +1774,16 @@ body {
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  @include respond-to-max($resp_tab) {
+    width: auto;
+    padding-left: 105px;
+    min-height: 60px;
+
+    .philanthropist_location {
+      margin-bottom: 15px;
+    }
   }
 }
 
@@ -1247,25 +1806,47 @@ body {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=0);
   }
 
+  @include respond-to-min($resp_tab) {
+    width: 112px !important;
+  }
+
+  @include respond-to-max($resp_tab) {
+    margin-left: -125px;
+    background: #c6e1fe;
+    height: 40px !important;
+
+    &:before {
+      display: none;
+    }
+  }
 }
 
 .philanthropist_report {
-  padding: 110px 0 70px;
+  padding: 54px 5px 20px;
+
+  @include respond-to-min($resp_tab) {
+    padding: 110px 0 70px;
+  }
 }
 
 .philanthropist_report_caption {
   font: 30px $Ossemrounded;
   margin-bottom: 30px;
+
+  @include respond-to-max($resp_tab) {
+    margin-bottom: 7px;
+  }
 }
 
 .philanthropist_report_table {
   overflow: hidden;
-  max-width: 100%;
+  //max-width: 100%;
   padding-bottom: 8px;
   background: #fff;
 
   table {
     min-width: 100%;
+    white-space: nowrap;
 
     tr {
 
@@ -1325,6 +1906,24 @@ body {
 
     .col_5 {
       width: 20%;
+    }
+  }
+
+  @include respond-to-max($resp_tab) {
+    margin: 0 -22px;
+    padding-bottom: 28px;
+
+    table {
+
+      td,
+      th {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      .col_1 {
+        width: 3%;
+      }
     }
   }
 }
@@ -1411,58 +2010,86 @@ body {
   text-align: center;
 
   .btn_v1.help_btn {
-    padding: 4px 25px;
+    padding: 4px 12px;
+
+    @include respond-to-min($resp_dt) {
+      padding: 4px 25px;
+    }
+  }
+
+  @include respond-to-max($resp_dt) {
+    padding-top: 37px;
+  }
+}
+
+.full_list {
+  padding: 0 25px;
+
+  @include respond-to-min($resp_tab) {
+    display: none;
   }
 }
 
 .history_section {
   background: #eef4f9;
-  padding: 80px 0;
 
+  @include respond-to-min($resp_dt) {
+    padding: 80px 0;
+  }
 }
 
 .history_block {
   background: #fff;
   position: relative;
-  padding-left: 470px;
-  padding-bottom: 54px;
   min-height: 180px;
-  margin-bottom: 80px;
+  margin-bottom: 20px;
+  margin: 0 -18px;
+
+  @include respond-to-min($resp_tab) {
+    margin-bottom: 80px;
+    padding: 0 0 54px 470px;
+  }
 }
 
 .history_block_footer {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  height: 54px;
+  position: relative;
   background: #86b42c;
-  padding: 12px;
+  padding: 15px 15px 20px 25px;
 
-  &:before {
-    content: '';
+  @include respond-to-min($resp_tab) {
     position: absolute;
-    bottom: 100%;
-    left: 43px;
-    margin-bottom: -12px;
-    width: 15px;
-    height: 20px;
-    background: #86b42c;
-    border-radius: 5px;
-    -webkit-transform: skew(15deg, 0deg) rotate(45deg);
-    -ms-transform: skew(15deg, 0deg) rotate(45deg);
-    transform: skew(15deg, -35deg) rotate(-20deg);
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 54px;
+    padding: 12px;
+
+    &:before {
+      z-index: 1;
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      left: 43px;
+      margin-bottom: -12px;
+      width: 15px;
+      height: 20px;
+      background: #86b42c;
+      border-radius: 5px;
+      -webkit-transform: skew(15deg, 0deg) rotate(45deg);
+      -ms-transform: skew(15deg, 0deg) rotate(45deg);
+      transform: skew(15deg, -35deg) rotate(-20deg);
+    }
   }
 }
 
 .history_people {
-  white-space: nowrap;
   max-width: 100%;
 
   li {
     display: inline-block;
     vertical-align: middle;
     padding-right: 10px;
+    margin-top: 10px;
     position: relative;
 
     &:hover {
@@ -1470,6 +2097,14 @@ body {
         display: block;
         pointer-events: none;
       }
+    }
+  }
+
+  @include respond-to-min($resp_tab) {
+    white-space: nowrap;
+
+    li {
+      margin-top: 0;
     }
   }
 }
@@ -1483,34 +2118,57 @@ body {
 }
 
 .history_block_image {
-  position: absolute;
-  top: 0;
-  bottom: 54px;
-  left: 0;
-  width: 470px;
+  height: 220px;
   overflow: hidden;
 
   img {
-    @extend %hor_vert_centr;
-    position: absolute;
-    min-width: 100%;
-    min-height: 100%;
+    display: inline-block;
+    vertical-align: top;
+    max-width: 100%;
   }
 
+  @include respond-to-min($resp_tab) {
+    position: absolute;
+    top: 0;
+    bottom: 54px;
+    left: 0;
+    width: 470px;
+    height: auto;
+
+    img {
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      position: absolute;
+      min-width: 100%;
+      min-height: 100%;
+      max-width: none;
+    }
+  }
 }
 
 .history_block_text {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  padding: 125px 28px 25px;
   color: #fff;
-  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.2) 100%);
-  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.2) 100%);
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.2) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#03000000', endColorstr='#33000000', GradientType=0);
 
+  @include respond-to-min($resp_tab) {
+    position: absolute;
+    bottom: 100%;
+    width: 470px;
+    left: 0;
+    padding: 125px 28px 25px;
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.2) 100%);
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.2) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.2) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#03000000', endColorstr='#33000000', GradientType=0);
+  }
+
+  @include respond-to-max($resp_tab) {
+    line-height: 1.4;
+    padding-bottom: 8px;
+    letter-spacing: .015em;
+  }
 }
 
 .history_phil {
@@ -1541,16 +2199,23 @@ body {
 }
 
 .history_block_info {
-  padding: 40px 30px 25px;
+  padding: 20px 24px 25px;
 
   p {
     margin-top: 15px;
     letter-spacing: .009em;
     line-height: 1.25;
-    padding-right: 75px;
 
     &:last-child {
       margin-top: 20px;
+    }
+  }
+
+  @include respond-to-min($resp_dt) {
+    padding: 40px 30px 25px;
+
+    p {
+      padding-right: 75px;
     }
   }
 }
@@ -1581,10 +2246,43 @@ body {
       line-height: 1.25;
     }
 
+    @include respond-to-max($resp_tab) {
+      top: 80px;
+
+      h1 {
+        font-size: 30px;
+      }
+
+      h3 {
+        margin-bottom: 35px;
+      }
+
+      h5 {
+        font-size: 18px;
+      }
+
+      p {
+        font-size: 14px;
+        padding: 0 15px;
+      }
+    }
   }
 
   .help_block_aside_footer {
     bottom: 65px;
+
+    @include respond-to-max($resp_tab) {
+      bottom: 40px;
+    }
+  }
+
+  @include respond-to-max($resp_dt) {
+    height: 530px;
+    margin: 0 -18px;
+
+    &.ward_hero {
+      height: 460px;
+    }
   }
 }
 
@@ -1597,6 +2295,11 @@ body {
     display: inline-block;
     vertical-align: top;
     max-width: 100%;
+  }
+
+  @include respond-to-max($resp_tab) {
+    margin-top: -37px;
+    margin-bottom: 2px;
   }
 }
 
@@ -1651,9 +2354,8 @@ body {
 }
 
 .refund_section {
-  padding: 84px 0 120px;
+  padding: 50px 7px 20px;
   background: #fff;
-  text-align: center;
 
   p {
     font: 18px $RobotoLight;
@@ -1674,6 +2376,45 @@ body {
       top: 0;
       height: 3px;
     }
+
+    @include respond-to-max($resp_tab) {
+      text-align: center;
+      padding-bottom: 40px;
+
+      .thanks_block_caption {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  @include respond-to-max($resp_dt) {
+    .thanks_block_caption {
+      line-height: 1.25;
+      margin-bottom: 25px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
+  }
+
+  @include respond-to-min($resp_dt) {
+    text-align: center;
+    padding: 84px 0 120px;
+  }
+
+  @include respond-to-min($resp_tab) {
+    text-align: center;
+    padding: 34px 0 50px;
   }
 }
 
@@ -1684,10 +2425,17 @@ body {
 .refund_payments {
   display: inline-block;
   vertical-align: top;
-  margin-top: 28px;
-  padding-right: 15px;
+  margin-top: 20px;
+  margin-bottom: 32px;
 
   img {
     display: block;
+    max-width: 100%;
+  }
+
+  @include respond-to-min($resp_dt) {
+    margin-top: 28px;
+    margin-bottom: 0;
+    padding-right: 15px;
   }
 }

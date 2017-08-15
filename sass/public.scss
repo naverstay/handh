@@ -3,9 +3,7 @@
 }
 
 .public_aside {
-  float: left;
-  width: 370px;
-  padding: 53px 0 125px;
+  padding: 25px 0;
 
   .counter_val {
     font-size: 36px;
@@ -21,6 +19,13 @@
     p {
       font-size: 18px;
       margin-bottom: 12px;
+    }
+
+    @include respond-to-max($resp_dt) {
+      float: left;
+      padding-right: 10px;
+      width: 300px;
+      max-width: 100%;
     }
   }
 
@@ -41,23 +46,27 @@
   .pluso-more {
     display: none !important;
   }
+
+  @include respond-to-min($resp_dt) {
+    float: left;
+    width: 370px;
+    padding: 53px 0 125px;
+  }
 }
 
 .public_content {
-  margin-left: 400px;
 
   .help_block_slider {
-    margin-top: -165px;
-    margin-bottom: 47px;
-    padding: 0 90px 0 80px;
+    margin-bottom: 17px;
+    padding: 0 20px;
 
     .help_slider_btn._next {
-      right: 38px;
+      right: -18px;
       margin-top: -28px;
     }
 
     .help_slider_btn._prev {
-      left: 35px;
+      left: -18px;
       margin-top: -28px;
     }
   }
@@ -82,11 +91,39 @@
       width: 17%;
     }
   }
+
+  @include respond-to-min($resp_dt) {
+    margin-left: 400px;
+
+    .help_block_slider {
+      margin-top: -165px;
+      margin-bottom: 47px;
+      padding: 0 90px 0 80px;
+
+      .help_slider_btn._next {
+        right: 38px;
+        margin-top: -28px;
+      }
+
+      .help_slider_btn._prev {
+        left: 35px;
+        margin-top: -28px;
+      }
+    }
+  }
+
+  @include respond-to-max($resp_dt) {
+    padding-bottom: 40px;
+  }
 }
 
 .public_aside_counters {
+  overflow: hidden;
   padding-bottom: 10px;
-  min-height: 255px;
+
+  @include respond-to-min($resp_dt) {
+    min-height: 255px;
+  }
 }
 
 .slogan_edit {
@@ -126,7 +163,11 @@
 
 .kid_info_section {
   background: #fff;
-  padding: 57px 0 37px;
+  padding: 7px 0 7px;
+
+  @include respond-to-min($resp_dt) {
+    padding: 57px 0 37px;
+  }
 }
 
 .kid_info {
@@ -137,24 +178,41 @@
     margin-bottom: 20px;
 
     + p {
-      margin-top: 40px;
+
+      @include respond-to-min($resp_tab) {
+        margin-top: 40px;
+      }
     }
 
+    @include respond-to-max($resp_tab) {
+      font-size: 14px;
+      line-height: 1.2;
+    }
+  }
+
+  @include respond-to-max($resp_tab) {
+    padding: 7px 5px;
   }
 }
 
 .kid_diagnosis {
-  float: left;
-  width: 40%;
 
   span {
 
   }
+
+  @include respond-to-min($resp_tab) {
+    float: left;
+    width: 40%;
+  }
 }
 
 .kid_statistics {
-  float: right;
-  width: 48.5%;
+
+  @include respond-to-min($resp_tab) {
+    float: right;
+    width: 48.5%;
+  }
 }
 
 .statistics_list {
@@ -186,8 +244,7 @@
   width: 100%;
   float: left;
   padding-top: 30px;
-  padding-right: 300px;
-  margin-bottom: 75px;
+  margin-bottom: 25px;
 
   .philanthropist_report_table {
     padding-top: 15px;
@@ -210,11 +267,15 @@
       }
     }
   }
+
+  @include respond-to-min($resp_tab) {
+    padding-right: 300px;
+    margin-bottom: 75px;
+  }
 }
 
 .article_block {
   background: #fff;
-  padding: 47px 50px 25px 40px;
   margin-top: 20px;
 
   &:first-child {
@@ -246,7 +307,7 @@
       font-size: 16px;
       line-height: 1.3;
       color: #86b42c;
-      
+
       &:before {
         content: '';
         position: absolute;
@@ -257,24 +318,42 @@
         background: #e5e5e5;
       }
     }
+
+    .read_more {
+
+      @include respond-to-max($resp_dt) {
+        display: none;
+      }
+    }
   }
 
   .article_images {
     @extend %clearfix;
     margin-bottom: 65px;
 
-    li {
-      float: left;
-      width: 50%;
-
+    .article_img {
       img {
         display: block;
         max-width: 100%;
+      }
+
+      @include respond-to-min($resp_tab) {
+        float: left;
+        width: 50%;
+
+        &:nth-child(n + 3) {
+          display: none;
+        }
       }
     }
 
     &:last-child {
       margin-bottom: 10px;
+    }
+
+    @include respond-to-max($resp_dt) {
+      margin: -12px -10px 10px;
+      overflow: hidden;
     }
   }
 
@@ -285,21 +364,34 @@
       margin-bottom: 65px;
     }
   }
+
+  @include respond-to-min($resp_dt) {
+    padding: 47px 50px 25px 40px;
+  }
+
 }
 
 .kids_donations {
-  float: right;
-  width: 270px;
   padding: 30px 0;
-  margin-left: -100%;
 
   p {
-    margin-bottom: 40px;
+    margin-bottom: 18px;
     font-size: 16px;
+  }
+
+  @include respond-to-min($resp_tab) {
+    float: right;
+    width: 270px;
+    margin-left: -100%;
+
+    p {
+      margin-bottom: 40px;
+    }
   }
 }
 
 .donation_list {
+  @extend %clearfix;
   padding-bottom: 6px;
 
   li {
@@ -344,6 +436,18 @@
         background: #e4f1fc;
       }
 
+    }
+  }
+
+  @include respond-to-max($resp_tab) {
+    padding: 0 7px 16px;
+    margin-left: -15px;
+
+    li {
+      float: left;
+      width: 300px;
+      max-width: 100%;
+      padding-left: 15px;
     }
   }
 }

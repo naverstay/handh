@@ -7,8 +7,11 @@
 
   .help_block_info {
     padding-top: 70px;
-  }
 
+    @include respond-to-max($resp_tab) {
+      padding-top: 105px;
+    }
+  }
 }
 
 .ward_icon {
@@ -16,69 +19,149 @@
 }
 
 .ward_info {
-  float: left;
-  width: 49%;
 
   p {
-    font: 18px/1.25 $RobotoLight;
+    font: 16px/1.25 $RobotoLight;
+  }
+
+  @include respond-to-min($resp_tab) {
+    float: left;
+    width: 49%;
+
+    p {
+      font-size: 18px;
+    }
   }
 }
 
 .ward_info_caption {
   color: $caption_color;
   font: 23px $RobotoMed;
-  margin-bottom: 36px;
+  margin-bottom: 30px;
   letter-spacing: -.01em;
+
+  @include respond-to-min($resp_tab) {
+    margin-bottom: 36px;
+  }
 }
 
 .ward_stat {
-  float: right;
-  width: 49%;
   background: #eef4f9;
-  margin: 10px 0;
-  padding: 32px 20px 5px;
+  margin: 35px -28px 10px;
+  padding: 25px 26px 1px;
+
+  @include respond-to-min($resp_tab) {
+    float: right;
+    width: 49%;
+    margin: 10px 0;
+    padding: 32px 20px 5px;
+  }
 }
 
 .ward_coin {
   margin-right: 8px;
+
+  img {
+    display: block;
+  }
+
+  @include respond-to-max($resp_tab) {
+    margin-right: 15px;
+
+    img {
+      width: 16px;
+      height: 16px;
+    }
+  }
 }
 
 .ward_stat_list {
   line-height: 36px;
 
   dt {
-    text-align: right;
-    float: left;
-    clear: both;
-    width: 47%;
-    padding: 2px 40px 0 0;
-    font: 18px/2 $RobotoLight;
-    margin-bottom: 42px;
+    font: 15px $RobotoLight;
+
+    @include respond-to-max($resp_tab) {
+
+    }
   }
 
   dd {
-    float: right;
-    width: 53%;
+    margin-bottom: 24px;
+  }
+
+  @include respond-to-min($resp_tab) {
+    dt {
+      text-align: right;
+      float: left;
+      clear: both;
+      width: 47%;
+      padding: 2px 40px 0 0;
+      font: 18px/2 $RobotoLight;
+      margin-bottom: 42px;
+    }
+
+    dd {
+      float: right;
+      width: 53%;
+      margin-bottom: 0;
+    }
+  }
+
+  span {
+    display: inline-block;
+    vertical-align: middle;
   }
 }
 
 .ward_summ {
-  font: 36px/36px $Ossemrounded;
+  font: 400 24px/1 $Roboto;
 
   sub {
-    font-size: .5em;
-    padding-left: 7px;
+    padding-left: 3px;
+  }
+
+  @include respond-to-min($resp_tab) {
+    font: 36px/1 $Ossemrounded;
+
+    sub {
+      font-size: .5em;
+      padding-left: 7px;
+    }
   }
 }
 
 .ward_info_section {
-  padding: 62px 0 50px;
+  padding: 62px 10px 5px;
   background: #fff;
+
+  @include respond-to-min($resp_tab) {
+    padding: 62px 0 50px;
+  }
+
 }
 
 .ward_list_section {
-  padding: 45px 0 30px;
-  background: #eef4f9;
+  padding: 10px 0 30px;
+
+  @include respond-to-min($resp_tab) {
+    padding: 45px 0 30px;
+    background: #eef4f9;
+  }
+
+  @include respond-to-max($resp_tab) {
+
+    &._kids {
+      background: #eff3f9;
+      padding-top: 20px;
+      padding-bottom: 50px;
+
+      .article_block {
+        margin: -10px -10px 20px;
+        padding: 10px;
+      }
+    }
+  }
 }
 
 .tab_wrapper {
@@ -90,11 +173,14 @@
     float: left;
     margin-bottom: 20px;
     padding-left: 30px;
+
+    @include respond-to-max($resp_tab) {
+      padding-left: 37px;
+    }
   }
 }
 
 .tab_link {
-  font-size: 16px;
   letter-spacing: .02em;
 
   span {
@@ -117,6 +203,10 @@
       color: $caption_color;
       border-bottom-color: transparent;
     }
+  }
+
+  @include respond-to-min($resp_tab) {
+    font-size: 16px;
   }
 }
 

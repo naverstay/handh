@@ -6,7 +6,7 @@ html(lang='ru')
   body
     .wrapper
       .base
-        +header()
+        +header(null, true)
         
         div.main_content
           .hero_slider_w
@@ -43,7 +43,7 @@ html(lang='ru')
                         
                 .slide
                   .slide_img
-                    .slide_img_shadow._silhouette
+                    .slide_img_shadow._silhouette.dt_only
                     .slide_img_w
                       img(src='i/index_hero.jpg')
                     
@@ -99,13 +99,13 @@ html(lang='ru')
                       span мочь детям
                     p._green Но ее друзья, оставшиеся в больнице, до сих пор нуждаются в вашей помощи:
               
-              .more_histories
+              .more_histories.dt_only
                 .text_center
                   a.gl_link(href='#')
                     span Ещё истории выздоровления
                     
             .more_needs_section
-              +loop_while(1)
+              .more_needs_list_w
                 ul.more_needs_list
                   li.wide_vis
                     .child_card.childCard
@@ -153,7 +153,7 @@ html(lang='ru')
                           span 40%
                       +progress('_orange', 40)
                           
-                  li._spacer
+                  li._spacer.dt_only
                     .child_card
                       
                   li
@@ -247,53 +247,45 @@ html(lang='ru')
                           span 90%
                       +progress('_green', 90)
               
-              .section_inner
-                .more_needs_caption 
-                  span.c_blue Капля воды — 
-                  span.c_green это возможность изменить будущее для тех кто потерял надежду!
+            .section_inner
+              .more_needs_caption 
+                span.c_blue Капля воды — 
+                span.c_green это возможность изменить будущее для тех кто потерял надежду!
                   
           .counters_section
             .section_inner
-              ul.counters_list
-                li
+              .counters_list.countersSlider
+                .counters_item
                   .counter_box
                     .counter_val
                       img(src='svg/hearts.svg' width=42 height=37)
                       span.counterVal(data-speed='90' data-counter='102')= Math.floor(102 * .9)
                     p Спасенных жизней
-                li
+                .counters_item
                   .counter_box
                     .counter_val
                       img(src='svg/coin.svg' width=36 height=36)
                       span.counterVal(data-speed='50' data-counter='2543220' data-step='7')= formatPrice(Math.floor(2543020)) 
                       sub руб.
                     p Собранно средств
-                li
+                .counters_item
                   .counter_box
                     .counter_val
                       img(src='svg/kids.svg' width=37 height=37)
                       span.counterVal(data-speed='120' data-counter='50')= Math.floor(50 * .8)
                     p Ждут помощи
                     
-              .help_block
+
+              .counters_controls.countersControls.dt_hidden
+                .helpNext._next
+                .helpPrev._prev
+                  
+              .counters_bullets.countersBullets.dt_hidden
+
+              .help_block.clearfix
                 .help_block_aside
                   img(src='i/peredartseva.jpg')
                 
-                .help_info
-                  p
-                    span.c_green Уже помогают 
-                    span
-                      a.gl_link(href='#')
-                        span 15 человек
-                  
-                  dl.help_info
-                    dt Требуется: 
-                    dd 900 000 руб.
-                    dt Собрано: 
-                    dd 100 000 руб.
-                    dt Осталось: 
-                    dd 800 000 руб.
-                      
                 .child_info_block
                   .child_title
                     span.c_caption Катя Передарцева 
@@ -313,7 +305,22 @@ html(lang='ru')
                   p 
                     a.gl_link(href='#')
                       span Подробнее
-                    
+                      
+                .help_info
+                  p
+                    span.c_green Уже помогают 
+                    span
+                      a.gl_link(href='#')
+                        span 15 человек
+
+                  dl.help_info_list
+                    dt Требуется: 
+                    dd 900 000 руб.
+                    dt Собрано: 
+                    dd 100 000 руб.
+                    dt Осталось: 
+                    dd 800 000 руб.
+
                 .help_block_footer
                   a.btn_v1.btn_blue.help_btn._d-b.drop_anim.sendPopupBtn(href='#')
                     span П
@@ -324,21 +331,11 @@ html(lang='ru')
                 .help_block_progress
                   +progress('_red', 14)
                   
-              .help_block
-                .help_block_aside._hover_zoom
-                  img(src='i/need_help.jpg')
-                  .help_block_info
-                    h3 Еще 45 детей
-                    p Нуждаются в Вашей <br> срочной помощи!
-                    
-                  .help_block_aside_footer
-                    a.btn_v1.btn_blue.help_btn(href='#')
-                      span Полный список
-                  
+              .help_block.clearfix
                 .help_block_slider
                   .helpPrev.help_slider_btn._next
                   .helpNext.help_slider_btn._prev
-                  .help_slider.helpSlider
+                  .help_slider.helpSlider._mod_3
                     +loop_while(2)
                       .slide
                         .help_box.helpBox(data-href='story.html' data-blank='false')
@@ -353,7 +350,9 @@ html(lang='ru')
                             p Онкология
                           
                           .help_box_footer 
-                            span Требуется<br>650 000 р.
+                            span Требуется 
+                            span.dt_only <br>
+                            span 650 000 р.
                             a.btn_v1.btn_blue.help_btn.drop_anim.sendPopupBtn(href='#')
                               span П
                               span._drop
@@ -375,7 +374,9 @@ html(lang='ru')
                             p Синдром Шерешевского-Тернера
                             
                           .help_box_footer
-                            span Требуется<br>650 000 р.
+                            span Требуется 
+                            span.dt_only <br>
+                            span 650 000 р.
                             a.btn_v1.btn_blue.help_btn.drop_anim.sendPopupBtn(href='#')
                               span П
                               span._drop
@@ -392,12 +393,14 @@ html(lang='ru')
     
                             .child_title
                               span.c_caption Антуанетта 
-                              sup 1год
+                              sup 1 год
     
                             p Онкология
                           
                           .help_box_footer
-                            span Требуется<br>650 000 р.
+                            span Требуется 
+                            span.dt_only <br>
+                            span 650 000 р.
                             a.btn_v1.btn_blue.help_btn.drop_anim.sendPopupBtn(href='#')
                               span П
                               span._drop
@@ -419,7 +422,9 @@ html(lang='ru')
                             p Синдром Шерешевского-Тернера
                             
                           .help_box_footer
-                            span Требуется<br>650 000 р.
+                            span Требуется 
+                            span.dt_only <br>
+                            span 650 000 р.
                             a.btn_v1.btn_blue.help_btn.drop_anim.sendPopupBtn(href='#')
                               span П
                               span._drop
@@ -436,12 +441,14 @@ html(lang='ru')
     
                             .child_title
                               span.c_caption Антуанетта 
-                              sup 1год
+                              sup 1 год
     
                             p Онкология
                           
                           .help_box_footer
-                            span Требуется<br>650 000 р.
+                            span Требуется 
+                            span.dt_only <br>
+                            span 650 000 р.
                             a.btn_v1.btn_blue.help_btn.drop_anim.sendPopupBtn(href='#')
                               span П
                               span._drop
@@ -449,14 +456,24 @@ html(lang='ru')
                               span мочь
 
                           +progress('_red', 4)
-              
+                          
+                .help_block_aside._hover_zoom
+                  img(src='i/need_help.jpg')
+                  .help_block_info
+                    h3 Еще 45 детей
+                    p Нуждаются&nbsp;в&nbsp;Вашей<br>срочной помощи!
+
+                  .help_block_aside_footer
+                    a.btn_v1.btn_blue.help_btn(href='#')
+                      span Полный список
+
           .thanks_section
             .section_inner
               .thanks_block
                 .thanks_block_caption.c_blue Мы благодарны каждому кто не остался в стороне и принял участие в судьбах детей!
                   
                   
-            .map_holder
+            .map_holder.dt_only
               .section_inner
                 #fondMap.map_box
                 //-.map_block
@@ -466,8 +483,11 @@ html(lang='ru')
                     
             .section_inner
               .thanks_special_caption
-                span.c_green Отдельная благодарность 
-                span.c_blue самым активным филантропам нашего фонда:
+                .dt_hidden
+                  span.c_green Самые активные:
+                .dt_only
+                  span.c_green Отдельная благодарность 
+                  span.c_blue самым активным филантропам нашего фонда:
                 
           .philanthropist_section
             ul.philanthropist_list
@@ -501,6 +521,10 @@ html(lang='ru')
                       
                     +philanthropist_rate(320 - 18 * i)
 
+            .full_list
+              a.gl_link(href='#') 
+                span Полный список филантропов
+            
             .section_inner
               .join_block
                 a.btn_v1.btn_blue.help_btn(href='#')
@@ -512,24 +536,25 @@ html(lang='ru')
                 .history_block_image
                   img(src='i/history.jpg')
                   
-                  .history_block_text Миша и родители благодарят всех этих людей:
-                
                 .history_block_info
                   .history_block_caption
                     .fl
                       span История спасения Миши
-                    .fr
+                    .fr.dt_only
                       .history_block_date 19.02.2015
 
-                  p Хочу рассказать историю нашей болезни, а точнее историю выздоровления моей дочурки Аленки, рассказать для того, чтобы родители, оказавшиеся лицом к лицу с такой страшной болезнью как злокачественная опухоль почек, не отчаивались, не опускали руки, а знали о том, что с этим злом можно бороться. Для этого нужно бесконечно любить своего ребенка и верить в его излечение и тогда “чудо” обязательно свершится. Началось это давно, уже более пяти лет назад, хотя кажется, что было это только вчера, настолько свежи в памяти эти мучительные дни…
+                  p Хочу рассказать историю нашей болезни, а точнее историю выздоровления моей дочурки Аленки, рассказать для того, чтобы родители, оказавшиеся лицом к лицу с такой страшной болезнью как злокачественная опухоль почек, 
+                    span.dt_only не отчаивались, не опускали руки, а знали о том, что с этим злом можно бороться. Для этого нужно бесконечно любить своего ребенка и верить в его излечение и тогда “чудо” обязательно свершится. Началось это давно, уже более пяти лет назад, хотя кажется, что было это только вчера, настолько свежи в памяти эти мучительные дни…
                   
-                  p Итак, пять лет назад я заметила, что у моей Аленки слишком большой животик. В то время девочке не было еще и девяти месяцев. Обратила на это внимание своих родных, а потом и педиатров. Но все меня успокаивали, говоря, чтобы “не брала в голову”,...
+                  p.dt_only Итак, пять лет назад я заметила, что у моей Аленки слишком большой животик. В то время девочке не было еще и девяти месяцев. Обратила на это внимание своих родных, а потом и педиатров. Но все меня успокаивали, говоря, чтобы “не брала в голову”,...
                   
                   p 
                     a.gl_link(href='#')
                       span Читать всю историю
                 
                 .history_block_footer
+                  .history_block_text Миша и родители благодарят всех этих&nbsp;людей:
+
                   ul.history_people
                     +loop_while(20)
                       li

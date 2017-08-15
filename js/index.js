@@ -1,5 +1,6 @@
 var all_pins = [],
   all_tooltips = [],
+  helpSlider,
   mapProp = {
     zoom: 4,
     // disableDefaultUI: true,
@@ -58,23 +59,51 @@ $(function ($) {
     touchThreshold: 10
   });
 
-  $('.helpSlider').slick({
+  initHelpSlider();
+
+  $('.countersSlider').slick({
     infinite: true,
     speed: 500,
     autoplaySpeed: 7000,
     autoplay: false,
-    dots: false,
+    dots: true,
     arrows: true,
+    mobileFirst: true,
     cssEase: 'linear',
     zIndex: 0,
     initialSlide: 0,
     //centerPadding: '0',
-    slide: '.helpSlider .slide',
-    nextArrow: '.helpNext',
-    prevArrow: '.helpPrev',
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    touchThreshold: 10
+    slide: '.countersSlider .counters_item',
+    appendDots: '.countersBullets',
+    nextArrow: '.countersControls .helpNext',
+    prevArrow: '.countersControls .helpPrev',
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    touchThreshold: 10,
+    responsive: [
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3
+        }
+      }
+
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+    ]
   });
 
   body_var.delegate('.helpBox', 'click', function (e) {
@@ -97,7 +126,57 @@ $(window).on('scroll', function () {
 
   scrollHandler();
 
+}).on('resize', function () {
+
+  initHelpSlider();
+
 });
+
+function initHelpSlider() {
+
+  if (wnd.width() > 767 && !$('.helpSlider').hasClass('slick-initialized')) {
+
+    helpSlider = $('.helpSlider').slick({
+      infinite: true,
+      speed: 500,
+      autoplaySpeed: 7000,
+      autoplay: false,
+      dots: false,
+      arrows: true,
+      cssEase: 'linear',
+      zIndex: 0,
+      initialSlide: 0,
+      //centerPadding: '0',
+      slide: '.helpSlider .slide',
+      nextArrow: '.helpNext',
+      prevArrow: '.helpPrev',
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      touchThreshold: 10,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: "unslick"
+        }
+
+        // You can unslick at a given breakpoint now by adding:
+        // settings: "unslick"
+        // instead of a settings object
+      ]
+    });
+  } else {
+
+  }
+
+
+}
 
 function scrollHandler() {
   var scrollT = doc.scrollTop(), winH = wnd.height(), rates = $('.philRate'), childCards = $('.childCard');
@@ -115,7 +194,7 @@ function scrollHandler() {
     rates.each(function (ind) {
       var rate = $(this);
 
-      rate.css('height', rate.attr('data-target') + 'px');
+      rate.css('height', rate.attr('data-target') + 'px').css('width', rate.attr('data-target') + 'px');
     });
   }
 
@@ -230,7 +309,7 @@ function createMarker(target_map, name, latlng, marker_content, marker) {
   google.maps.event.addListener(marker, 'mouseover', function () {
     infoBubble.open(target_map, marker);
   });
-  
+
   google.maps.event.addListener(marker, 'mouseout', function () {
     infoBubble.close(target_map, marker);
   });

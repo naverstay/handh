@@ -20,15 +20,7 @@ html(lang='ru')
                     h1 H1 О фонде КапляЖизни
                   
           .content_section
-            .section_inner.clearfix
-              .aside_block
-                .section_menu_block
-                  ul.section_menu
-                    li._active: a.gl_link._inner(href='#'): span О фонде
-                    li: a.gl_link._inner(href='#'): span Команда
-                    li: a.gl_link._inner(href='#'): span Отчеты
-                    li: a.gl_link._inner(href='#'): span Документы
-
+            .section_inner.clearfix.aside_to_bottom
               .content_block
                 p Хочу рассказать историю нашей болезни, а точнее историю выздоровления моей дочурки Аленки, рассказать для того, чтобы родители, оказавшиеся лицом к лицу с такой страшной болезнью как злокачественная опухоль почек, не отчаивались, не опускали руки, а знали о том, что с этим злом можно бороться. 
                   a(href='#'): span Для этого нужно 
@@ -151,6 +143,14 @@ html(lang='ru')
                           a.report_link(href='#')
                             span Разрешение на осущетвление благотворительной деятельности на территории РФ
                         .report_size 325 Кб
+                          
+              .aside_block
+                .section_menu_block
+                  ul.section_menu
+                    li._active: a.gl_link._inner(href='#'): span О фонде
+                    li: a.gl_link._inner(href='#'): span Команда
+                    li: a.gl_link._inner(href='#'): span Отчеты
+                    li: a.gl_link._inner(href='#'): span Документы
 
       +footer()
     

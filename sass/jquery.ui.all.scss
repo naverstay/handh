@@ -24,8 +24,8 @@
   }
 
   &.dialog_g_size_1 {
-    @include respond-to-max($resp_step_2) {
-      max-width: 95%;
+    @include respond-to-max($resp_tab) {
+      max-width: 100%;
     }
   }
 }
@@ -84,7 +84,7 @@
     height: 28px;
     background: none;
     color: #b3bcc5;
-    
+
     &:before {
       content: $i-close;
       position: absolute;
@@ -95,6 +95,11 @@
       font-size: 26px;
       line-height: 28px;
       text-align: center;
+
+      @include respond-to-max($resp_tab) {
+        font-size: 16px;
+        color: $blue;
+      }
     }
 
     &:hover {

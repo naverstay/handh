@@ -8,6 +8,7 @@ $(function ($) {
     autoplay: false,
     dots: false,
     arrows: true,
+    mobileFirst: true,
     cssEase: 'linear',
     zIndex: 0,
     initialSlide: 0,
@@ -15,9 +16,29 @@ $(function ($) {
     slide: '.helpSlider .slide',
     nextArrow: '.helpNext',
     prevArrow: '.helpPrev',
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    touchThreshold: 10
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    touchThreshold: 10,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3
+        }
+      }
+
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+    ]
   });
 
   body_var.delegate('.helpBox', 'click', function (e) {

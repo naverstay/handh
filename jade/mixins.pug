@@ -33,11 +33,13 @@ mixin scripts(index, content, all_stories, public_page, kids)
     script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCl7THpWflv0u70jhfuU4T6KbuNy0fuxME&callback=loadMap')
 
   - if (kids)
+    script(src='js/slick.js')
     script(src='js/jquery.fancybox.js')
     script(src='js/kids.js')
     
   - if (content)
     script(src='js/slick.js')
+    script(src='js/jquery.mCustomScrollbar.min.js')
     script(src='js/content.js')
     
   - if (all_stories)
@@ -58,10 +60,11 @@ mixin scripts(index, content, all_stories, public_page, kids)
     |  }})();</script>
     | 
     script(src='js/slick.js')
+    script(src='js/jquery.mCustomScrollbar.min.js')
     script(src='js/public.js')
     
 
-mixin header(active)
+mixin header(active, login)
   .header
     .section_inner
       .logo_block
@@ -70,14 +73,45 @@ mixin header(active)
           span.c_green Жизни
           p.c_gray благотворительный фонд
 
-      +main_menu(active)
+      +main_menu(active, true, login)
 
-      .user_menu
-        a.gl_link.authBtn(href='#')
+      .mob_menu
+        a.mob_menu_link.mobMenu(href='#') 
+          span МЕНЮ
+        
+mixin main_menu(active, user, login)
+  .main_menu_holder
+    ul.main_menu
+      li.menu_item
+        a.gl_link(href='all_stories.html')
+          span Что мы делаем?
+      li.menu_item
+        a.gl_link(href='ward.html')
+          span Подопечные
+      li.menu_item
+        a.gl_link(href='philanthropist.html')
+          span Филантропы
+      li.menu_item
+        a.gl_link(href='story.html')
+          span Истории
+          
+    - if (login)
+      ul.user_menu
+        li: a.authBtn.c_blue(href='#')
+          .i-login.user_m_icon
+          span Вход
+        li: a.regBtn.c_green(href='#')
+          .i-account.user_m_icon
+          span Регистрация
+      
+    - else if (user)
+      ul.user_menu
+        li: a.gl_link.authBtn(href='#')
           .user_avatar
             img(src='i/sean_connery.png')
           span Личный кабинет
-        
+      
+
 mixin phil_percent(size, percent, cls)
   - var dash = (size * 1.58) || 100
   svg.philanthropist_cart(width= size height= size)
@@ -89,7 +123,7 @@ mixin popups()
       ul.popup_switcher
         li
           span.c_green Авторизация
-        li
+        li.tab_only
           a.regBtn.gl_link._inner(href='#'): span Регистрация
 
       input(type='hidden' autofocus)
@@ -186,7 +220,7 @@ mixin popups()
       ul.popup_switcher
         li
           span.c_green Регистрация
-        li
+        li.tab_only
           a.authBtn.gl_link._inner(href='#'): span Авторизация
 
       input(type='hidden' autofocus)
@@ -331,32 +365,19 @@ mixin popups()
             img(src='i/logo-robokassa.png')
             
 mixin footer(active)
-  
   .footer
     .section_inner
-      .copyright ООО "Капля Воды" &nbsp;&nbsp;&nbsp; Лицензия №2112412412412
-        
       +main_menu(active)
+      
+      .copyright 
+        span ООО "Капля Воды" &nbsp;&nbsp;&nbsp;
+        span.dt_hidden <br>
+        span Лицензия №2112412412412
 
-mixin main_menu(active)
-  ul.main_menu
-    li.menu_item
-      a.gl_link(href='all_stories.html')
-        span Что мы делаем?
-    li.menu_item
-      a.gl_link(href='ward.html')
-        span Подопечные
-    li.menu_item
-      a.gl_link(href='philanthropist.html')
-        span Филантропы
-    li.menu_item
-      a.gl_link(href='story.html')
-        span Истории
-        
 mixin progress(cls, size)
   .child_card_progress
     .progress_val.progressVal(class= cls style='width:' + size + '%;')
 
 mixin philanthropist_rate(size)
   .philanthropist_rate.philRate(style='height:' + Math.floor(size * .8) + 'px;' data-target= size)
-  
+    
