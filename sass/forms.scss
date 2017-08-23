@@ -50,6 +50,7 @@
 .f_input {
   display: block;
   width: 100%;
+  font-family: $Roboto;
 
   &.f_input_v1 {
     height: 40px;
@@ -228,6 +229,10 @@ textarea.f_input_v1.f_input {
     .btn_v1 {
       width: 100%;
     }
+
+    @include respond-to-max($resp_tab) {
+      margin: 0 0 10px;
+    }
   }
 
   &.form_cell_v8 {
@@ -289,6 +294,8 @@ textarea.f_input_v1.f_input {
 
       .btn_v1.help_btn {
         width: 100%;
+        height: auto;
+        padding: 4px;
       }
     }
   }

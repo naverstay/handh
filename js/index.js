@@ -333,7 +333,7 @@ function createPin(target_map, name, latlng, icon, magic_top_offset, ind, cb) {
         position: latlng,
         map: target_map,
         icon: image,
-        title: name
+        title: ''
       });
 
       if (typeof cb == 'function') {

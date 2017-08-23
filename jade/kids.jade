@@ -124,21 +124,22 @@ html(lang='ru')
                         
                         p Семья девочки приехала в Москву из Грузии. Сейчас ребенку нужно пройти срочное обследование. Под подозрением нейробластома — злокачественная опухоль симпатической нервной системы. Необходимая сумма — 180 000 рублей. Давайте поможем малышке Элэнэ вместе!
                       
-                        .article_images.articleSlider
-                          .article_img
-                            img(src='i/article_1.jpg')
-                          .article_img
-                            img(src='i/article_2.jpg')
-                          .article_img
-                            img(src='i/article_1.jpg')
-                          .article_img
-                            img(src='i/article_2.jpg')
-                      
-                        .counters_controls.articleControls.dt_hidden
-                          .helpNext._next
-                          .helpPrev._prev
-
-                        .counters_bullets.articleBullets.dt_hidden
+                        .articleSliderHolder
+                          .article_images.articleSlider
+                            .article_img
+                              img(src='i/article_1.jpg')
+                            .article_img
+                              img(src='i/article_2.jpg')
+                            .article_img
+                              img(src='i/article_1.jpg')
+                            .article_img
+                              img(src='i/article_2.jpg')
+                        
+                          .counters_controls.articleControls.dt_hidden
+                            .helpNext._next
+                            .helpPrev._prev
+  
+                          .counters_bullets.articleBullets.dt_hidden
                             
                         p Семья девочки приехала в Москву из Грузии. Сейчас ребенку нужно пройти срочное обследование. Под подозрением нейробластома — злокачественная опухоль симпатической нервной
                           span.dt_hidden.read_less
@@ -164,20 +165,23 @@ html(lang='ru')
                           
                         p Семья девочки приехала в Москву из Грузии. Сейчас ребенку нужно пройти срочное обследование. Под подозрением нейробластома — злокачественная опухоль симпатической нервной системы. Необходимая сумма — 180 000 рублей. Давайте поможем малышке Элэнэ вместе!
 
-                        .article_images.articleSlider
-                          .article_img
-                            img(src='i/article_1.jpg')
-                          .article_img
-                            img(src='i/article_2.jpg')
+                        .articleSliderHolder
+                          .article_images.articleSlider
+                            .article_img
+                              img(src='i/article_1.jpg')
+                            .article_img
+                              img(src='i/article_2.jpg')
+                              
+                          .counters_controls.articleControls.dt_hidden
+                            .helpNext._next
+                            .helpPrev._prev
+  
+                          .counters_bullets.articleBullets.dt_hidden
                             
-                        .counters_controls.articleControls.dt_hidden
-                          .helpNext._next
-                          .helpPrev._prev
-
-                        .counters_bullets.articleBullets.dt_hidden
-                            
-                    a.btn_v2.btn_gray.show_more_btn(href='#')
-                      span Смотреть полностью
+                    .show_more_block
+                      a.btn_v2.btn_gray.show_more_btn(href='#')
+                        span.dt_hidden Смотреть ещё новости
+                        span.dt_only Смотреть полностью
                             
                   #kids_tab_2.tab_panel
                     .article_block.doc_mod
@@ -239,7 +243,7 @@ html(lang='ru')
                             .report_size 325 Кб
                               
                   #kids_tab_3.tab_panel
-                    .philanthropist_report_table
+                    .philanthropist_report_table.mCSBh
                       table
                         tr
                           th.col_1 №

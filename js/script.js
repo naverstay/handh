@@ -228,7 +228,7 @@ function initScrollBars() {
   if ($('.mCSBh').length) {
     $('.mCSBh').mCustomScrollbar({
       axis: "x",
-      documentTouchScroll: true,
+      //documentTouchScroll: true,
       mouseWheel: {
         //preventDefault: true
       },

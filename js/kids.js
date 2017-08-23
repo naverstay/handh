@@ -1,6 +1,18 @@
+var slider_timer;
+
 $(function ($) {
 
-  $('.articleSlider').each(function (ind) {
+  initArticleSlider();
+
+});
+
+function initArticleSlider(articleSliders) {
+
+  if (articleSliders == void 0) {
+    articleSliders = $('.articleSlider');
+  }
+
+  articleSliders.each(function (ind) {
     var sld = $(this);
 
     sld.slick({
@@ -16,9 +28,9 @@ $(function ($) {
       initialSlide: 0,
       //centerPadding: '0',
       slide: '.articleSlider .article_img',
-      appendDots: sld.nextAll('.articleBullets'),
-      nextArrow: sld.nextAll('.articleControls').find('.helpNext'),
-      prevArrow: sld.nextAll('.articleControls').find('.helpPrev'),
+      appendDots: sld.parent().find('.articleBullets'),
+      nextArrow: sld.parent().find('.articleControls').find('.helpNext'),
+      prevArrow: sld.parent().find('.articleControls').find('.helpPrev'),
       slidesToShow: 1,
       slidesToScroll: 1,
       touchThreshold: 10,
@@ -28,6 +40,10 @@ $(function ($) {
           settings: {
             slidesToShow: 2
           }
+        },
+        {
+          breakpoint: 768,
+          settings: "unslick"
         }
 
         // You can unslick at a given breakpoint now by adding:
@@ -35,8 +51,27 @@ $(function ($) {
         // instead of a settings object
       ]
     });
-
-
   });
+}
+
+
+$(window).resize(function () {
+
+  clearTimeout(slider_timer);
+
+  slider_timer = setTimeout(function () {
+
+    if (wnd.width() > 768) {
+      $('.articleSlider').filter(function () {
+        return $(this).hasClass('slick-initialized');
+      }).slick('unslick');
+    } else {
+      initArticleSlider($('.articleSlider').filter(function () {
+        return !$(this).hasClass('slick-initialized');
+      }));
+    }
+
+  }, 1);
+
 
 });

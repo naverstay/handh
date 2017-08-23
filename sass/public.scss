@@ -96,7 +96,7 @@
     margin-left: 400px;
 
     .help_block_slider {
-      margin-top: -165px;
+      margin-top: -130px;
       margin-bottom: 47px;
       padding: 0 90px 0 80px;
 
@@ -109,6 +109,12 @@
         left: 35px;
         margin-top: -28px;
       }
+    }
+  }
+
+  @include respond-to-min($content-max-w) {
+    .help_block_slider {
+      margin-top: -165px;
     }
   }
 
@@ -274,6 +280,13 @@
   }
 }
 
+.show_more_block {
+
+  @include respond-to-max($resp_tab) {
+    margin: -20px -10px 0;
+  }
+}
+
 .article_block {
   background: #fff;
   margin-top: 20px;
@@ -352,7 +365,7 @@
     }
 
     @include respond-to-max($resp_dt) {
-      margin: -12px -10px 10px;
+      margin: -12px 0 10px;
       overflow: hidden;
     }
   }

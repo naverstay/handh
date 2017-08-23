@@ -1,45 +1,8 @@
+var helpSliderTimer;
+
 $(function ($) {
 
-
-  $('.helpSlider').slick({
-    infinite: true,
-    speed: 500,
-    autoplaySpeed: 7000,
-    autoplay: false,
-    dots: false,
-    arrows: true,
-    mobileFirst: true,
-    cssEase: 'linear',
-    zIndex: 0,
-    initialSlide: 0,
-    //centerPadding: '0',
-    slide: '.helpSlider .slide',
-    nextArrow: '.helpNext',
-    prevArrow: '.helpPrev',
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    touchThreshold: 10,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2
-        }
-      },
-      {
-        breakpoint: 1280,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3
-        }
-      }
-
-      // You can unslick at a given breakpoint now by adding:
-      // settings: "unslick"
-      // instead of a settings object
-    ]
-  });
+  initHelpSlider();
 
   body_var.delegate('.helpBox', 'click', function (e) {
     var firedEl = $(this);
@@ -53,6 +16,59 @@ $(function ($) {
 
 });
 
+function initHelpSlider() {
+  var helpSlider = $('.helpSlider');
+
+  if (wnd.width() > 768) {
+    helpSlider.filter(function () {
+      return !$(this).hasClass('slick-initialized');
+    }).slick({
+      infinite: true,
+      speed: 500,
+      autoplaySpeed: 7000,
+      autoplay: false,
+      dots: false,
+      arrows: true,
+      mobileFirst: true,
+      cssEase: 'linear',
+      zIndex: 0,
+      initialSlide: 0,
+      //centerPadding: '0',
+      slide: '.helpSlider .slide',
+      nextArrow: '.helpNext',
+      prevArrow: '.helpPrev',
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      touchThreshold: 10,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 1280,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3
+          }
+        }
+
+        // You can unslick at a given breakpoint now by adding:
+        // settings: "unslick"
+        // instead of a settings object
+      ]
+    });
+
+  } else {
+    helpSlider.filter(function () {
+      return $(this).hasClass('slick-initialized');
+    }).slick('unslick');
+  }
+}
+
 $(window).on('scroll', function () {
 
   scrollHandler();
@@ -60,6 +76,14 @@ $(window).on('scroll', function () {
 }).on('load', function () {
 
   scrollHandler();
+
+}).on('resize', function () {
+
+  clearTimeout(helpSliderTimer);
+
+  helpSliderTimer = setTimeout(function () {
+    initHelpSlider();
+  }, 1);
 
 });
 

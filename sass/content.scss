@@ -19,6 +19,7 @@
     right: 0;
     left: 0;
     height: 290px;
+    z-index: 1;
     background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.4) 59%, rgba(0, 0, 0, 0.75) 100%);
     background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.4) 59%, rgba(0, 0, 0, 0.75) 100%);
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.4) 59%, rgba(0, 0, 0, 0.75) 100%);
@@ -76,6 +77,7 @@
   bottom: 25px;
   right: 0;
   left: 0;
+  z-index: 1;
 }
 
 .content_block {
@@ -304,14 +306,17 @@
 .report_list {
   @extend %clearfix;
   margin-bottom: 75px;
+  font-size: 0;
 
   @include respond-to-min($resp_tab) {
     margin-right: -5%;
   }
 
   li {
-    float: left;
+    display: inline-block;
+    vertical-align: top;
     padding-left: 20px;
+    font-size: 14px;
 
     @include respond-to-min($resp_tab) {
       width: 49%;
@@ -326,10 +331,23 @@
     li {
       padding-top: 10px;
       margin-bottom: 5px;
+
+      @include respond-to-max($resp_tab) {
+        min-width: 50%;
+      }
+
+      @include respond-to-max(480px) {
+        clear: both;
+      }
     }
   }
 
   &._mod_2 {
+    @include respond-to-max($resp_tab) {
+      margin-top: 30px;
+      margin-bottom: 0;
+    }
+
     li {
       margin-bottom: 20px;
     }
@@ -733,6 +751,10 @@
   background: #f0f6fa;
   padding: 45px 40px 55px;
   margin-top: -137px;
+
+  @include respond-to-max($resp_tab) {
+    margin-top: -40px;
+  }
 }
 
 .section_menu {
@@ -964,6 +986,14 @@
   img {
     display: block;
   }
+
+  .help_block_info {
+    padding-top: 70px;
+
+    @include respond-to-max($resp_tab) {
+      padding-top: 105px;
+    }
+  }
 }
 
 .story_filter {
@@ -1015,6 +1045,10 @@
         &::-moz-placeholder {
           color: #959595;
           font: 23px/1 $RobotoLight;
+
+          @include respond-to-max($resp_tab) {
+            font-size: 15px;
+          }
         }
 
         &:focus::-moz-placeholder {

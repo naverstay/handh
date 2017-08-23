@@ -42,6 +42,21 @@ body {
   @include respond-to-min($resp_dt) {
     padding-top: 120px;
   }
+
+  @include respond-to-max($resp_dt) {
+    .menu_opened & {
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: #fff;
+        z-index: 21;
+      }
+    }
+  }
 }
 
 .is_overlay {
@@ -147,11 +162,16 @@ body {
       }
     }
 
+    @include respond-to-min($resp_tab) {
+      margin-left: 55%;
+    }
+
     @include respond-to-min($resp_dt) {
       position: absolute;
       bottom: 55px;
       left: 500px;
       right: -55px;
+      margin-left: 0;
       letter-spacing: .01em;
 
       p {
@@ -164,16 +184,27 @@ body {
   .slide_img {
     position: relative;
 
-    @include respond-to-max($resp_dt) {
-      &._profile_photo {
+    &._profile_photo {
+      @include respond-to-max($resp_dt) {
         max-width: 300px;
-        margin: 0 auto;
-        padding: 10px 10px 0;
+        padding: 10px;
+        float: left;
       }
+
+      @include respond-to-max(640px) {
+        float: none;
+        margin: 0 auto;
+      }
+    }
+
+    @include respond-to-min($resp_tab) {
+      float: left;
+      width: 50%;
     }
 
     @include respond-to-min($resp_dt) {
       float: left;
+      width: auto;
       padding-left: 117px;
     }
   }
@@ -259,7 +290,23 @@ body {
   }
 
   .slide_info {
-    padding: 35px 10px 20px;
+    padding: 35px 0 20px;
+
+    &._profile_info {
+      @include respond-to-max($resp_dt) {
+        margin-left: 340px;
+      }
+
+      @include respond-to-max(640px) {
+        margin-left: 0;
+        clear: both;
+      }
+    }
+
+    @include respond-to-min($resp_tab) {
+      margin-left: 55%;
+      padding: 17px 0 20px;
+    }
 
     @include respond-to-min($resp_dt) {
       margin-left: 497px;
@@ -352,6 +399,18 @@ body {
     }
 
     &:hover {
+      background: #fff;
+
+      .slogan_edit {
+        display: inline-block;
+      }
+
+      &:before {
+        background: url(../i/slogan_pipe_w.png) no-repeat 0 0;
+      }
+    }
+
+    @include respond-to-max($resp_tab) {
       background: #fff;
 
       .slogan_edit {
@@ -738,6 +797,29 @@ body {
     position: absolute;
     top: 22px;
     right: 32px;
+  }
+
+  @include respond-to-max($resp_tab) {
+    margin: 0 0 20px;
+
+    .child_card {
+      padding-right: 5px;
+      padding-left: 70px;
+    }
+
+    .needs_info {
+      position: relative;
+      top: auto;
+      right: auto;
+    }
+
+    .child_age {
+      margin: -10px 0 10px;
+    }
+
+    .child_avatar {
+      left: 0;
+    }
   }
 }
 
@@ -1300,6 +1382,14 @@ body {
     &._mod_3 {
       .slide:nth-child(n + 4) {
         display: none !important;
+      }
+    }
+
+    &.max_slides_6 {
+      .slide {
+        &:nth-child(n + 7) {
+          display: none !important;
+        }
       }
     }
   }
@@ -2318,6 +2408,17 @@ body {
     left: 0;
     height: 100%;
     width: 100%;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      background: rgba(0, 0, 0, .38);
+    }
   }
 
   img {
